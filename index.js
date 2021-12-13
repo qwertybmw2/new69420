@@ -40,5 +40,5 @@ server.post('', urlencodedParser, function (req,res) {
   console.log(req.body)
 })
 
-server.listen(process.env.PORT || 2137)
+server.listen(process.env.PORT)
 }
