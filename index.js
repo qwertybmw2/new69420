@@ -10,10 +10,10 @@ var server = express()
 
 // Pepega Megaphone JSOOOOOOOOON
 {
-searchHistoryBuffer = fs.readFileSync('client/searchHistory.json')
-searchHistoryParsed = JSON.parse(searchHistoryBuffer)
-
-fs.writeFileSync('client/searchHistory.json', JSON.stringify(searchHistoryParsed, null, 2))
+// searchHistoryBuffer = fs.readFileSync('client/searchHistory.json')
+// searchHistoryParsed = JSON.parse(searchHistoryBuffer)
+//
+// fs.writeFileSync('client/searchHistory.json', JSON.stringify(searchHistoryParsed, null, 2))
 }
 
 // Server
