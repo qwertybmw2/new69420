@@ -19,9 +19,9 @@ fs.writeFileSync('client/searchHistory.json', JSON.stringify(searchHistoryParsed
 // Server
 {
 server.use(express.static('client'))
-server.use(express.static(__dirname + '../growCastleRipOff/client'))
-server.use(express.static(__dirname + '../solidGame/client'))
-server.use(express.static(__dirname + '../sundayFunday/public'))
+// server.use(express.static(__dirname + '../growCastleRipOff/client'))
+// server.use(express.static(__dirname + '../solidGame/client'))
+// server.use(express.static(__dirname + '../sundayFunday/public'))
 
 server.get('/', (req, res) => {
   res.sendFile(__dirname + '/client/homePage.html')
