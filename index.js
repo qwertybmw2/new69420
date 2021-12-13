@@ -19,25 +19,21 @@ var server = express()
 // Server
 {
 server.use(express.static('client'))
-server.use(express.static('C:/Users/Szymon/Desktop/html/growCastleRipOff/client'))
-server.use(express.static('C:/Users/Szymon/Desktop/html/solidGame/client'))
-server.use(express.static('C:/Users/Szymon/Desktop/html/sundayFunday/public'))
+// server.use(express.static('C:/Users/Szymon/Desktop/html/growCastleRipOff/client'))
+// server.use(express.static('C:/Users/Szymon/Desktop/html/solidGame/client'))
+// server.use(express.static('C:/Users/Szymon/Desktop/html/sundayFunday/public'))
 
-server.get('', (req, res) => {
-  res.sendFile('C:/Users/Szymon/Desktop/html/homePage/client/homePage.html')
+server.get('/', (req, res) => {
+  res.sendFile('client/homePage.html')
 })
-server.get('/growCastleRipOff', (req, res) => {
-  res.sendFile('C:/Users/Szymon/Desktop/html/growCastleRipOff/client/growCastleRipOff.html')
-})
-server.get('/solidGame', (req, res) => {
-  res.sendFile('C:/Users/Szymon/Desktop/html/solidGame/client/solidGameMenu.html')
-})
-server.get('/sundayFunday', (req, res) => {
-  res.sendFile('C:/Users/Szymon/Desktop/html/sundayFunday/public/sundayFunday.html')
-})
-
-// server.post('', urlencodedParser, function (req,res) {
-//   console.log(req.body)
+// server.get('/growCastleRipOff', (req, res) => {
+//   res.sendFile('C:/Users/Szymon/Desktop/html/growCastleRipOff/client/growCastleRipOff.html')
+// })
+// server.get('/solidGame', (req, res) => {
+//   res.sendFile('C:/Users/Szymon/Desktop/html/solidGame/client/solidGameMenu.html')
+// })
+// server.get('/sundayFunday', (req, res) => {
+//   res.sendFile('C:/Users/Szymon/Desktop/html/sundayFunday/public/sundayFunday.html')
 // })
 
 server.listen(process.env.PORT)
