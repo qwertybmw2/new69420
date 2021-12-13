@@ -24,7 +24,7 @@ server.use(express.static('client'))
 // server.use(express.static('C:/Users/Szymon/Desktop/html/sundayFunday/public'))
 
 server.get('/', (req, res) => {
-  res.sendFile('client/homePage.html')
+  res.sendFile(__dirname + '/client/homePage.html')
 })
 // server.get('/growCastleRipOff', (req, res) => {
 //   res.sendFile('C:/Users/Szymon/Desktop/html/growCastleRipOff/client/growCastleRipOff.html')
