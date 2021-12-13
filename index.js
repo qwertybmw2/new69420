@@ -10,10 +10,10 @@ var server = express()
 
 // Pepega Megaphone JSOOOOOOOOON
 {
-searchHistoryBuffer = fs.readFileSync('client/searchHistory.json')
-searchHistoryParsed = JSON.parse(searchHistoryBuffer)
-
-fs.writeFileSync('client/searchHistory.json', JSON.stringify(searchHistoryParsed, null, 2))
+// searchHistoryBuffer = fs.readFileSync('client/searchHistory.json')
+// searchHistoryParsed = JSON.parse(searchHistoryBuffer)
+//
+// fs.writeFileSync('client/searchHistory.json', JSON.stringify(searchHistoryParsed, null, 2))
 }
 
 // Server
@@ -36,9 +36,10 @@ server.get('/sundayFunday', (req, res) => {
   res.sendFile('C:/Users/Szymon/Desktop/html/sundayFunday/public/sundayFunday.html')
 })
 
-server.post('', urlencodedParser, function (req,res) {
-  console.log(req.body)
-})
+// server.post('', urlencodedParser, function (req,res) {
+//   console.log(req.body)
+// })
 
 server.listen(process.env.PORT)
 }
+// nodemon homePageServer.js --ignore searchHistory.json
