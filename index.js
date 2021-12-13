@@ -26,15 +26,15 @@ server.use(express.static(__dirname + '../sundayFunday/public'))
 server.get('/', (req, res) => {
   res.sendFile(__dirname + '/client/homePage.html')
 })
-// server.get('/growCastleRipOff', (req, res) => {
-//   res.sendFile('C:/Users/Szymon/Desktop/html/growCastleRipOff/client/growCastleRipOff.html')
-// })
-// server.get('/solidGame', (req, res) => {
-//   res.sendFile('C:/Users/Szymon/Desktop/html/solidGame/client/solidGameMenu.html')
-// })
-// server.get('/sundayFunday', (req, res) => {
-//   res.sendFile('C:/Users/Szymon/Desktop/html/sundayFunday/public/sundayFunday.html')
-// })
+server.get('/growCastleRipOff', (req, res) => {
+  res.sendFile(__dirname + '../growCastleRipOff/client/growCastleRipOff.html')
+})
+server.get('/solidGame', (req, res) => {
+  res.sendFile(__dirname + '../solidGame/client/solidGameMenu.html')
+})
+server.get('/sundayFunday', (req, res) => {
+  res.sendFile(__dirname + '../sundayFunday/public/sundayFunday.html')
+})
 
 server.listen(process.env.PORT)
 }
