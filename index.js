@@ -32,11 +32,8 @@ server.get('/growCastleRipOff', (req, res) => {
 server.get('/solidGame', (req, res) => {
   res.sendFile(__dirname + '../solidGame/client/solidGameMenu.html')
 })
-// server.get('/sundayFunday', (req, res) => {
-//   res.sendFile(__dirname + '../sundayFunday/public/sundayFunday.html')
-// })
 server.get('/sundayFunday', (req, res) => {
-  res.sendFile(__dirname + '/client/homePage.html')
+  res.sendFile(__dirname + '../sundayFunday/public/sundayFunday.html')
 })
 
 server.listen(process.env.PORT)
