@@ -15,13 +15,43 @@ var json
 }
 
 {
-setInterval(function () {fetch('./searchHistory.json').then(response => json = response.json()).then(data => json = data)}, 1000)
+setInterval(
+  function () {
+    fetch('./searchHistory.json').then(
+      response => json = response.json()
+    ).then(
+      data => json = data
+    )
+  }, 1000
+)
 
-setTimeout(setInterval(function (){if (json.myData != undefined) {for (var i = 0; i < 10; i++) {bait[i].innerText = json.myData.baits[i]}}}, 1000), 200)
+setTimeout(
+  setInterval(
+    function (){
+      if (json.myData != undefined) {
+        for (var i = 0; i < 10; i++) {
+          bait[i].innerText = json.myData.baits[i]
+        }
+      }
+    }, 1000
+  ), 200
+)
 
-fetch('./searchHistory.json').then(response => json = response.json()).then(data => json = data)
+fetch('./searchHistory.json').then(
+  response => json = response.json()
+).then(
+  data => json = data
+)
 
-setInterval(function (){if (json.myData != undefined) {for (var i = 0; i < 10; i++) {bait[i].innerText = json.myData.baits[i]}}}, 200)
+setInterval(
+  function (){
+    if (json.myData != undefined) {
+      for (var i = 0; i < 10; i++) {
+        bait[i].innerText = json.myData.baits[i]
+      }
+    }
+  }, 200
+)
 }
 
 {
@@ -165,31 +195,29 @@ addEventListener('mouseout', (e) => {
   }
 })
 }
-{
-  var ratio = function ratio() {
-      if (innerWidth / innerHeight < .1) {
-        for (var i = 0; i < 10; i++) {
-          bait[i].style.height = '3.15vh'
-          bait[i].style.bottom = '84vh'
-        }
-        console.log('3.15')
-      } else if (innerWidth / innerHeight < .2) {
-        for (var i = 0; i < 10; i++) {
-          bait[i].style.height = '3.12vh'
-          bait[i].style.bottom = '83.7vh'
-        }
-        console.log('3.1')
-      } else if (innerWidth / innerHeight < .3) {
-        for (var i = 0; i < 10; i++) {
-          bait[i].style.height = '3.12vh'
-          bait[i].style.bottom = '83.7vh'
-        }
-        console.log('3.05')
-      } else {
-        for (var i = 0; i < 10; i++) {
-          bait[i].style.height = '2.915vh'
-          bait[i].style.bottom = '81.65vh'
-        }
-      }
+function ratio() {
+  if (innerWidth / innerHeight < .1) {
+    for (var i = 0; i < 10; i++) {
+      bait[i].style.height = '3.15vh'
+      bait[i].style.bottom = '84vh'
     }
+    console.log('3.15')
+  } else if (innerWidth / innerHeight < .2) {
+    for (var i = 0; i < 10; i++) {
+      bait[i].style.height = '3.12vh'
+      bait[i].style.bottom = '83.7vh'
+    }
+    console.log('3.1')
+  } else if (innerWidth / innerHeight < .3) {
+    for (var i = 0; i < 10; i++) {
+      bait[i].style.height = '3.12vh'
+      bait[i].style.bottom = '83.7vh'
+    }
+    console.log('3.05')
+  } else {
+    for (var i = 0; i < 10; i++) {
+      bait[i].style.height = '2.915vh'
+      bait[i].style.bottom = '81.65vh'
+    }
+  }
 }
