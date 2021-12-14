@@ -19,7 +19,7 @@ fs.writeFileSync('public/homePage/searchHistory.json', JSON.stringify(searchHist
 // Server
 {
 server.use(express.static('public/homePage'))
-server.use(express.static(__dirname + 'public/growCastleRipOff'))
+server.use(express.static('public/growCastleRipOff'))
 server.use(express.static(__dirname + 'public/solidGame'))
 server.use(express.static(__dirname + 'public/sundayFunday'))
 
@@ -36,6 +36,6 @@ server.get('/sundayFunday', (req, res) => {
   res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
 })
 
-server.listen(process.env.PORT)
+server.listen(process.env.PORT | 2137)
 }
 // nodemon homePageServer.js --ignore searchHistory.json
