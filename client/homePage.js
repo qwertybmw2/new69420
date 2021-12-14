@@ -194,7 +194,7 @@ addEventListener('mouseout', (e) => {
     setTimeout(function () {twitch.children[1].style.transition = 'all 0s'}, 1)
   }
 })
-}
+
 function ratio() {
   if (innerWidth / innerHeight < .1) {
     for (var i = 0; i < 10; i++) {
@@ -220,4 +220,5 @@ function ratio() {
       bait[i].style.bottom = '81.65vh'
     }
   }
+}
 }
