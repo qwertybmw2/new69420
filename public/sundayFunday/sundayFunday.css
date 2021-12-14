@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  overflow: hidden;
+}
+.world {
+  display: grid;
+  position: absolute;
+  grid-template-columns: repeat(50, 1fr);
+  grid-template-rows: repeat(50, 1fr)
+}
+.world-chunk {
+  background-color: #252;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.player {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  width: 5vw;
+  height: 5vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.player-pixel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}

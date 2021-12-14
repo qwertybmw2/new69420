@@ -10,30 +10,30 @@ var server = express()
 
 // Pepega Megaphone JSOOOOOOOOON
 {
-searchHistoryBuffer = fs.readFileSync('client/searchHistory.json')
+searchHistoryBuffer = fs.readFileSync('public/homePage/searchHistory.json')
 searchHistoryParsed = JSON.parse(searchHistoryBuffer)
 
-fs.writeFileSync('client/searchHistory.json', JSON.stringify(searchHistoryParsed, null, 2))
+fs.writeFileSync('public/homePage/searchHistory.json', JSON.stringify(searchHistoryParsed, null, 2))
 }
 
 // Server
 {
-server.use(express.static('client'))
-server.use(express.static(__dirname + '../growCastleRipOff/client'))
-server.use(express.static(__dirname + '../solidGame/client'))
-server.use(express.static(__dirname + '../sundayFunday/public'))
+server.use(express.static('public/homePage'))
+server.use(express.static(__dirname + 'public/growCastleRipOff'))
+server.use(express.static(__dirname + 'public/solidGame'))
+server.use(express.static(__dirname + 'public/sundayFunday'))
 
 server.get('/', (req, res) => {
-  res.sendFile(__dirname + '/client/homePage.html')
+  res.sendFile(__dirname + '/public/homePage/homePage.html')
 })
 server.get('/growCastleRipOff', (req, res) => {
-  res.sendFile(__dirname + '../growCastleRipOff/client/growCastleRipOff.html')
+  res.sendFile(__dirname + '/public/growCastleRipOff/growCastleRipOff.html')
 })
 server.get('/solidGame', (req, res) => {
-  res.sendFile(__dirname + '../solidGame/client/solidGameMenu.html')
+  res.sendFile(__dirname + '/public/solidGame/solidGameMenu.html')
 })
 server.get('/sundayFunday', (req, res) => {
-  res.sendFile(__dirname + '../sundayFunday/public/sundayFunday.html')
+  res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
 })
 
 server.listen(process.env.PORT)
