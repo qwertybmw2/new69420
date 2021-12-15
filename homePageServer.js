@@ -18,7 +18,7 @@ fs.writeFileSync('public/homePage/searchHistory.json', JSON.stringify(searchHist
 
 // Server
 {
-server.use(express.static('public/homePage'))
+server.use(express.static(__dirname + 'public/homePage'))
 server.use(express.static('public/growCastleRipOff'))
 server.use(express.static(__dirname + 'public/solidGame'))
 server.use(express.static(__dirname + 'public/sundayFunday'))
