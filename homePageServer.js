@@ -36,6 +36,6 @@ server.get('/sundayFunday', (req, res) => {
   res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
 })
 
-server.listen(process.env.PORT | 2137)
+server.listen(process.env.PORT || 2137)
 }
 // nodemon homePageServer.js --ignore searchHistory.json
