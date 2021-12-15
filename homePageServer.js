@@ -20,8 +20,8 @@ fs.writeFileSync('public/homePage/searchHistory.json', JSON.stringify(searchHist
 {
 server.use(express.static('public/homePage'))
 server.use(express.static('public/growCastleRipOff'))
-server.use(express.static(__dirname + 'public/solidGame'))
-server.use(express.static(__dirname + 'public/sundayFunday'))
+server.use(express.static('public/solidGame'))
+server.use(express.static('public/sundayFunday'))
 
 server.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/homePage/homePage.html')
