@@ -15,7 +15,7 @@ searchHistoryParsed = JSON.parse(searchHistoryBuffer)
 
 searchHistoryParsed.myData.baits[0] = "yeah boiiiiii"
 
-setTimeout(function(){fs.writeFileSync('public/homePage/searchHistory.json', JSON.stringify(searchHistoryParsed, null, 2))}, 10000)
+setTimeout(function(){fs.writeFileSync(__dirname + '/public/homePage/searchHistory.json', JSON.stringify(searchHistoryParsed, null, 2))}, 10000)
 }
 
 // Server
