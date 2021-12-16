@@ -15,14 +15,14 @@ var json
 }
 
 {
-setInterval(
+setTimeout(
   function () {
     fetch('./searchHistory.json').then(
       response => json = response.json()
     ).then(
       data => json = data
     )
-  }, 1000
+  }, 200
 )
 
 setTimeout(
@@ -32,7 +32,7 @@ setTimeout(
         bait[i].innerText = json.myData.baits[i]
       }
     }
-  }, 200
+  }, 1000
 )
 
 fetch('./searchHistory.json').then(
