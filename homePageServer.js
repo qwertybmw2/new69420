@@ -15,7 +15,7 @@ searchHistoryParsed = JSON.parse(searchHistoryBuffer)
 
 fs.writeFileSync('public/homePage/searchHistory.json', JSON.stringify(searchHistoryParsed, null, 2))
 }
-console.log(searchHistoryParsed)
+console.log(searchHistoryParsed.myData.baits)
 
 // Server
 {
