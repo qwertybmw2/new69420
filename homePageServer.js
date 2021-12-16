@@ -13,9 +13,10 @@ var server = express()
 searchHistoryBuffer = fs.readFileSync('public/homePage/searchHistory.json')
 searchHistoryParsed = JSON.parse(searchHistoryBuffer)
 
+searchHistoryParsed.myData.baits[0] = "yeah boiiiiii"
+
 fs.writeFileSync('public/homePage/searchHistory.json', JSON.stringify(searchHistoryParsed, null, 2))
 }
-console.log(searchHistoryParsed.myData.baits)
 
 // Server
 {
