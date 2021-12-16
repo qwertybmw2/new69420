@@ -38,4 +38,3 @@ server.get('/sundayFunday', (req, res) => {
 
 server.listen(process.env.PORT || 2137)
 }
-// nodemon homePageServer.js --ignore searchHistory.json
