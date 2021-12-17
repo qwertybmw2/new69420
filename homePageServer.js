@@ -36,7 +36,7 @@ server.get('/sundayFunday', (req, res) => {
   res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
 })
 
-server.post('https://sssnakee.netlify.app', (req, res) => {
+server.post('/', (req, res) => {
   res.status(201).send(searchHistoryParsed)
 })
 
