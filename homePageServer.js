@@ -5,7 +5,7 @@ var fs = require('fs')
 var express = require('express')
 
 var urlencodedParser = bodyParser.urlencoded({extended: false})
-var server = express()
+var app = express()
 }
 
 // Pepega Megaphone JSOOOOOOOOON
@@ -18,27 +18,37 @@ var server = express()
 
 // Server
 {
-server.use(express.static('public/homePage'))
-server.use(express.static('public/growCastleRipOff'))
-server.use(express.static('public/solidGame'))
-server.use(express.static('public/sundayFunday'))
+app.use(express.static('public/homePage'))
+app.use(express.static('public/growCastleRipOff'))
+app.use(express.static('public/solidGame'))
+app.use(express.static('public/sundayFunday'))
 
-server.get('/', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/homePage/homePage.html')
 })
-server.get('/growCastleRipOff', (req, res) => {
+app.get('/growCastleRipOff', (req, res) => {
   res.sendFile(__dirname + '/public/growCastleRipOff/growCastleRipOff.html')
 })
-server.get('/solidGame', (req, res) => {
+app.get('/solidGame', (req, res) => {
   res.sendFile(__dirname + '/public/solidGame/solidGameMenu.html')
 })
-server.get('/sundayFunday', (req, res) => {
+app.get('/sundayFunday', (req, res) => {
   res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
 })
 
-server.post('/', (req, res) => {
-  res.send('kapp')
+app.post('/', (req, res) => {
+  res.send('kappa')
 })
 
-server.listen(process.env.PORT || 2137)
+const http = require('http');
+
+const requestListener = function (req, res) {
+  res.writeHead(200);
+  res.end('Hello, World!');
+}
+
+const server = http.createServer(requestListener);
+server.listen(2137)
+
+app.listen(process.env.PORT || 2137)
 }
