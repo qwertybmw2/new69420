@@ -9,7 +9,7 @@ var urlencodedParser = bodyParser.urlencoded({extended: false})
 var app = express()
 var dbURI = 'mongodb+srv://qwertybmw:mongodbpassword@cluster0.uehtx.mongodb.net/POGGIES?retryWrites=true&w=majority'
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
-.then((result) => console.log('BRUH'))
+.then((result) => app.listen(process.env.PORT || 2137))
 }
 
 // Pepega Megaphone JSOOOOOOOOON
@@ -43,6 +43,4 @@ app.get('/sundayFunday', (req, res) => {
 app.post('/', (req, res) => {
   res.send('kappa')
 })
-
-app.listen(process.env.PORT || 2137)
 }
