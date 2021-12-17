@@ -14,6 +14,7 @@ var logging = true
 var json
 }
 
+// JSON
 {
 setTimeout(
   function () {
@@ -24,7 +25,15 @@ setTimeout(
     )
   }, 200
 )
-
+setTimeout(
+  function (){
+    if (json.myData != undefined) {
+      for (var i = 0; i < 10; i++) {
+        bait[i].innerText = json.myData.baits[i]
+      }
+    }
+  }, 1000
+)
 setTimeout(
   function (){
     if (json.myData != undefined) {
@@ -36,19 +45,12 @@ setTimeout(
 )
 
 fetch('./searchHistory.json').then(
-  response => json = response.json()
-).then(
+  response => json = response.json()).then(
   data => json = data
 )
 
-setInterval(
-  function (){
-    if (json.myData != undefined) {
-      for (var i = 0; i < 10; i++) {
-        bait[i].innerText = json.myData.baits[i]
-      }
-    }
-  }, 200
+axios.post('/', {}).then(
+  res => console.log(res.data)
 )
 }
 
