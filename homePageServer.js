@@ -10,8 +10,8 @@ var server = express()
 
 // Pepega Megaphone JSOOOOOOOOON
 {
-// searchHistoryBuffer = fs.readFileSync('public/homePage/searchHistory.json')
-// searchHistoryParsed = JSON.parse(searchHistoryBuffer)
+ searchHistoryBuffer = fs.readFileSync('public/homePage/searchHistory.json')
+ searchHistoryParsed = JSON.parse(searchHistoryBuffer)
 //
 // fs.writeFileSync('public/homePage/searchHistory.json', JSON.stringify(searchHistoryParsed, null, 2))
 }
@@ -37,7 +37,7 @@ server.get('/sundayFunday', (req, res) => {
 })
 
 server.post('/', (req, res) => {
-  res.send('BRUH')
+  res.send(searchHistoryParsed)
 })
 
 server.listen(process.env.PORT || 2137)
