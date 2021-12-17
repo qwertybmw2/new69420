@@ -3,10 +3,12 @@
 var bodyParser = require('body-parser')
 var fs = require('fs')
 var express = require('express')
+var mongoose = require('mongoose')
 
 var urlencodedParser = bodyParser.urlencoded({extended: false})
 var app = express()\
-var dbURI = 'mongodb+srv://qwertybmw:mongodbpassword@cluster0.uehtx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+var dbURI = 'mongodb+srv://qwertybmw:mongodbpassword@cluster0.uehtx.mongodb.net/POGGIES?retryWrites=true&w=majority'
+mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
 }
 
 // Pepega Megaphone JSOOOOOOOOON
