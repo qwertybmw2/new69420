@@ -37,7 +37,7 @@ server.get('/sundayFunday', (req, res) => {
 })
 
 server.post('/', (req, res) => {
-  res.send('kapp')
+  res.send('kappa')
 })
 
 server.listen(process.env.PORT || 2137)
