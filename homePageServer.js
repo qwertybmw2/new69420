@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 
 const urlencodedParser = bodyParser.urlencoded({extended: false})
 const app = express()
-const Schema = mongoose.Schema
+var Schema = mongoose.Schema
 const dbURI = 'mongodb+srv://qwertybmw:mongodbpassword@cluster0.uehtx.mongodb.net/POGGIES?retryWrites=true&w=majority'
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then((result) => app.listen(process.env.PORT || 2137))
 }
