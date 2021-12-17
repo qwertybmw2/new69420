@@ -9,6 +9,7 @@ var urlencodedParser = bodyParser.urlencoded({extended: false})
 var app = express()\
 var dbURI = 'mongodb+srv://qwertybmw:mongodbpassword@cluster0.uehtx.mongodb.net/POGGIES?retryWrites=true&w=majority'
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
+.then((result) => console.log('BRUH'))
 }
 
 // Pepega Megaphone JSOOOOOOOOON
