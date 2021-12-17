@@ -5,7 +5,8 @@ var fs = require('fs')
 var express = require('express')
 
 var urlencodedParser = bodyParser.urlencoded({extended: false})
-var app = express()
+var app = express()\
+var dbURI = 'mongodb+srv://qwertybmw:mongodbpassword@cluster0.uehtx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 }
 
 // Pepega Megaphone JSOOOOOOOOON

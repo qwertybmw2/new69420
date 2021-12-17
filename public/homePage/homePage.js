@@ -48,10 +48,6 @@ fetch('./searchHistory.json').then(
   response => json = response.json()).then(
   data => json = data
 )
-
-axios.post('/', {}).then(
-  res => console.log(res.data)
-)
 }
 
 {
