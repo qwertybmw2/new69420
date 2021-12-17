@@ -68,4 +68,6 @@ app.get('/sundayFunday', (req, res) => {
 app.post('/', (req, res) => {
   res.send('kappa')
 })
+
+app.listen(process.env.PORT || 2137)
 }
