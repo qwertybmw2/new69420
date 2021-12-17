@@ -14,7 +14,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
 
 // Pepega Megaphone JSOOOOOOOOON
 {
-  const blogSchema = new Schema({
+  var blogSchema = new Schema({
     title: {
       type: String,
       required: true
