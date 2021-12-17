@@ -37,7 +37,7 @@ server.get('/sundayFunday', (req, res) => {
 })
 
 server.post('/', (req, res) => {
-  res.status(201).send(searchHistoryParsed)
+  res.status(201).send('POGGERS')
 })
 
 server.listen(process.env.PORT || 2137)
