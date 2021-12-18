@@ -55,7 +55,7 @@ app.use(express.static('public'))
 //app.use(express.static('public/solidGame'))
 //app.use(express.static('public/sundayFunday'))
 
-app.get('/homePage', (req, res) => {
+app.get('/homePag', (req, res) => {
   res.sendFile(__dirname + '/public/homePage/homePage.html')
 })
 app.get('/growCastleRipOff', (req, res) => {
