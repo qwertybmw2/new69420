@@ -1,54 +1,41 @@
 // VARIABLES
 {
-const bodyParser = require('body-parser')
-const fs = require('fs')
-const express = require('express')
-//const mongoose = require('mongoose')
+var bodyParser = require('body-parser')
+var fs = require('fs')
+var express = require('express')
 
-const urlencodedParser = bodyParser.urlencoded({extended: false})
-const app = express()
-//const Schema = mongoose.Schema
-//const dbURI = 'mongodb+srv://qwertybmw:mongodbpassword@cluster0.uehtx.mongodb.net/POGGIES?retryWrites=true&w=majority'
-//mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then((result) => app.listen(process.env.PORT || 2137))
+var urlencodedParser = bodyParser.urlencoded({extended: false})
+var server = express()
 }
 
 // Pepega Megaphone JSOOOOOOOOON
 {
+searchHistoryBuffer = fs.readFileSync('public/homePage/searchHistory.json')
+searchHistoryParsed = JSON.parse(searchHistoryBuffer)
 
-}
-{
-  // app.get('/add-blog', (req, res) => {
-  //   const blog = new Blog({
-  //     title: 'new blog',
-  //     snippet: 'about my new blog',
-  //     body: 'more about my new blog'
-  //   })
-  //   blog.save()
-  //   .then((result) => {
-  //     res.send(result)
-  //   })
-  // })
+fs.writeFileSync('public/homePage/searchHistory.json', JSON.stringify(searchHistoryParsed, null, 2))
 }
 
 // Server
 {
-app.use(express.static('public/homePage'))
-app.use(express.static('public/growCastleRipOff'))
-app.use(express.static('public/solidGame'))
-app.use(express.static('public/sundayFunday'))
+server.use(express.static('public/homePage'))
+server.use(express.static('public/growCastleRipOff'))
+server.use(express.static('public/solidGame'))
+server.use(express.static('public/sundayFunday'))
 
-app.get('/', (req, res) => {
+server.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/homePage/homePage.html')
 })
-app.get('/growCastleRipOff', (req, res) => {
+server.get('/growCastleRipOff', (req, res) => {
   res.sendFile(__dirname + '/public/growCastleRipOff/growCastleRipOff.html')
 })
-app.get('/solidGame', (req, res) => {
+server.get('/solidGame', (req, res) => {
   res.sendFile(__dirname + '/public/solidGame/solidGameMenu.html')
 })
-app.get('/sundayFunday', (req, res) => {
+server.get('/sundayFunday', (req, res) => {
   res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
 })
 
-app.listen(process.env.PORT)
+server.listen(process.env.PORT || 2137)
 }
+// nodemon homePageServer.js --ignore searchHistory.json
