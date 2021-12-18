@@ -14,35 +14,20 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
 
 // Pepega Megaphone JSOOOOOOOOON
 {
-  var blogSchema = new Schema({
-    title: {
-      type: String,
-      required: true
-    },
-    snippet: {
-      type: String,
-      required: true
-    },
-    body: {
-      type: String,
-      required: true
-    }
-  }, {timestamps: true})
 
-  var Blog = mongoose.model('Blog', blogSchema)
 }
 {
-  app.get('/add-blog', (req, res) => {
-    const blog = new Blog({
-      title: 'new blog',
-      snippet: 'about my new blog',
-      body: 'more about my new blog'
-    })
-    blog.save()
-    .then((result) => {
-      res.send(result)
-    })
-  })
+  // app.get('/add-blog', (req, res) => {
+  //   const blog = new Blog({
+  //     title: 'new blog',
+  //     snippet: 'about my new blog',
+  //     body: 'more about my new blog'
+  //   })
+  //   blog.save()
+  //   .then((result) => {
+  //     res.send(result)
+  //   })
+  // })
 }
 
 // Server
@@ -68,6 +53,4 @@ app.get('/sundayFunday', (req, res) => {
 app.post('/', (req, res) => {
   res.send('kappa')
 })
-
-//app.listen(process.env.PORT || 2137)
 }
