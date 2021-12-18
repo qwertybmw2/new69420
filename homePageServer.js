@@ -34,7 +34,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
 {
   app.get('/add-blog', (req, res) => {
     var blog = new Blog({
-      title: 'new blog',
+      title: 'new blog2',
       snippet: 'about my new blog',
       body: 'more about my new blog'
     })
