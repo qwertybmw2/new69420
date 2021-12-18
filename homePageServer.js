@@ -12,7 +12,7 @@ var dbURI = 'mongodb+srv://qwertybmw:mongodbpassword@cluster0.uehtx.mongodb.net/
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then((result) => app.listen(process.env.PORT || 2137))
 }
 
-// DAY-TUH
+// When the Mongoose is sus
 {
   var blogSchema = new Schema({
     title: {
@@ -43,10 +43,6 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
     })
   })
   app.get('/all-blogs', (req, res) => {
-    (async function () {
-      var response = await Blog.find()
-      res.send(response)
-    })()
     Blog.find().then((result) => {
       res.send(result)
     })
