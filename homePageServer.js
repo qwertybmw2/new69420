@@ -33,9 +33,6 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
 
   var Blog = mongoose.model('Blog', blogSchema)
 }
-Blog.find().then((result) => {
-  var allBlogs = result
-})
 {
   app.get('/add-blog', (req, res) => {
     var blog = new Blog({
@@ -48,7 +45,9 @@ Blog.find().then((result) => {
     })
   })
   app.get('/all-blogs', (req, res) => {
-    res.send(allBlogs)
+    Blog.find().then((result) => {
+      res.send(result)
+    })
   })
 }
 
