@@ -33,6 +33,22 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
 
   var Blog = mongoose.model('Blog', blogSchema)
 }
+function simpleStringify (object){
+    var simpleObject = {}
+    for (var prop in object ){
+        if (!object.hasOwnProperty(prop)){
+            continue
+        }
+        if (typeof(object[prop]) == 'object'){
+            continue
+        }
+        if (typeof(object[prop]) == 'function'){
+            continue
+        }
+        simpleObject[prop] = object[prop]
+    }
+    return JSON.stringify(simpleObject)
+}
 {
   app.get('/add-blog', (req, res) => {
     var blog = new Blog({
@@ -48,7 +64,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
     // Blog.find().then((result) => {
     //   res.send(result)
     // })
-    res.send(Blog.find()).catch((err) => {
+    res.send(simpleStringify(Blog.find())).catch((err) => {
       console.log(err)
     })
   })
