@@ -14,7 +14,22 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
 
 // Pepega Megaphone JSOOOOOOOOON
 {
+  const blogSchema = new Schema({
+    title: {
+      type: String,
+      required: true
+    },
+    snippet: {
+      type: String,
+      required: true
+    },
+    body: {
+      type: String,
+      required: true
+    }
+  }, {timestamps: true})
 
+  const Blog = mongoose.model('Blog', blogSchema)
 }
 {
   // app.get('/add-blog', (req, res) => {
