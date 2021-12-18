@@ -14,36 +14,36 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
 
 // When the Mongoose is sus
 {
-  var blogSchema = new Schema({
-    title: {
+  var userSchema = new Schema({
+    username: {
       type: String,
       required: true
     },
-    snippet: {
+    password: {
       type: String,
       required: true
     },
-    body: {
+    level: {
       type: String,
       required: true
     }
   }, {timestamps: true})
 
-  var Blog = mongoose.model('Blog', blogSchema)
+  var Users = mongoose.model('Users', userSchema)
 }
 {
   app.get('/add-blog', (req, res) => {
-    var blog = new Blog({
-      title: 'new blog2',
-      snippet: 'about my new blog',
-      body: 'more about my new blog'
+    var user = new Users({
+      username: 'asshat',
+      password: 'thiswebsitesucks',
+      level: '1'
     })
-    blog.save().then((result) => {
+    user.save().then((result) => {
       res.send(result)
     })
   })
   app.get('/all-blogs', (req, res) => {
-    Blog.find().then((result) => {
+    Users.find().then((result) => {
       res.send(result)
     })
   })
