@@ -38,8 +38,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
       snippet: 'about my new blog',
       body: 'more about my new blog'
     })
-    blog.save()
-    .then((result) => {
+    blog.save().then((result) => {
       res.send(result)
     })
   })
