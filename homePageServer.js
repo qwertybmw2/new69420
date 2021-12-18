@@ -32,7 +32,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
   var Users = mongoose.model('Users', userSchema)
 }
 {
-  app.get('/add-blog', (req, res) => {
+  app.get('/solidGame/login', (req, res) => {
     var user = new Users({
       username: 'asshat',
       password: 'thiswebsitesucks',
@@ -42,7 +42,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
       res.send(result)
     })
   })
-  app.get('/all-blogs', (req, res) => {
+  app.get('/users', (req, res) => {
     Users.find().then((result) => {
       res.send(result)
     })
