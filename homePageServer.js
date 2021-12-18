@@ -32,17 +32,17 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
   const Blog = mongoose.model('Blog', blogSchema)
 }
 {
-  // app.get('/add-blog', (req, res) => {
-  //   var blog = new Blog({
-  //     title: 'new blog',
-  //     snippet: 'about my new blog',
-  //     body: 'more about my new blog'
-  //   })
-  //   blog.save()
-  //   .then((result) => {
-  //     res.send(result)
-  //   })
-  // })
+  app.get('/add-blog', (req, res) => {
+    var blog = new Blog({
+      title: 'new blog',
+      snippet: 'about my new blog',
+      body: 'more about my new blog'
+    })
+    blog.save()
+    .then((result) => {
+      res.send(result)
+    })
+  })
 }
 
 // Server
@@ -64,6 +64,4 @@ app.get('/solidGame', (req, res) => {
 app.get('/sundayFunday', (req, res) => {
   res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
 })
-
-//app.listen(process.env.PORT)
 }
