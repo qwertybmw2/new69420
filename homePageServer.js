@@ -49,7 +49,6 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
     })()
   })
 }
-console.log(response);
 // APP
 {
 app.use(express.static('public/homePage'))
