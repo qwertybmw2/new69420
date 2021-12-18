@@ -12,7 +12,7 @@ var dbURI = 'mongodb+srv://qwertybmw:mongodbpassword@cluster0.uehtx.mongodb.net/
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then((result) => app.listen(process.env.PORT || 2137))
 }
 
-// Pepega Megaphone JSOOOOOOOOON
+// DAY-TUH
 {
   var blogSchema = new Schema({
     title: {
@@ -50,7 +50,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
   })
 }
 
-// Server
+// APP
 {
 app.use(express.static('public/homePage'))
 app.use(express.static('public/growCastleRipOff'))
