@@ -48,7 +48,9 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
     // Blog.find().then((result) => {
     //   res.send(result)
     // })
-    res.send(Blog.find())
+    res.send(Blog.find()).catch(err => {
+      console.log(err)
+    })
   })
 }
 
