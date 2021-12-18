@@ -42,10 +42,11 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
       res.send(result)
     })
   })
-  app.get('/all-blogs', (req, res) => {
-    Blog.find().then((result) => {
-      res.send(result)
-    })
+  aapp.get('/all-blogs', (req, res) => {
+  async function () {
+    var response = await Blog.find()
+    res.send(response)
+  }
   })
 }
 
