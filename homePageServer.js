@@ -3,11 +3,11 @@
 const bodyParser = require('body-parser')
 const fs = require('fs')
 const express = require('express')
-const mongoose = require('mongoose')
+//const mongoose = require('mongoose')
 
 const urlencodedParser = bodyParser.urlencoded({extended: false})
 const app = express()
-const Schema = mongoose.Schema
+//const Schema = mongoose.Schema
 //const dbURI = 'mongodb+srv://qwertybmw:mongodbpassword@cluster0.uehtx.mongodb.net/POGGIES?retryWrites=true&w=majority'
 //mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then((result) => app.listen(process.env.PORT || 2137))
 }
@@ -48,10 +48,6 @@ app.get('/solidGame', (req, res) => {
 })
 app.get('/sundayFunday', (req, res) => {
   res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
-})
-
-app.post('/', (req, res) => {
-  res.send('kappa')
 })
 
 app.listen(process.env.PORT)
