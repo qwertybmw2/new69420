@@ -61,11 +61,8 @@ function simpleStringify (object){
     })
   })
   app.get('/all-blogs', (req, res) => {
-    // Blog.find().then((result) => {
-    //   res.send(result)
-    // })
-    res.send(simpleStringify(Blog.find())).catch((err) => {
-      console.log(err)
+    Blog.find().then((result) => {
+      res.send(result)
     })
   })
 }
