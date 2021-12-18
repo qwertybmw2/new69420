@@ -3,7 +3,7 @@
 var bodyParser = require('body-parser')
 var fs = require('fs')
 var express = require('express')
-//var mongoose = require('mongoose')
+var mongoose = require('mongoose')
 
 var urlencodedParser = bodyParser.urlencoded({extended: false})
 var app = express()
