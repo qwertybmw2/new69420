@@ -1,1 +1,1 @@
-web: node homePageServer1.js
+web: node homePageServer.js
