@@ -1,15 +1,15 @@
 // VARIABLES
 {
-const bodyParser = require('body-parser');
-const fs = require('fs');
-const express = require('express');
-const mongoose = require('mongoose');
+const bodyParser = require('body-parser')
+const fs = require('fs')
+const express = require('express')
+const mongoose = require('mongoose')
 
-const urlencodedParser = bodyParser.urlencoded({extended: false});
-const app = express();
-const Schema = mongoose.Schema;
-const dbURI = 'mongodb+srv://qwertybmw:mongodbpassword@cluster0.uehtx.mongodb.net/POGGIES?retryWrites=true&w=majority';
-mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then((result) => app.listen(process.env.PORT || 2137));
+const urlencodedParser = bodyParser.urlencoded({extended: false})
+const app = express()
+const Schema = mongoose.Schema
+const dbURI = 'mongodb+srv://qwertybmw:mongodbpassword@cluster0.uehtx.mongodb.net/POGGIES?retryWrites=true&w=majority'
+mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then((result) => app.listen(process.env.PORT || 2137))
 }
 
 // Pepega Megaphone JSOOOOOOOOON
@@ -27,9 +27,9 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
       type: String,
       required: true
     }
-  }, {timestamps: true});
+  }, {timestamps: true})
 
-  var Blog = mongoose.model('Blog', blogSchema);
+  var Blog = mongoose.model('Blog', blogSchema)
 }
 {
   app.get('/add-blog', (req, res) => {
@@ -69,5 +69,5 @@ app.post('/', (req, res) => {
   res.send('kappa')
 })
 
-app.listen(process.env.PORT || 2137)
+//app.listen(process.env.PORT || 2137)
 }
