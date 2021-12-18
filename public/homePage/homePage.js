@@ -26,7 +26,7 @@ setTimeout(
   }, 200
 )
 setTimeout(
-  function (){
+  function () {
     if (json.myData != undefined) {
       for (var i = 0; i < 10; i++) {
         bait[i].innerText = json.myData.baits[i]
@@ -35,7 +35,7 @@ setTimeout(
   }, 1000
 )
 setTimeout(
-  function (){
+  function () {
     if (json.myData != undefined) {
       for (var i = 0; i < 10; i++) {
         bait[i].innerText = json.myData.baits[i]
