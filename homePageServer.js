@@ -43,13 +43,13 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
     })
   })
   app.get('/all-blogs', (req, res) => {
-    async function () {
+    (async function () {
       var response = await Blog.find()
       res.send(response)
-    }()
+    })()
   })
 }
-
+console.log(response);
 // APP
 {
 app.use(express.static('public/homePage'))
