@@ -27,7 +27,7 @@ loginButton.addEventListener('click', (e) => {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({username: loginInput.value, password: password})
+    body: JSON.stringify({password: password, username: loginInput.value})
   })
 })
 addEventListener('keydown', (e) => {
