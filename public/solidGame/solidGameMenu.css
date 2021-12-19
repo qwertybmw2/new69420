@@ -15,6 +15,7 @@ body {
   width: 40vw;
   height: 100vh;
   display: flex;
+  justify-content: center;
 }
 .login-input {
   background-color: #1a1b24;
@@ -44,7 +45,6 @@ body {
   outline: none;
   border: none;
   border-radius: 9999px;
-  justify-content: center;
   padding: 0 2% 0 2%;
   width: 25%;
   height: 3.5%;
@@ -65,6 +65,4 @@ body {
   height: 9%;
   position: relative;
   top: 40%;
-  left: 50%;
-  transform: translateX(-50%);
 }
