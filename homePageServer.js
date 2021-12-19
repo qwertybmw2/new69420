@@ -44,9 +44,8 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
           loggingIn = true
         }
       }
-      res.setHeader("Content-Type", "text/html")
       if (loggingIn) {
-        res.redirect('/')
+        res.setHeader("Content-Type", "text/html").redirect('/')
       } else {
         user.save().then(
 
