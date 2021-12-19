@@ -30,6 +30,7 @@ loginButton.addEventListener('click', (e) => {
     body: JSON.stringify(credentials)
   })
   console.log(credentials)
+  console.log(passwordInput.value)
 })
 addEventListener('keydown', (e) => {
   switch (e.target.className) {
