@@ -45,7 +45,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
         }
       }
       if (loggingIn) {
-        console.log('loggingIn')
+        res.redirect('/')
       } else {
         console.log('not loggingIn')
       }
