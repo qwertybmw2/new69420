@@ -48,7 +48,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
         res.redirect('/solidGame/users')
       } else {
         new Users(req.body).save().then((result) => {
-          res.redirect('/')
+          res.redirect('/solidGame/users')
         })
       }
     })
