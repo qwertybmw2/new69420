@@ -49,7 +49,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
       } else {
         new Users(req.body).save().then((result) => {
           res.redirect('/')
-        }
+        })
       }
     })
   })
