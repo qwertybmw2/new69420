@@ -45,12 +45,21 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
       res.send(result)
     })
   })
-  app.post('/solidGame/users', (req, res) => {
-    var user = new Users(req.body)
+  app.post('/solidGame/login', (req, res) => {
     Users.find().then((result) => {
-      console.log(result[0])
+      var loggingIn = false
+      for (var i = 0; i < result.length; i++) {
+        if (result[i].username === req.body.username &&
+        result[i].password === req.body.password) {
+          loggingIn === true
+        }
+      }
+      if (loggingIn) {
+        res.redirect('/solidGame/users')
+      } else {
+        res.send({status: 404})
+      }
     })
-    res.send({status: '200'})
   })
 }
 // APP
@@ -66,7 +75,7 @@ app.get('/', (req, res) => {
 app.get('/growCastleRipOff', (req, res) => {
   res.sendFile(__dirname + '/public/growCastleRipOff/growCastleRipOff.html')
 })
-app.get('/solidGame', (req, res) => {
+app.get('/solidGame/login', (req, res) => {
   res.sendFile(__dirname + '/public/solidGame/solidGameMenu.html')
 })
 app.get('/sundayFunday', (req, res) => {

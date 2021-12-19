@@ -20,7 +20,7 @@ var loginButton = document.getElementsByClassName('login-button')[0]
 */
 {
 loginButton.addEventListener('click', (e) => {
-  fetch('/solidGame/users', {
+  fetch('/solidGame/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
