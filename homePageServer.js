@@ -50,6 +50,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
     Users.find().then((result) => {
       console.log(result[0])
     })
+    res.send({status: '200'})
   })
 }
 // APP
