@@ -28,7 +28,7 @@ body {
   width: 25%;
   height: 3.5%;
   position: relative;
-  top: 25%;
+  top: 30%;
   left: 50%;
   transform: translateX(-50%);
 }
