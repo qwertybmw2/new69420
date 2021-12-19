@@ -47,9 +47,9 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
         }
       }
       if (loggingIn) {
-        res.redirect('/solidGame/users')
+        console.log(loggingIn)
       } else {
-        res.redirect('/growCastleRipOff')
+        console.log(loggingIn)
       }
     })
   })
