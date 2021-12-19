@@ -23,7 +23,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
     password: {
       type: String,
       required: true
-    },
+    }
   })
 
   var Users = mongoose.model('Users', userSchema)
