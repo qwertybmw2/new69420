@@ -26,7 +26,7 @@ var credentials = {username: loginInput.value, password: passwordInput.value}
 
 {
 loginButton.addEventListener('click', (e) => {
-  credentials = credentials
+//  credentials = credentials
   fetch('/solidGame/users', {
     method: 'POST',
     headers: {
