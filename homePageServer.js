@@ -45,10 +45,9 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
         }
       }
       if (loggingIn) {
-        res.setHeader("Content-Type", "text/html").redirect('/')
+        res.redirect('/')
       } else {
-        user.save().then(
-
+        new Users(req.body).save().then(
           res.redirect('/solidGame/users')
         )
       }
