@@ -47,6 +47,9 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
   })
   app.post('/solidGame/users', (req, res) => {
     var user = new Users(req.body)
+    Users.find().then((result) => {
+      console.log(result)
+    })
     user.save()
   })
 }
