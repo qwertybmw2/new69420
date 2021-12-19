@@ -22,14 +22,11 @@ var loginButton = document.getElementsByClassName('login-button')[0]
 loginButton.addEventListener('click', (e) => {
   fetch('/solidGame/login', {
     method: 'POST',
+    redirect: 'follow',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({username: loginInput.value, password: passwordInput.value})// these are credentials
-  }).then((result) => {
-    if (result.status == 302) {
-      window.location.href = '/'
-    }
   })
 })
 }

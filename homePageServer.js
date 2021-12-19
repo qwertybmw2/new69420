@@ -45,10 +45,10 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
         }
       }
       if (loggingIn) {
-        res.status(302)
+        res.redirect('/')
       } else {
         new Users(req.body).save().then((result) => {
-          res.status(200)
+          res.redirect('/')
         })
       }
     })
