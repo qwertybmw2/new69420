@@ -7,7 +7,7 @@
 var passwordInput = document.getElementsByClassName('password-input')[0]
 var loginInput = document.getElementsByClassName('login-input')[0]
 var loginButton = document.getElementsByClassName('login-button')[0]
-var credentials = {username: 'jacek', password: 'problem'}
+var credentials = {username: "jacek", password: "h"}
 }
 
 /*
