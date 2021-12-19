@@ -55,9 +55,9 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
 // APP
 {
 app.use(express.static('public'))
-// app.use(express.static('public/growCastleRipOff'))
-// app.use(express.static('public/solidGame'))
-// app.use(express.static('public/sundayFunday'))
+ app.use(express.static('public/homePage'))
+ app.use(express.static('public/solidGame'))
+ app.use(express.static('public/sundayFunday'))
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/homePage/homePage.html')
