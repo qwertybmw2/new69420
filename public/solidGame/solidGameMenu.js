@@ -6,6 +6,7 @@
 {
 var loginInput = document.getElementsByClassName('login-input')[0]
 var loginButton = document.getElementsByClassName('login-button')[0]
+var credentials = {username: loginInput }
 }
 
 /*
@@ -15,6 +16,12 @@ var loginButton = document.getElementsByClassName('login-button')[0]
 */
 
 {
+
+}
+
+{
+loginButton.addEventListener('click', (e) => {
+  location = 'file:///C:/users/szymon/desktop/html/solidGame/solidGame/solidGame.html'
   fetch('/solidGame/users', {
     method: 'POST',
     headers: {
@@ -22,11 +29,6 @@ var loginButton = document.getElementsByClassName('login-button')[0]
     },
     body: JSON.stringify(credentials)
   })
-}
-
-{
-loginButton.addEventListener('click', (e) => {
-  location = 'file:///C:/users/szymon/desktop/html/solidGame/solidGame/solidGame.html'
 })
 addEventListener('keydown', (e) => {
   switch (e.target.className) {
@@ -37,7 +39,6 @@ addEventListener('keydown', (e) => {
   }
 })
 }
-
 /*
   ==============
   function calls
