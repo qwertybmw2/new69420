@@ -23,11 +23,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
       type: String,
       required: true
     },
-    level: {
-      type: String,
-      required: true
-    }
-  }, {timestamps: true})
+  })
 
   var Users = mongoose.model('Users', userSchema)
 }
@@ -46,6 +42,9 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
     Users.find().then((result) => {
       res.send(result)
     })
+  })
+  app.post('/solidGame/users', (req, res) => {
+    console.log(req.body)
   })
 }
 // APP
