@@ -50,7 +50,6 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
     Users.find().then((result) => {
       res.send(result)
     })
-    user.save()
   })
 }
 // APP
