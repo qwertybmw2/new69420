@@ -9,6 +9,10 @@ var loginInput = document.getElementsByClassName('login-input')[0]
 var loginButton = document.getElementsByClassName('login-button')[0]
 var credentials = {username: loginInput.value, password: passwordInput.value}
 }
+{
+  loginInput = ''
+  passwordInput = ''
+}
 
 /*
   =========
