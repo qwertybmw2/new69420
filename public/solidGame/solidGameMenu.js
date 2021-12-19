@@ -7,7 +7,6 @@
 var passwordInput = document.getElementsByClassName('password-input')[0]
 var loginInput = document.getElementsByClassName('login-input')[0]
 var loginButton = document.getElementsByClassName('login-button')[0]
-var credentials = {username: loginInput.value, password: passwordInput.value}
 }
 {
   loginInput.value = ''
@@ -26,7 +25,7 @@ var credentials = {username: loginInput.value, password: passwordInput.value}
 
 {
 loginButton.addEventListener('click', (e) => {
-//  credentials = credentials
+  var credentials = {username: loginInput.value, password: passwordInput.value}
   fetch('/solidGame/users', {
     method: 'POST',
     headers: {
