@@ -47,9 +47,9 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
         }
       }
       if (loggingIn) {
-        console.log(loggingIn)
+        console.log('loggingIn')
       } else {
-        console.log(loggingIn)
+        console.log('not loggingIn')
       }
     })
   })
