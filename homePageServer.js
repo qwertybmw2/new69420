@@ -43,7 +43,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
         console.log(req.body.username)
         if (result[i].username === req.body.username/* &&
         result[i].password === req.body.password*/) {
-          loggingIn === true
+          loggingIn = true
         }
       }
       if (loggingIn) {
