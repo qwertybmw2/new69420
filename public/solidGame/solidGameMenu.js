@@ -1,6 +1,6 @@
 /*
   ==========
-  varaiables
+  variables
   ==========
 */
 {
@@ -13,6 +13,16 @@ var loginButton = document.getElementsByClassName('login-button')[0]
   functions
   =========
 */
+
+{
+  fetch('/solidGame/users', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(credentials)
+  })
+}
 
 {
 loginButton.addEventListener('click', (e) => {

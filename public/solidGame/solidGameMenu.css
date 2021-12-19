@@ -28,11 +28,31 @@ body {
   width: 25%;
   height: 3.5%;
   position: relative;
-  top: 35%;
+  top: 25%;
   left: 50%;
   transform: translateX(-50%);
 }
 .login-input:focus {
+  box-shadow: .3vw .3vw 1vw .1vw #000;
+}
+.password-input {
+  background-color: #1a1b24;
+  color: #c0c1c0;
+  box-shadow: .2vw .2vw 1.1vw .0001vw #040404;
+  font-size: .8vw;
+  user-select: text;
+  outline: none;
+  border: none;
+  border-radius: 9999px;
+  padding: 0 2% 0 2%;
+  width: 25%;
+  height: 3.5%;
+  position: relative;
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.password-input:focus {
   box-shadow: .3vw .3vw 1vw .1vw #000;
 }
 .login-button {
