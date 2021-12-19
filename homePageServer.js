@@ -39,8 +39,8 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
     Users.find().then((result) => {
       var loggingIn = false
       for (var i = 0; i < result.length; i++) {
-        console.log(result.length)
-        console.log(result[i])
+        console.log(result[i].username)
+        console.log(req.body.username)
         if (result[i].username === req.body.username &&
         result[i].password === req.body.password) {
           loggingIn === true
