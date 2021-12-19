@@ -4,9 +4,10 @@
   ==========
 */
 {
+var passwordInput = document.getElementsByClassName('password-input')[0]
 var loginInput = document.getElementsByClassName('login-input')[0]
 var loginButton = document.getElementsByClassName('login-button')[0]
-var credentials = {username: loginInput }
+var credentials = {username: loginInput.value, password }
 }
 
 /*
@@ -21,7 +22,6 @@ var credentials = {username: loginInput }
 
 {
 loginButton.addEventListener('click', (e) => {
-  location = 'file:///C:/users/szymon/desktop/html/solidGame/solidGame/solidGame.html'
   fetch('/solidGame/users', {
     method: 'POST',
     headers: {
