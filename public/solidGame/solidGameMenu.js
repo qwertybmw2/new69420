@@ -27,7 +27,7 @@ loginButton.addEventListener('click', (e) => {
     },
     body: JSON.stringify({username: loginInput.value, password: passwordInput.value})// these are credentials
   }).then((result) => {
-    console.log(result)
+    location.href = response.url
   })
 })
 }
