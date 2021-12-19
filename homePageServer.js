@@ -7,7 +7,7 @@ var mongoose = require('mongoose')
 
 var urlencodedParser = bodyParser.urlencoded({extended: false})
 var app = express()
-express.json()
+app.use(express.json({limit: '1mb'}))
 app.use(express.urlencoded({extended: true}))
 var Schema = mongoose.Schema
 var dbURI = 'mongodb+srv://qwertybmw:mongodbpassword@cluster0.uehtx.mongodb.net/POGGIES?retryWrites=true&w=majority'
