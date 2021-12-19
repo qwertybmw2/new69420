@@ -7,7 +7,6 @@
 var passwordInput = document.getElementsByClassName('password-input')[0]
 var loginInput = document.getElementsByClassName('login-input')[0]
 var loginButton = document.getElementsByClassName('login-button')[0]
-var credentials = {username: loginInput.value, password: passwordInput.value}
 }
 
 /*
@@ -27,10 +26,8 @@ loginButton.addEventListener('click', (e) => {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(credentials)
+    body: JSON.stringify({username: loginInput.value, password: passwordInput.value})
   })
-  console.log(credentials)
-  console.log(passwordInput.value)
 })
 addEventListener('keydown', (e) => {
   switch (e.target.className) {
