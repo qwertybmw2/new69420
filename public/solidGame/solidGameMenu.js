@@ -18,14 +18,9 @@ var loginButton = document.getElementsByClassName('login-button')[0]
   functions
   =========
 */
-
-{
-
-}
-
 {
 loginButton.addEventListener('click', (e) => {
-  var credentials = {username: loginInput.value, password: passwordInput.value}
+  var credentials = credentials
   fetch('/solidGame/users', {
     method: 'POST',
     headers: {
@@ -33,14 +28,6 @@ loginButton.addEventListener('click', (e) => {
     },
     body: JSON.stringify(credentials)
   })
-})
-addEventListener('keydown', (e) => {
-  switch (e.target.className) {
-    case 'login-input':
-      if (e.key === 'Enter') {
-        location = 'file:///C:/users/szymon/desktop/html/solidGame/solidGame/solidGame.html'
-      }
-  }
 })
 }
 /*
