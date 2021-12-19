@@ -26,6 +26,10 @@ loginButton.addEventListener('click', (e) => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({username: loginInput.value, password: passwordInput.value})// these are credentials
+  }).then((result) => {
+    if (result.status == 302) {
+      window.location.href = '/'
+    }
   })
 })
 }
