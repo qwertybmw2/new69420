@@ -30,16 +30,6 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
   var Users = mongoose.model('Users', userSchema)
 }
 {
-  app.get('/solidGame/login', (req, res) => {
-    var user = new Users({
-      username: 'asshat',
-      password: 'thiswebsitesucks',
-      level: '1'
-    })
-    user.save().then((result) => {
-      res.send(result)
-    })
-  })
   app.get('/solidGame/users', (req, res) => {
     Users.find().then((result) => {
       res.send(result)
