@@ -33,7 +33,7 @@ registerButton.addEventListener('click', (e) => {
 })
 signUpBaitLink.addEventListener('click', (e) => {
   console.log('clicked :)')
-  window.location.href = '/solidGame/signup'
+  location.href = '/solidGame/signup'
 })
 }
 /*
