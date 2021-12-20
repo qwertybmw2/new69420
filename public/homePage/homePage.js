@@ -102,11 +102,10 @@ addEventListener('mouseover', (e) => {
   e.target.className === 'twitch-png2'||
   e.target.className === 'search-box' ||
   e.target.className === 'bait') {
-    ratio()
     for (var i = 0; i < 10; i++) {
       bait[i].style.transition = 'height .4s linear, bottom .4s linear'
-      // bait[i].style.height = '2.915vh'
-      // bait[i].style.bottom = '81.65vh'
+      bait[i].style.height = '2.915vh'
+      bait[i].style.bottom = '81.65vh'
     }
     setTimeout(function () {for (var i = 0; i < 10; i++) {bait[i].style.transition = 'all 0s'}}, 1)
     searchBox.focus()
@@ -156,31 +155,4 @@ addEventListener('mouseout', (e) => {
     setTimeout(function () {twitch.children[1].style.transition = 'all 0s'}, 1)
   }
 })
-
-function ratio() {
-  if (innerWidth / innerHeight < .1) {
-    for (var i = 0; i < 10; i++) {
-      bait[i].style.height = '3.15vh'
-      bait[i].style.bottom = '84vh'
-    }
-    console.log('3.15')
-  } else if (innerWidth / innerHeight < .2) {
-    for (var i = 0; i < 10; i++) {
-      bait[i].style.height = '3.12vh'
-      bait[i].style.bottom = '83.7vh'
-    }
-    console.log('3.1')
-  } else if (innerWidth / innerHeight < .3) {
-    for (var i = 0; i < 10; i++) {
-      bait[i].style.height = '3.12vh'
-      bait[i].style.bottom = '83.7vh'
-    }
-    console.log('3.05')
-  } else {
-    for (var i = 0; i < 10; i++) {
-      bait[i].style.height = '2.915vh'
-      bait[i].style.bottom = '81.65vh'
-    }
-  }
-}
 }
