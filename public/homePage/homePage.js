@@ -11,7 +11,6 @@ var searchBox = document.getElementsByClassName('search-box')[0]
 var button = document.getElementsByClassName('button')[0]
 var bait = document.getElementsByClassName('bait')
 var logging = true
-var json
 }
 
 // JSON
@@ -50,34 +49,34 @@ addEventListener('keydown', (e) => {
 addEventListener('click', (e) => {
   switch (e.target.className) {
     case 'bait bait0':
-      location = 'https://www.twitch.tv/' + json.myData.baits[0]
+      location = 'https://www.twitch.tv/' + 'northernlion'
       break
     case 'bait bait1':
-      location = 'https://www.twitch.tv/' + json.myData.baits[1]
+      location = 'https://www.twitch.tv/' + 'hasanabi'
       break
     case 'bait bait2':
-      location = 'https://www.twitch.tv/' + json.myData.baits[2]
+      location = 'https://www.twitch.tv/' + ''
       break
     case 'bait bait3':
-      location = 'https://www.twitch.tv/' + json.myData.baits[3]
+      location = 'https://www.twitch.tv/' + ''
       break
     case 'bait bait4':
-      location = 'https://www.twitch.tv/' + json.myData.baits[4]
+      location = 'https://www.twitch.tv/' + ''
       break
     case 'bait bait5':
-      location = 'https://www.twitch.tv/' + json.myData.baits[5]
+      location = 'https://www.twitch.tv/' + ''
       break
     case 'bait bait6':
-      location = 'https://www.twitch.tv/' + json.myData.baits[6]
+      location = 'https://www.twitch.tv/' + ''
       break
     case 'bait bait7':
-      location = 'https://www.twitch.tv/' + json.myData.baits[7]
+      location = 'https://www.twitch.tv/' + ''
       break
     case 'bait bait8':
-      location = 'https://www.twitch.tv/' + json.myData.baits[8]
+      location = 'https://www.twitch.tv/' + ''
       break
     case 'bait bait9':
-      location = 'https://www.twitch.tv/' + json.myData.baits[9]
+      location = 'https://www.twitch.tv/' + ''
       break
     case 'twitch':
       location = 'https://www.twitch.tv'
