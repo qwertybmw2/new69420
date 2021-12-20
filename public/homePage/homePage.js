@@ -16,38 +16,6 @@ var json
 
 // JSON
 {
-setTimeout(
-  function () {
-    fetch('./searchHistory.json').then(
-      response => json = response.json()
-    ).then(
-      data => json = data
-    )
-  }, 200
-)
-setTimeout(
-  function () {
-    if (json.myData != undefined) {
-      for (var i = 0; i < 10; i++) {
-        bait[i].innerText = json.myData.baits[i]
-      }
-    }
-  }, 1000
-)
-setTimeout(
-  function () {
-    if (json.myData != undefined) {
-      for (var i = 0; i < 10; i++) {
-        bait[i].innerText = json.myData.baits[i]
-      }
-    }
-  }, 1000
-)
-
-fetch('./searchHistory.json').then(
-  response => json = response.json()).then(
-  data => json = data
-)
 }
 
 {
