@@ -65,7 +65,7 @@ body {
   position: absolute;
   top: 50%;
 }
-.sign-up-bait:only-child {
+.sign-up-bait {
   color: #edf0f1;
   position: absolute;
   top: 60%;
