@@ -41,6 +41,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
   app.get('/solidGame/signup', (req, res) => {
     res.sendFile(__dirname + '/public/solidGame/signUp/solidGameSignUp.html')
   })
+
   app.post('/solidGame/login', (req, res) => {
     Users.find().then((result) => {
       var loggingIn = false
@@ -65,7 +66,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
 app.use(express.static('public'))
 app.use(express.static('public/homePage'))
 app.use(express.static('public/solidGame/logIn'))
-app.use(express.static('public/solidGame/signUp'))
+//app.use(express.static('public/solidGame/signUp'))
 app.use(express.static('public/sundayFunday'))
 
 app.get('/', (req, res) => {
