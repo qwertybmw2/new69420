@@ -13,12 +13,11 @@ var bait = document.getElementsByClassName('bait')
 var logging = true
 }
 
-// JSON
-{
-}
-
 {
 searchBox.value = ''
+for (var i = 0; i < bait.length; i++) {
+  bait[i].innerText = 'a'
+}
 }
 
 /*
