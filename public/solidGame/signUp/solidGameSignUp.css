@@ -74,3 +74,7 @@ body {
   position: absolute;
   top: 60%;
 }
+.log-in-bait-link:hover {
+  cursor: pointer;
+  opacity: .8;
+}

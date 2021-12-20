@@ -32,7 +32,6 @@ registerButton.addEventListener('click', (e) => {
   })
 })
 logInBaitLink.addEventListener('click', (e) => {
-  console.log('clicked :)')
   location.href = '/solidGame/login'
 })
 }

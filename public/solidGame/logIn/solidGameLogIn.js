@@ -32,7 +32,6 @@ loginButton.addEventListener('click', (e) => {
   })
 })
 signUpBaitLink.addEventListener('click', (e) => {
-  console.log('clicked :)')
   location.href = '/solidGame/signup'
 })
 }
