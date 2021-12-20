@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   user-select: none;
+  font-family: arial black;
 }
 body {
   background-color: #012501
@@ -53,7 +54,7 @@ body {
 .password-input:focus {
   box-shadow: .3vw .3vw 1vw .1vw #000;
 }
-.login-button {
+.register-button {
   background-color: #029502;
   box-shadow: .3vw .3vw 1vw .2vw #040404;
   border-radius: 1vw;
@@ -65,8 +66,7 @@ body {
   position: absolute;
   top: 50%;
 }
-.sign-up-bait {
-  font-family: arial black;
+.log-in-bait {
   font-size: .8em;
   color: #edf0f1;
   position: absolute;
