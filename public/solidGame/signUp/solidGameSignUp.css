@@ -57,7 +57,7 @@ body {
   background-color: #029502;
   box-shadow: .3vw .3vw 1vw .2vw #040404;
   border-radius: 1vw;
-  font-family: arial black;
+  font-family: sans-serif;
   cursor: pointer;
   display: grid;
   place-items: center;
@@ -67,7 +67,7 @@ body {
   top: 50%;
 }
 .log-in-bait {
-  font-family: arial black;
+  font-family: sans-serif;
   font-size: .8em;
   color: #edf0f1;
   position: absolute;
