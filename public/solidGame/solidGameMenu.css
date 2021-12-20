@@ -65,12 +65,8 @@ body {
   position: absolute;
   top: 50%;
 }
-.sign-up-bait:nth-child(1) {
-  position: absolute;
-  top: 60%;
-}
-.sign-up-bait:nth-child(2) {
-  cursor: pointer;
+.sign-up-bait:only-child {
+  color: #edf0f1;
   position: absolute;
   top: 60%;
 }
