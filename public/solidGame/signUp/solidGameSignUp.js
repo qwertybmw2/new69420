@@ -7,6 +7,7 @@
 var passwordInput = document.getElementsByClassName('password-input')[0]
 var loginInput = document.getElementsByClassName('login-input')[0]
 var registerButton = document.getElementsByClassName('register-button')[0]
+var signUpBaitLink = document.getElementsByClassName('sign-up-bait-link')[0]
 }
 {
   loginInput.value = ''
@@ -29,6 +30,9 @@ registerButton.addEventListener('click', (e) => {
   }).then((result) => {
     window.location.href = result.url
   })
+})
+signUpBaitLink.addEventListener('click', (e) => {
+  location.href = '/solidGame/signup'
 })
 }
 /*
