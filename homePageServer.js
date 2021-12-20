@@ -60,7 +60,25 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
       }
     })
   })
+  app.post('/solidGame/signup', (req, res) => {
+    Users.find().then((result) => {
+      var signingUp = true
+      for (var i = 0; i < result.length; i++) {
+        if (result[i].username === req.body.username) {
+          signingUp = false
+        }
+      }
+      if (!signingUp) {
+        res.redirect('/solidGame/users')
+      } else {
+        new Users(req.body).save().then((result) => {
+          res.redirect('/solidGame/users')
+        })
+      }
+    })
+  })
 }
+
 // APP
 {
 app.use(express.static('public'))
