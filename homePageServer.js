@@ -29,7 +29,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
 }
 {
   app.get('/solidGame', (req, res) => {
-    res.json(req)
+  //  res.json(req)
     console.log(JSON.stringify(req))
   })
   app.get('/solidGame/users', (req, res) => {
