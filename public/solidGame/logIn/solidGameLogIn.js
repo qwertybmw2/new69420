@@ -28,7 +28,9 @@ loginButton.addEventListener('click', (e) => {
     },
     body: JSON.stringify({username: loginInput.value, password: passwordInput.value})// these are credentials
   }).then((result) => {
-    window.location.href = result.url
+    if (result.status != 404) {
+      window.location.href = result.url
+    }
   })
 })
 signUpBaitLink.addEventListener('click', (e) => {
