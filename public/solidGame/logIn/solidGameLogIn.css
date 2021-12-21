@@ -75,7 +75,8 @@ body {
   top: 60%;
 }
 .sign-up-bait-link {
-  color: #16b
+  color: #16b;
+  transition: opacity .2s
 }
 .sign-up-bait-link:hover {
   cursor: pointer;
