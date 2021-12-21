@@ -29,8 +29,8 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
 }
 {
   app.get('/solidGame', (req, res) => {
-    res.send(req)
-    console.log(req)
+    res.json(req)
+    console.log(json(req))
   })
   app.get('/solidGame/users', (req, res) => {
     Users.find().then((result) => {
