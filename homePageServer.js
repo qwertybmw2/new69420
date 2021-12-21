@@ -37,7 +37,8 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
     })
   })
   app.get('/solidGame/login', (req, res) => {
-    res.sendFile(__dirname + '/public/solidGame/logIn/solidGameLogIn.html')
+    res.redirect('/solidGame')
+    //res.sendFile(__dirname + '/public/solidGame/logIn/solidGameLogIn.html')
   })
   app.get('/solidGame/signup', (req, res) => {
     res.sendFile(__dirname + '/public/solidGame/signUp/solidGameSignUp.html')
