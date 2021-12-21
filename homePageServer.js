@@ -31,8 +31,9 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
   app.get('/solidGame', (req, res) => {
     if (req.headers.referer === 'https://new69420.herokuapp.com/solidGame/login') {
       res.sendFile('Procfile')
+    } else {
+      res.send(req.headers)
     }
-    res.send(req.headers)
   })
   app.get('/solidGame/users', (req, res) => {
     Users.find().then((result) => {
