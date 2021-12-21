@@ -28,6 +28,9 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
   var Users = mongoose.model('Users', userSchema)
 }
 {
+  app.get('/solidGame', (req, res) => {
+    res.redirect('/solidGame/login')
+  })
   app.get('/solidGame/users', (req, res) => {
     Users.find().then((result) => {
       res.send(result)
