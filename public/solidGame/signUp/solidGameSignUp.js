@@ -21,12 +21,15 @@ var logInBaitLink = document.getElementsByClassName('log-in-bait-link')[0]
 */
 {
 registerButton.addEventListener('click', (e) => {
-  fetch('/solidGame/login', {
+  fetch('/solidGame/signup', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({username: loginInput.value, password: passwordInput.value})// these are credentials
+    body: JSON.stringify({
+      username: loginInput.value,
+      password: passwordInput.value
+    })
   }).then((result) => {
     window.location.href = result.url
   })
