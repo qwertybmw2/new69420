@@ -30,7 +30,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
 {
   app.get('/solidGame', (req, res) => {
     if (req.headers.referer === 'https://new69420.herokuapp.com/solidGame/login') {
-      res.sendFile('../Procfile')
+      res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
     } else {
       res.send(req.headers)
     }
