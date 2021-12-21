@@ -1,11 +1,9 @@
 // VARIABLES
 {
-var bodyParser = require('body-parser')
 var fs = require('fs')
 var express = require('express')
 var mongoose = require('mongoose')
 
-var urlencodedParser = bodyParser.urlencoded({extended: false})
 var app = express()
 app.use(express.json({limit: '1mb'}))
 app.use(express.urlencoded({extended: true}))
