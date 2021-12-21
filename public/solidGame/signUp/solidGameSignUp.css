@@ -75,7 +75,8 @@ body {
   top: 60%;
 }
 .log-in-bait-link {
-  color: #16b
+  color: #16b;
+  transition: opacity .2s
 }
 .log-in-bait-link:hover {
   cursor: pointer;
