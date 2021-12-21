@@ -53,7 +53,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
         }
       }
       if (loggingIn) {
-        res.redirect('/solidGame')
+        res.redirect('https://www.youtube.com')
       } else {
         res.status(404).send('invalid')
       }
