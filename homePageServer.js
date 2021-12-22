@@ -75,12 +75,11 @@ app.use(session({
       }
       if (loggingIn) {
         req.session.user = req.body.username
-        res.redirect('/solidGame')
       } else {
         if (wrongUsername) {
-          res.status(404).send('wrongUsername')
+          res.status(404).json('wrongUsername')
         } else if (wrongPassword) {
-          res.status(401).send('wrongPassword')
+          res.status(401).json('wrongPassword')
         }
       }
     })
