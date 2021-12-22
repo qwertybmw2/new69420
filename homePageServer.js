@@ -7,14 +7,14 @@ var mongoose = require('mongoose')
 var app = express()
 app.use(express.json({limit: '1mb'}))
 app.use(express.urlencoded({extended: true}))
-//app.use(session({
+app.use(session({
   secret: '8/21',
   resave: false,
   saveUninitialized: false
 }))
 }
 
-// When the Mongoose is sus\
+// When the Mongoose is sus
 {
   var dbURI = 'mongodb+srv://qwertybmw:mongodbpassword@cluster0.uehtx.mongodb.net/POGGIES?retryWrites=true&w=majority'
   mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then((result) => app.listen(process.env.PORT || 2137))
@@ -33,7 +33,7 @@ app.use(express.urlencoded({extended: true}))
   var Users = mongoose.model('Users', userSchema)
 }
 {
-  //app.get('/solidGame', (req, res) => {
+  app.get('/solidGame', (req, res) => {
     if (!req.session.user) {
       res.redirect('/solidGame/login')
     } else {
@@ -54,7 +54,7 @@ app.use(express.urlencoded({extended: true}))
     res.sendFile(__dirname + '/public/solidGame/signUp/solidGameSignUp.html')
   })
 
-  //app.post('/solidGame/login', (req, res) => {
+  app.post('/solidGame/login', (req, res) => {
     Users.find().then((result) => {
       var loggingIn = false
       for (var i = 0; i < result.length; i++) {
