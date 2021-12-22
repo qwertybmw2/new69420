@@ -31,7 +31,9 @@ loginButton.addEventListener('click', (e) => {
       password: passwordInput.value
     })
   }).then((result) => {
-    location = result.url
+    if (result === 200) {
+      location = '/solidGame'
+    }
   })
 })
 signUpBaitLink.addEventListener('click', (e) => {
