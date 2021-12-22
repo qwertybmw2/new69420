@@ -78,9 +78,9 @@ app.use(session({
         res.redirect('/solidGame')
       } else {
         if (wrongUsername) {
-          res.send('wrongUsername')
+          res.status(404).send('wrongUsername')
         } else if (wrongPassword) {
-          res.send('wrongPassword')
+          res.status(401).send('wrongPassword')
         }
       }
     })
