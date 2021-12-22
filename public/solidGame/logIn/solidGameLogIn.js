@@ -32,7 +32,7 @@ loginButton.addEventListener('click', (e) => {
     })
   }).then((result) => {
     window.location.href = result.ulr
-    console.log(result.body)
+    console.log(result)
   })
 })
 signUpBaitLink.addEventListener('click', (e) => {
