@@ -59,7 +59,7 @@ app.use(session({
       var wrongPassword = true
       for (var i = 0; i < result.length; i++) {
         if (!loggingIn) {
-        wrongUsername = true
+          wrongUsername = true
           wrongPassword = true
           if (result[i].username === req.body.username &&
           result[i].password === req.body.password) {
@@ -75,7 +75,8 @@ app.use(session({
       }
       if (loggingIn) {
         req.session.user = req.body.username
-        res.redirect('/solidGame').send(req.session.user)
+        res.redirect('/solidGame')
+        res.send(req.session.user)
       } else {
         res.status(404).send('invalid')
       }
