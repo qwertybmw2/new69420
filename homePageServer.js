@@ -55,17 +55,33 @@ app.use(session({
   app.post('/solidGame/login', (req, res) => {
     Users.find().then((result) => {
       var loggingIn = false
+      var wrongUsername = true
+      var wrongPassword = true
       for (var i = 0; i < result.length; i++) {
-        if (result[i].username === req.body.username &&
-        result[i].password === req.body.password) {
-          loggingIn = true
+        if (!loggingIn) {
+          wrongUsername = true
+          wrongPassword = true
+          if (result[i].username === req.body.username &&
+          result[i].password === req.body.password) {
+            loggingIn = true
+          }
+          if (result[i].username === req.body.username) {
+            wrongUsername = false
+          }
+          if (result[i].password === req.body.password) {
+            wrongPassword = false
+          }
         }
       }
       if (loggingIn) {
         req.session.user = req.body.username
         res.redirect('/solidGame')
       } else {
-        res.status(404).send('invalid')
+        if (wrongUsername) {
+          res.send('wrongUsername')
+        } else if (wrongPassword) {
+          res.send('wrongPassword')
+        }
       }
     })
   })

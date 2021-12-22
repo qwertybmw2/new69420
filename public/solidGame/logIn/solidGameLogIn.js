@@ -31,10 +31,9 @@ loginButton.addEventListener('click', (e) => {
       password: passwordInput.value
     })
   }).then((result) => {
+    console.log(result)
     if (result.status != 404) {
       window.location.href = result.url
-    } else {
-
     }
   })
 })
