@@ -75,7 +75,7 @@ app.use(session({
       }
       if (loggingIn) {
         req.session.user = req.body.username
-        res.redirect('/solidGame').send(req.session.user)
+        res.redirect('/solidGame').send(req.body.username)
       } else {
         if (wrongUsername) {
           res.status(404).json('wrongUsername')
