@@ -32,9 +32,6 @@ loginButton.addEventListener('click', (e) => {
     })
   }).then((result) => {
     console.log(result)
-    if (result.status === 200) {
-      location = '/solidGame'
-    }
   })
 })
 signUpBaitLink.addEventListener('click', (e) => {
