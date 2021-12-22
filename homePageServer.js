@@ -104,7 +104,7 @@ app.use(session({
 
 // APP
 {
-app.use(express.static('public'))
+app.use(express.static(__dirname + 'public'))
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/homePage/homePage.html')
