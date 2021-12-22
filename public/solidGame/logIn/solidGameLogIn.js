@@ -31,7 +31,9 @@ loginButton.addEventListener('click', (e) => {
       password: passwordInput.value
     })
   }).then((result) => {
-    console.log(result)
+    if (result) {
+      console.log(result)
+    }
   })
 })
 signUpBaitLink.addEventListener('click', (e) => {
