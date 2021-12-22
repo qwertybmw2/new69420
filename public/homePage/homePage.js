@@ -92,6 +92,9 @@ addEventListener('click', (e) => {
     case 'youtube-png':
       location = 'https://www.youtube.com'
       break
+      case 'chess':
+      location = '/solidGame'
+      break
     case 'newest-project':
       location = 'http://localhost:2137/sundayFunday'
   }
