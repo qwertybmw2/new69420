@@ -31,7 +31,7 @@ loginButton.addEventListener('click', (e) => {
       password: passwordInput.value
     })
   }).then((result) => {
-    //location.href = result.ulr
+    window.location.href = result.ulr
     console.log(result)
   })
 })
