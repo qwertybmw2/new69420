@@ -37,10 +37,8 @@ app.use(session({
     if (!req.session.user) {
       res.redirect('/solidGame/login')
     } else {
-      res.send('notLikeThis')
+      res.send(req.session.user)
     }
-    console.log(req.session.user)
-    console.log(req.session)
   })
   app.get('/solidGame/users', (req, res) => {
     Users.find().then((result) => {
