@@ -37,7 +37,7 @@ app.use(session({
     if (!req.session.user) {
       res.redirect('/solidGame/login')
     } else {
-      res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
+      res.send('notLikeThis')
     }
     console.log(req.session.user)
     console.log(req.session)
