@@ -39,6 +39,7 @@ app.use(session({
     } else {
       res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
     }
+    console.log(req.session.user)
   })
   app.get('/solidGame/users', (req, res) => {
     Users.find().then((result) => {
