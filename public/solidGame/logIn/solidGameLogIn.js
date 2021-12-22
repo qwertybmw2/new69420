@@ -32,7 +32,7 @@ loginButton.addEventListener('click', (e) => {
     })
   }).then((result) => {
     location = result.ulr
-    console.log(result)
+    console.log(result.url)
   })
 })
 signUpBaitLink.addEventListener('click', (e) => {
