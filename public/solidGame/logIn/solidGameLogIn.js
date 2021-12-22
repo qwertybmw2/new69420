@@ -31,7 +31,7 @@ loginButton.addEventListener('click', (e) => {
       password: passwordInput.value
     })
   }).then((result) => {
-    if (result === 200) {
+    if (result.status === 200) {
       location = '/solidGame'
     }
   })
