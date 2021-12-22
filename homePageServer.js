@@ -7,7 +7,7 @@ var mongoose = require('mongoose')
 var app = express()
 app.use(express.json({limit: '1mb'}))
 app.use(express.urlencoded({extended: true}))
-app.use(session({
+//app.use(session({
   secret: '8/21',
   resave: false,
   saveUninitialized: false
@@ -33,7 +33,7 @@ app.use(session({
   var Users = mongoose.model('Users', userSchema)
 }
 {
-  app.get('/solidGame', (req, res) => {
+  //app.get('/solidGame', (req, res) => {
     if (!req.session.user) {
       res.redirect('/solidGame/login')
     } else {
@@ -54,7 +54,7 @@ app.use(session({
     res.sendFile(__dirname + '/public/solidGame/signUp/solidGameSignUp.html')
   })
 
-  app.post('/solidGame/login', (req, res) => {
+  //app.post('/solidGame/login', (req, res) => {
     Users.find().then((result) => {
       var loggingIn = false
       for (var i = 0; i < result.length; i++) {
