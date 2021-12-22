@@ -34,10 +34,10 @@ app.use(session({
 }
 {
   app.get('/solidGame', (req, res) => {
-    if (req.session.user) {
-      res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
-    } else {
+    if (!req.session.user) {
       res.redirect('/solidGame/login')
+    } else {
+      res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
     }
   })
   app.get('/solidGame/users', (req, res) => {
