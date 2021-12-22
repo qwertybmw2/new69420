@@ -1,19 +1,24 @@
-// VARIABLES
+// REQUIRIES
 {
-var fs = require('fs')
 var express = require('express')
+var session = require('express-session')
 var mongoose = require('mongoose')
 
 var app = express()
 app.use(express.json({limit: '1mb'}))
 app.use(express.urlencoded({extended: true}))
-var Schema = mongoose.Schema
-var dbURI = 'mongodb+srv://qwertybmw:mongodbpassword@cluster0.uehtx.mongodb.net/POGGIES?retryWrites=true&w=majority'
-mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then((result) => app.listen(process.env.PORT || 2137))
+app.use(session({
+  secret: '8/21',
+  resave: false,
+  saveUninitialized: false
+}))
 }
 
-// When the Mongoose is sus
+// When the Mongoose is sus\
 {
+  var dbURI = 'mongodb+srv://qwertybmw:mongodbpassword@cluster0.uehtx.mongodb.net/POGGIES?retryWrites=true&w=majority'
+  mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then((result) => app.listen(process.env.PORT || 2137))
+  var Schema = mongoose.Schema
   var userSchema = new Schema({
     username: {
       type: String,
@@ -29,7 +34,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
 }
 {
   app.get('/solidGame', (req, res) => {
-    if (req.headers.referer === 'https://new69420.herokuapp.com/solidGame/login') {
+    if (req.session.user) {
       res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
     } else {
       res.redirect('/solidGame/login')
@@ -57,6 +62,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(
         }
       }
       if (loggingIn) {
+        req.session.user = req.body.username
         res.redirect('/solidGame')
       } else {
         res.status(404).send('invalid')
