@@ -48,6 +48,13 @@ app.use(session({
       res.redirect('/sundayFunday/login')
     } else {
       res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
+      Users.find().then((result) => {
+        for (var i = 0; i < result.length; i++) {
+          if (result[i].username === req.session.user) {
+            res.send({x: result[i].x, y: result[i].y})
+          }
+        }
+      })
     }
   })
   app.get('/sundayFunday/users', (req, res) => {
@@ -63,13 +70,7 @@ app.use(session({
   })
 
   app.post('/sundayFunday', (req, res) => {
-    Users.find().then((result) => {
-      for (var i = 0; i < result.length; i++) {
-        if (result[i].username === req.session.user) {
-          res.send({x: result[i].x, y: result[i].y})
-        }
-      }
-    })
+    Users.findOneAndUpdate({ username: req.session.user}, {x: req.body.x, y: req.body.y})
   })
   app.post('/sundayFunday/login', (req, res) => {
     Users.find().then((result) => {
