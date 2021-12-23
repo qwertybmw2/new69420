@@ -29,6 +29,7 @@ for (var i = 0; i < world0.length; i++) {
 }
 }
 
+
 // REQUESTS
 {
   setInterval(
