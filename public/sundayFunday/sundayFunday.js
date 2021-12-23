@@ -46,7 +46,6 @@ for (var i = 0; i < world0.length; i++) {
     }, 10000
   )
 }
-
 // event listeners
 {
 addEventListener('wheel', (e) => {
