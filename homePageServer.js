@@ -66,7 +66,7 @@ app.use(session({
     Users.find().then((result) => {
       for (var i = 0; i < result.length; i++) {
         if (result[i].username === req.session.user) {
-          res.send({x: result[i].x, y: result[i].y})
+          res.json({x: result[i].x, y: result[i].y})
         }
       }
     })
