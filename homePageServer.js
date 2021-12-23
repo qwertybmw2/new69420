@@ -73,7 +73,7 @@ app.use(session({
   })
 
   app.post('/sundayFunday', (req, res) => {
-    Users.findOneAndUpdate({ username: req.session.user}, {x: req.body.x, y: req.body.y})
+    await Users.findOneAndUpdate({ username: req.session.user}, {x: req.body.x, y: req.body.y})
     res.status(200).send({x: req.body.x, y: req.body.y})
   })
   app.post('/sundayFunday/login', (req, res) => {
