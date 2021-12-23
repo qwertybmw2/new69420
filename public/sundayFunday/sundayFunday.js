@@ -44,7 +44,7 @@ for (var i = 0; i < world0.length; i++) {
           y: 50 * 0.5625 - ((50 * 0.5625 - parseFloat(world[0].style.top)) * (4 / zoom))
         })
       })
-    }, 10000
+    }, 500
   )
   fetch('/sundayFunday/coordinates').then((result) => {
     return result.json()
