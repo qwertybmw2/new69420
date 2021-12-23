@@ -62,6 +62,7 @@ app.use(session({
     res.sendFile(__dirname + '/public/sundayFunday/signUp/solidGameSignUp.html')
   })
   app.get('/sundayFunday/coordinates', (req, res) => {
+    console.log('getting')
     Users.find().then((result) => {
       for (var i = 0; i < result.length; i++) {
         if (result[i].username === req.session.user) {
