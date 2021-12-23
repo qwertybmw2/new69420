@@ -15,7 +15,7 @@ var timer = 0
 for (var i = 0; i < world.length; i++) {
   var worldi = document.createElement('div')
   worldi.classList = 'world'
-  worldi.id = 'world[' + i + ']'
+  worldi.id = 'world' + i
   document.body.prepend(worldi)
   for (var j = 0; j < 2500; j++) {
     world[i].push(document.createElement('div'))
@@ -45,10 +45,10 @@ for (var i = 0; i < world.length; i++) {
     return result.json()
   }).then((json) => {
     for (var i = 0; i < world.length; i++) {
-      world[i].style.top = json.y + 'vw'
+      document.getElementById('world' + i).style.top = json.y + 'vw'
     }
     for (var i = 0; i < world.length; i++) {
-      world[i].style.left = json.x + 'vw'
+      document.getElementById('world' + i).style.left = json.x + 'vw'
     }
     addEventListener('wheel', (e) => {
       switch (Math.sign(e.deltaY)) {
@@ -129,22 +129,22 @@ for (var i = 0; i < world.length; i++) {
 function movement() {
   if (wPressed) {
     for (var i = 0; i < world.length; i++) {
-      world[i].style.top = parseFloat(world[i].style.top) + zoom * .125 + 'vw'
+      document.getElementById('world' + i).style.top = parseFloat(document.getElementById('world' + i).style.top) + zoom * .125 + 'vw'
     }
   }
   if (aPressed) {
     for (var i = 0; i < world.length; i++) {
-      world[i].style.left = parseFloat(world[i].style.left) + zoom * .125 + 'vw'
+      document.getElementById('world' + i).style.left = parseFloat(document.getElementById('world' + i).style.left) + zoom * .125 + 'vw'
     }
   }
   if (sPressed) {
     for (var i = 0; i < world.length; i++) {
-      world[i].style.top = parseFloat(world[i].style.top) - zoom * .125 + 'vw'
+      document.getElementById('world' + i).style.top = parseFloat(document.getElementById('world' + i).style.top) - zoom * .125 + 'vw'
     }
   }
   if (dPressed) {
     for (var i = 0; i < world.length; i++) {
-      world[i].style.left = parseFloat(world[i].style.left) - zoom * .125 + 'vw'
+      document.getElementById('world' + i).style.left = parseFloat(document.getElementById('world' + i).style.left) - zoom * .125 + 'vw'
     }
   }
 }
@@ -222,8 +222,8 @@ function movementAnimation() {
 }
 function zoomer() {
   for (var i = 0; i < world.length; i++) {
-    world[i].style.width = zoom * 25 + 'vw'
-    world[i].style.height = zoom * 25 + 'vw'
+    document.getElementById('world' + i).style.width = zoom * 25 + 'vw'
+    document.getElementById('world' + i).style.height = zoom * 25 + 'vw'
   }
   player.style.width = zoom * 1.25 + 'vw'
   player.style.height = zoom * 1.25 + 'vw'
