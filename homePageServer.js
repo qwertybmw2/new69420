@@ -14,6 +14,10 @@ app.use(session({
 }))
 }
 
+{
+  req.session.sentFile = false
+}
+
 // When the Mongoose is sus
 {
   var dbURI = 'mongodb+srv://qwertybmw:mongodbpassword@cluster0.uehtx.mongodb.net/POGGIES?retryWrites=true&w=majority'
