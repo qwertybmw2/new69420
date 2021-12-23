@@ -75,7 +75,7 @@ app.use(session({
       }
       if (loggingIn) {
         req.session.user = req.body.username
-        res.redirect('/sundayFunday').send(req.session.user)
+        res.redirect('/sundayFunday')//.send(req.session.user)
       } else if (wrongUsername) {
         res.status(404).send('invalid username')
       } else if (wrongPassword) {
