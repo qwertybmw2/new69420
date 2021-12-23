@@ -47,18 +47,7 @@ app.use(session({
     if (!req.session.user) {
       res.redirect('/sundayFunday/login')
     } else {
-      if (req.session.sentFile) {
-        Users.find().then((result) => {
-          for (var i = 0; i < result.length; i++) {
-            if (result[i].username === req.session.user) {
-              res.send({x: result[i].x, y: result[i].y})
-            }
-          }
-        })
-      } else {
-        res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
-        req.session.sentFile = true
-      }
+      res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
     }
   })
   app.get('/sundayFunday/users', (req, res) => {
@@ -71,6 +60,15 @@ app.use(session({
   })
   app.get('/sundayFunday/signup', (req, res) => {
     res.sendFile(__dirname + '/public/sundayFunday/signUp/solidGameSignUp.html')
+  })
+  app.get('/sundayFunday/coordinates', (req, res) => {
+    Users.find().then((result) => {
+      for (var i = 0; i < result.length; i++) {
+        if (result[i].username === req.session.user) {
+          res.send({x: result[i].x, y: result[i].y})
+        }
+      }
+    })
   })
 
   app.post('/sundayFunday', (req, res) => {
