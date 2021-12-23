@@ -3,7 +3,7 @@
 var player = document.getElementsByClassName('player')[0]
 var playerPixel = document.getElementsByClassName('player-pixel')
 var wPressed, aPressed, sPressed, dPressed, lastZoom
-var world = [document.createElement('div')]
+var world = [[]]
 var world[0] = []
 var currentZoom = 100
 var zoom = 4
@@ -16,15 +16,13 @@ world[0].style.top = 0
 world[0].style.left = 0
 
 for (var i = 0; i < world.length; i++) {
-  world[i].classList = 'world'
-  document.body.prepend(world[i])
+  var worldi = document.createElement('div')
+  worldi.classList = 'world'
+  document.body.prepend(worldi)
   for (var j = 0; j < 2500; j++) {
-    eval('world' + '[i]').push(document.createElement('div'))
-    world[0].appendChild(world[i][j])
+    world[i].push(document.createElement('div'))
+    worldi.appendChild(world[i][j])
   }
-}
-for (var i = 0; i < world[0].length; i++) {
-  world[0][i].classList = 'world-chunk'
 }
 }
 
