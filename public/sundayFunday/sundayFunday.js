@@ -47,7 +47,7 @@ for (var i = 0; i < world0.length; i++) {
     }, 10000
   )
   fetch('http://new69420.herokuapp.com/sundayFunday/coordinates').then((result) => {
-    console.log(result.json())
+    result.json()
   }).then((json) => {
     console.log(json)
   })
