@@ -56,8 +56,8 @@ app.use(session({
           }
         })
       } else {
-        req.session.sentFile = true
         res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
+        req.session.sentFile = true
       }
     }
   })
