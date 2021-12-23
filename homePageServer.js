@@ -27,6 +27,16 @@ app.use(session({
     password: {
       type: String,
       required: true
+    },
+    x: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    y: {
+      type: Number,
+      required: true,
+      default: 0
     }
   })
 
@@ -52,6 +62,15 @@ app.use(session({
     res.sendFile(__dirname + '/public/sundayFunday/signUp/solidGameSignUp.html')
   })
 
+  app.post('/sundayFunday', (req, res) => {
+    Users.find().then((result) => {
+      for (var i = 0; i < result.length; i++) {
+        if (result[i].username === req.session.user) {
+          res.send([result[i].x, result[i].y])
+        }
+      }
+    })
+  })
   app.post('/sundayFunday/login', (req, res) => {
     Users.find().then((result) => {
       var loggingIn = false
