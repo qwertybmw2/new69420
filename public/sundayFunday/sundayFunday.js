@@ -41,7 +41,7 @@ for (var i = 0; i < world0.length; i++) {
         },
         body: JSON.stringify({
           x: world[0].style.left = 50 - ((50 - parseFloat(world[0].style.left)) * 100 / zoom * 25),
-          y: parseFloat(world[0].style.top)
+          y: world[0].style.top = 50 * 0.5625 - ((50 * 0.5625 - parseFloat(world[0].style.top)) * 100 / zoom * 25)
         })
       })
     }, 10000
