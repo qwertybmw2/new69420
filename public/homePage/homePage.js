@@ -92,7 +92,7 @@ addEventListener('click', (e) => {
     case 'youtube-png':
       location = 'https://www.youtube.com'
       break
-      case 'solidGame':
+      case 'sundayFunday':
       location = '/sundayFunday'
       break
     case 'newest-project':
