@@ -11,8 +11,6 @@ var timer = 0
 
 // setters
 {
-world[0].style.top = 0
-world[0].style.left = 0
 
 for (var i = 0; i < world.length; i++) {
   var worldi = document.createElement('div')
