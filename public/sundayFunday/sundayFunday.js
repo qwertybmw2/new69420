@@ -49,7 +49,12 @@ for (var i = 0; i < world0.length; i++) {
   fetch('http://new69420.herokuapp.com/sundayFunday/coordinates').then((result) => {
     return result.json()
   }).then((json) => {
-    console.log(json)
+    for (var i = 0; i < world.length; i++) {
+      world[i].style.top = json.y + 'vw'
+    }
+    for (var i = 0; i < world.length; i++) {
+      world[i].style.left = json.x + zoom * .125 + 'vw'
+    }
   })
 }
 
