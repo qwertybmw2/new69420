@@ -230,9 +230,9 @@ function zoomer() {
 }
 function zoomControl() {
   lastZoom = currentZoom
-  currentZoom = parseFloat(world[0].style.width)
-  world[0].style.top = 50 * 0.5625 - ((50 * 0.5625 - parseFloat(world[0].style.top)) * currentZoom / lastZoom) + 'vw'
-  world[0].style.left = 50 - ((50 - parseFloat(world[0].style.left)) * currentZoom / lastZoom) + 'vw'
+  currentZoom = parseFloat(document.getElementById('world0').style.width)
+  document.getElementById('world0').style.top = 50 * 0.5625 - ((50 * 0.5625 - parseFloat(document.getElementById('world0').style.top)) * currentZoom / lastZoom) + 'vw'
+  document.getElementById('world0').style.left = 50 - ((50 - parseFloat(document.getElementById('world0').style.left)) * currentZoom / lastZoom) + 'vw'
 }
 }
 
