@@ -53,7 +53,7 @@ for (var i = 0; i < world0.length; i++) {
       world[i].style.top = json.y + 'vw'
     }
     for (var i = 0; i < world.length; i++) {
-      world[i].style.left = json.x + zoom * .125 + 'vw'
+      world[i].style.left = json.x + 'vw'
     }
     addEventListener('wheel', (e) => {
       switch (Math.sign(e.deltaY)) {
