@@ -21,7 +21,7 @@ var signUpBaitLink = document.getElementsByClassName('sign-up-bait-link')[0]
 */
 {
 loginButton.addEventListener('click', (e) => {
-  fetch('/solidGame/login', {
+  fetch('/sundayFunday/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -35,7 +35,7 @@ loginButton.addEventListener('click', (e) => {
   })
 })
 signUpBaitLink.addEventListener('click', (e) => {
-  location.href = '/solidGame/signup'
+  location.href = '/sundayFunday/signup'
 })
 }
 /*
