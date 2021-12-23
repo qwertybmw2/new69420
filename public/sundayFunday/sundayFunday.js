@@ -32,16 +32,18 @@ for (var i = 0; i < world0.length; i++) {
 // REQUESTS
 {
   setInterval(
-    fetch('/sundayFunday', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        x: parseFloat(world[0].style.left) + zoom * .125,
-        y: parseFloat(world[0].style.top) + zoom * .125
+    function () {
+      fetch('/sundayFunday', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          x: parseFloat(world[0].style.left) + zoom * .125,
+          y: parseFloat(world[0].style.top) + zoom * .125
+        })
       })
-    }), 10000
+    }, 10000
   )
 }
 
