@@ -33,26 +33,26 @@ app.use(session({
   var Users = mongoose.model('Users', userSchema)
 }
 {
-  app.get('/solidGame', (req, res) => {
+  app.get('/sundayFunday', (req, res) => {
     if (!req.session.user) {
-      res.redirect('/solidGame/login')
+      res.redirect('/sundayFunday/login')
     } else {
-      res.send(req.session.user)
+      res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
     }
   })
-  app.get('/solidGame/users', (req, res) => {
+  app.get('/sundayFunday/users', (req, res) => {
     Users.find().then((result) => {
       res.send(result)
     })
   })
-  app.get('/solidGame/login', (req, res) => {
-    res.sendFile(__dirname + '/public/solidGame/logIn/solidGameLogIn.html')
+  app.get('/sundayFunday/login', (req, res) => {
+    res.sendFile(__dirname + '/public/sundayFunday/logIn/solidGameLogIn.html')
   })
-  app.get('/solidGame/signup', (req, res) => {
-    res.sendFile(__dirname + '/public/solidGame/signUp/solidGameSignUp.html')
+  app.get('/sundayFunday/signup', (req, res) => {
+    res.sendFile(__dirname + '/public/sundayFunday/signUp/solidGameSignUp.html')
   })
 
-  app.post('/solidGame/login', (req, res) => {
+  app.post('/sundayFunday/login', (req, res) => {
     Users.find().then((result) => {
       var loggingIn = false
       var wrongUsername = true
@@ -75,7 +75,7 @@ app.use(session({
       }
       if (loggingIn) {
         req.session.user = req.body.username
-        res.redirect('/solidGame').send(req.session.user)
+        res.redirect('/sundayFunday').send(req.session.user)
       } else if (wrongUsername) {
         res.status(404).send('invalid username')
       } else if (wrongPassword) {
@@ -83,7 +83,7 @@ app.use(session({
       }
     })
   })
-  app.post('/solidGame/signup', (req, res) => {
+  app.post('/sundayFunday/signup', (req, res) => {
     Users.find().then((result) => {
       var signingUp = true
       for (var i = 0; i < result.length; i++) {
@@ -92,10 +92,10 @@ app.use(session({
         }
       }
       if (!signingUp) {
-        res.redirect('/solidGame/users')
+        res.redirect('/sundayFunday/users')
       } else {
         new Users(req.body).save().then((result) => {
-          res.redirect('/solidGame/users')
+          res.redirect('/sundayFunday/users')
         })
       }
     })
@@ -111,8 +111,5 @@ app.get('/', (req, res) => {
 })
 app.get('/growCastleRipOff', (req, res) => {
   res.sendFile(__dirname + '/public/growCastleRipOff/growCastleRipOff.html')
-})
-app.get('/sundayFunday', (req, res) => {
-  res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
 })
 }

@@ -1,7 +1,7 @@
 /*
-  ==========
+  =========
   variables
-  ==========
+  =========
 */
 {
 var passwordInput = document.getElementsByClassName('password-input')[0]
