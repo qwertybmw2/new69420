@@ -55,26 +55,26 @@ for (var i = 0; i < world0.length; i++) {
     for (var i = 0; i < world.length; i++) {
       world[i].style.left = json.x + zoom * .125 + 'vw'
     }
+    addEventListener('wheel', (e) => {
+      switch (Math.sign(e.deltaY)) {
+        case -1:
+          if (zoom < 7) {
+            zoom++
+          }
+          break
+        case 1:
+          if (zoom > 1) {
+            zoom--
+          }
+      }
+      zoomer()
+      zoomControl()
+    })
   })
 }
 
 // event listeners
 {
-addEventListener('wheel', (e) => {
-  switch (Math.sign(e.deltaY)) {
-    case -1:
-      if (zoom < 7) {
-        zoom++
-      }
-      break
-    case 1:
-      if (zoom > 1) {
-        zoom--
-      }
-  }
-  zoomer()
-  zoomControl()
-})
 addEventListener('keydown', (e) => {
   if (e.key === 'w') {
     wPressed = true
