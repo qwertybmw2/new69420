@@ -46,7 +46,7 @@ for (var i = 0; i < world0.length; i++) {
       })
     }, 10000
   )
-  fetch('/sundayFunday')
+  fetch('http://new69420.herokuapp.com/sundayFunday')
 }
 
 // event listeners
