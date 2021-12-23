@@ -62,8 +62,8 @@ for (var i = 0; i < world.length; i++) {
             zoom--
           }
       }
-    //  zoomer()
-    //  zoomControl()
+    zoomer()
+    zoomControl()
     })
     addEventListener('keydown', (e) => {
       if (e.key === 'w') {
