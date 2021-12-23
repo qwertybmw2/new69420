@@ -40,8 +40,8 @@ for (var i = 0; i < world0.length; i++) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          x: 50 - ((50 - parseFloat(world[0].style.left)) * (100 / zoom * 25)),
-          y: 50 * 0.5625 - ((50 * 0.5625 - parseFloat(world[0].style.top)) * (100 / zoom * 25))
+          x: 50 - ((50 - parseFloat(world[0].style.left)) * (4 / zoom)),
+          y: 50 * 0.5625 - ((50 * 0.5625 - parseFloat(world[0].style.top)) * (4 / zoom))
         })
       })
     }, 10000
