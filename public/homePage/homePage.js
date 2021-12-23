@@ -93,10 +93,10 @@ addEventListener('click', (e) => {
       location = 'https://www.youtube.com'
       break
       case 'solidGame':
-      location = '/solidGame'
+      location = '/sundayFunday'
       break
     case 'newest-project':
-      location = 'http://localhost:2137/sundayFunday'
+      location = '/'
   }
 })
 addEventListener('mouseover', (e) => {
