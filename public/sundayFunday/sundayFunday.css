@@ -36,7 +36,7 @@
 .settings-circle {
   background-color: transparent;
   border-radius: 50%;
-  border: .3vw solid #99a;
+  border: .3vw solid #778;
   width: 1vw;
   height: 1vw;
   position: absolute;
@@ -44,7 +44,7 @@
   left: 97vw;
 }
 .settings-cog1 {
-  background-color: #99a;
+  background-color: #778;
   width: .3vw;
   height: .2vw;
   position: absolute;
