@@ -34,10 +34,12 @@
   height: 100%;
 }
 .settings-circle {
-  background-color: #fff;
+  background-color: transparent;
+  border-radius: 50%;
+  border: .5vw solid #99a;
   width: 1vw;
   height: 1vw;
   position: absolute;
-  left: 95vw;
-  top: 2vw;
+  left: 97vw;
+  top: 1.5vw;
 }
