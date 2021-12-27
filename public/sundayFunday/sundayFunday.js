@@ -11,7 +11,6 @@ var timer = 0
 
 // setters
 {
-
 for (var i = 0; i < world.length; i++) {
   var worldi = document.createElement('div')
   worldi.classList = 'world'
@@ -23,7 +22,6 @@ for (var i = 0; i < world.length; i++) {
   }
 }
 }
-
 
 // REQUESTS
 {
@@ -118,10 +116,6 @@ for (var i = 0; i < world.length; i++) {
       }
     })
   })
-}
-
-// event listeners
-{
 }
 
 // functions
@@ -227,8 +221,6 @@ function zoomer() {
   }
   player.style.width = zoom * 1.25 + 'vw'
   player.style.height = zoom * 1.25 + 'vw'
-}
-function zoomControl() {
   lastZoom = currentZoom
   currentZoom = parseFloat(document.getElementById('world0').style.width)
   document.getElementById('world0').style.top = 50 * 0.5625 - ((50 * 0.5625 - parseFloat(document.getElementById('world0').style.top)) * currentZoom / lastZoom) + 'vw'
