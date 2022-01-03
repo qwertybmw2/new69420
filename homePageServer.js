@@ -14,7 +14,7 @@ app.use(session({
 }))
 }
 
-// When the Mongoose is sus (amogoose)
+// When the Mongoose is sus
 {
   var dbURI = 'mongodb+srv://qwertybmw:mongodbpassword@cluster0.uehtx.mongodb.net/POGGIES?retryWrites=true&w=majority'
   mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true}).then((result) => app.listen(process.env.PORT || 2137))
