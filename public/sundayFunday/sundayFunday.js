@@ -37,7 +37,7 @@ for (var i = 0; i < world.length; i++) {
           y: 50 * 0.5625 - ((50 * 0.5625 - parseFloat(document.getElementById('world0').style.top)) * (4 / zoom))
         })
       })
-    }, 500
+    }, 1000
   )
   fetch('/sundayFunday/coordinates').then((result) => {
     return result.json()
@@ -60,7 +60,7 @@ for (var i = 0; i < world.length; i++) {
             zoom--
           }
       }
-    zoomer()
+      zoomer()
     })
     addEventListener('keydown', (e) => {
       if (e.key === 'w') {
