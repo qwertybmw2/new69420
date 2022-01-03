@@ -119,7 +119,7 @@ for (var i = 0; i < world.length; i++) {
 
 // functions
 {
-function movement() {
+  function movement() {
   if (wPressed) {
     for (var i = 0; i < world.length; i++) {
       document.getElementById('world' + i).style.top = parseFloat(document.getElementById('world' + i).style.top) + zoom * .125 + 'vw'
@@ -140,8 +140,8 @@ function movement() {
       document.getElementById('world' + i).style.left = parseFloat(document.getElementById('world' + i).style.left) - zoom * .125 + 'vw'
     }
   }
-}
-function movementAnimation() {
+  }
+  function movementAnimation() {
   if (wPressed && !sPressed && !aPressed && !dPressed) {
     if (timer < 15) {
       playerPixel[59].style.backgroundColor = '#520'
@@ -212,19 +212,19 @@ function movementAnimation() {
     }
     timer++
   }
-}
-function zoomer() {
-  for (var i = 0; i < world.length; i++) {
-    document.getElementById('world' + i).style.width = zoom * 25 + 'vw'
-    document.getElementById('world' + i).style.height = zoom * 25 + 'vw'
   }
-  player.style.width = zoom * 1.25 + 'vw'
-  player.style.height = zoom * 1.25 + 'vw'
-  lastZoom = currentZoom
-  currentZoom = parseFloat(document.getElementById('world0').style.width)
-  document.getElementById('world0').style.top = 50 * 0.5625 - ((50 * 0.5625 - parseFloat(document.getElementById('world0').style.top)) * currentZoom / lastZoom) + 'vw'
-  document.getElementById('world0').style.left = 50 - ((50 - parseFloat(document.getElementById('world0').style.left)) * currentZoom / lastZoom) + 'vw'
-}
+  function zoomer() {
+    for (var i = 0; i < world.length; i++) {
+      document.getElementById('world' + i).style.width = zoom * 25 + 'vw'
+      document.getElementById('world' + i).style.height = zoom * 25 + 'vw'
+    }
+    player.style.width = zoom * 1.25 + 'vw'
+    player.style.height = zoom * 1.25 + 'vw'
+    lastZoom = currentZoom
+    currentZoom = parseFloat(document.getElementById('world0').style.width)
+    document.getElementById('world0').style.top = 50 * 0.5625 - ((50 * 0.5625 - parseFloat(document.getElementById('world0').style.top)) * currentZoom / lastZoom) + 'vw'
+    document.getElementById('world0').style.left = 50 - ((50 - parseFloat(document.getElementById('world0').style.left)) * currentZoom / lastZoom) + 'vw'
+  }
 }
 
 // function calls
