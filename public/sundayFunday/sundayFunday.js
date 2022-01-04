@@ -42,7 +42,7 @@ for (var i = 0; i < world.length; i++) {
   fetch('/sundayFunday/coordinates').then((result) => {
     return result.json()
   }).then((json) => {
-    document.getElementById('world0').style.top = json.y + 'vw'
+    document.getElementById('world0').style.top = json.y + 'vw' 
     document.getElementById('world0').style.left = json.x + 'vw'
     
     addEventListener('wheel', (e) => {
@@ -117,26 +117,18 @@ for (var i = 0; i < world.length; i++) {
 // functions
 {
   function movement() {
-  if (wPressed) {
-  //  for (var i = 0; i < world.length; i++) {
+    if (wPressed) {
       document.getElementById('world0').style.top = parseFloat(document.getElementById('world0').style.top) + zoom * .125 + 'vw'
-  //  }
-  }
-  if (aPressed) {
-    for (var i = 0; i < world.length; i++) {
-      document.getElementById('world' + i).style.left = parseFloat(document.getElementById('world' + i).style.left) + zoom * .125 + 'vw'
     }
-  }
-  if (sPressed) {
-    for (var i = 0; i < world.length; i++) {
-      document.getElementById('world' + i).style.top = parseFloat(document.getElementById('world' + i).style.top) - zoom * .125 + 'vw'
+    if (aPressed) {
+      document.getElementById('world0').style.left = parseFloat(document.getElementById('world0').style.left) + zoom * .125 + 'vw'
     }
-  }
-  if (dPressed) {
-    for (var i = 0; i < world.length; i++) {
-      document.getElementById('world' + i).style.left = parseFloat(document.getElementById('world' + i).style.left) - zoom * .125 + 'vw'
+    if (sPressed) {
+      document.getElementById('world0').style.top = parseFloat(document.getElementById('world0').style.top) - zoom * .125 + 'vw'
     }
-  }
+    if (dPressed) {
+      document.getElementById('world0').style.left = parseFloat(document.getElementById('world0').style.left) - zoom * .125 + 'vw'
+    }
   }
   function movementAnimation() {
   if (wPressed && !sPressed && !aPressed && !dPressed) {
@@ -221,8 +213,12 @@ for (var i = 0; i < world.length; i++) {
     currentZoom = parseFloat(document.getElementById('world0').style.width)
     document.getElementById('world0').style.top = 50 * 0.5625 - ((50 * 0.5625 - parseFloat(document.getElementById('world0').style.top)) * currentZoom / lastZoom) + 'vw'
     document.getElementById('world0').style.left = 50 - ((50 - parseFloat(document.getElementById('world0').style.left)) * currentZoom / lastZoom) + 'vw'
+  }
+  function align() {
     document.getElementById('world1').style.top = parseFloat(document.getElementById('world0').style.top) - zoom * 25 + 'vw'
     document.getElementById('world1').style.left = document.getElementById('world0').style.left
+
+    requestAnimationFrame(align)
   }
 }
 
@@ -231,4 +227,5 @@ for (var i = 0; i < world.length; i++) {
 setInterval(movement, 1000 / 60)
 setInterval(movementAnimation, 1000 / 60)
 zoomer()
+align()
 }
