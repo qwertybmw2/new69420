@@ -42,7 +42,6 @@ for (var i = 0; i < world.length; i++) {
   fetch('/sundayFunday/coordinates').then((result) => {
     return result.json()
   }).then((json) => {
-    const coordinates = json
     for (var i = 0; i < world.length; i++) {
       document.getElementById('world' + i).style.top = coordinates.y + 'vw'
     }
