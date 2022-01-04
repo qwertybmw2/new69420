@@ -43,15 +43,16 @@ for (var i = 0; i < world.length; i++) {
     return result.json()
   }).then((json) => {
     const coordinates = json
+    for (var i = 0; i < world.length; i++) {
+      document.getElementById('world' + i).style.top = coordinates.y + 'vw'
+    }
+    for (var i = 0; i < world.length; i++) {
+      document.getElementById('world' + i).style.left = coordinates.x + 'vw'
+    }
   })
 }
 
-for (var i = 0; i < world.length; i++) {
-  document.getElementById('world' + i).style.top = coordinates.y + 'vw'
-}
-for (var i = 0; i < world.length; i++) {
-  document.getElementById('world' + i).style.left = coordinates.x + 'vw'
-}
+
 addEventListener('wheel', (e) => {
   switch (Math.sign(e.deltaY)) {
     case -1:
