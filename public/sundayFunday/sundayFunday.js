@@ -43,10 +43,10 @@ for (var i = 0; i < world.length; i++) {
     return result.json()
   }).then((json) => {
     for (var i = 0; i < world.length; i++) {
-      document.getElementById('world' + i).style.top = coordinates.y + 'vw'
+      document.getElementById('world' + i).style.top = json.y + 'vw'
     }
     for (var i = 0; i < world.length; i++) {
-      document.getElementById('world' + i).style.left = coordinates.x + 'vw'
+      document.getElementById('world' + i).style.left = json.x + 'vw'
     }
     addEventListener('wheel', (e) => {
       switch (Math.sign(e.deltaY)) {
