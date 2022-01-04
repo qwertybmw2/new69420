@@ -121,9 +121,9 @@ for (var i = 0; i < world.length; i++) {
 {
   function movement() {
   if (wPressed) {
-    for (var i = 0; i < world.length; i++) {
+  //  for (var i = 0; i < world.length; i++) {
       document.getElementById('world' + i).style.top = parseFloat(document.getElementById('world' + i).style.top) + zoom * .125 + 'vw'
-    }
+  //  }
   }
   if (aPressed) {
     for (var i = 0; i < world.length; i++) {
