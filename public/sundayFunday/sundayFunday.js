@@ -42,80 +42,82 @@ for (var i = 0; i < world.length; i++) {
   fetch('/sundayFunday/coordinates').then((result) => {
     return result.json()
   }).then((json) => {
-    for (var i = 0; i < world.length; i++) {
-      document.getElementById('world' + i).style.top = json.y + 'vw'
-    }
-    for (var i = 0; i < world.length; i++) {
-      document.getElementById('world' + i).style.left = json.x + 'vw'
-    }
-    addEventListener('wheel', (e) => {
-      switch (Math.sign(e.deltaY)) {
-        case -1:
-          if (zoom < 7) {
-            zoom++
-          }
-          break
-        case 1:
-          if (zoom > 1) {
-            zoom--
-          }
-      }
-      zoomer()
-    })
-    addEventListener('keydown', (e) => {
-      if (e.key === 'w') {
-        wPressed = true
-      }
-      if (e.key === 'a') {
-        aPressed = true
-      }
-      if (e.key === 's') {
-        sPressed = true
-      }
-      if (e.key === 'd') {
-        dPressed = true
-      }
-    })
-    addEventListener('keyup', (e) => {
-      if (e.key === 'w') {
-        wPressed = false
-        playerPixel[59].style.backgroundColor = '#520'
-        playerPixel[60].style.backgroundColor = '#520'
-        playerPixel[45].style.backgroundColor = '#e96'
-        playerPixel[42].style.backgroundColor = '#e96'
-      }
-      if (e.key === 'a') {
-        aPressed = false
-        playerPixel[26].style.backgroundColor = '#000'
-        playerPixel[29].style.backgroundColor = '#000'
-        playerPixel[34].style.backgroundColor = '#e96'
-        playerPixel[36].style.backgroundColor = '#000'
-        playerPixel[37].style.backgroundColor = '#e96'
-        playerPixel[42].style.backgroundColor = '#e96'
-        playerPixel[44].style.backgroundColor = '#226'
-        playerPixel[45].style.backgroundColor = '#e96'
-      }
-      if (e.key === 's') {
-        sPressed = false
-        playerPixel[59].style.backgroundColor = '#520'
-        playerPixel[60].style.backgroundColor = '#520'
-        playerPixel[45].style.backgroundColor = '#e96'
-        playerPixel[42].style.backgroundColor = '#e96'
-      }
-      if (e.key === 'd') {
-        dPressed = false
-        playerPixel[26].style.backgroundColor = '#000'
-        playerPixel[29].style.backgroundColor = '#000'
-        playerPixel[34].style.backgroundColor = '#e96'
-        playerPixel[35].style.backgroundColor = '#000'
-        playerPixel[37].style.backgroundColor = '#e96'
-        playerPixel[42].style.backgroundColor = '#e96'
-        playerPixel[43].style.backgroundColor = '#226'
-        playerPixel[45].style.backgroundColor = '#e96'
-      }
-    })
+    var coordinates = json
   })
 }
+
+for (var i = 0; i < world.length; i++) {
+  document.getElementById('world' + i).style.top = coordinates.y + 'vw'
+}
+for (var i = 0; i < world.length; i++) {
+  document.getElementById('world' + i).style.left = coordinates.x + 'vw'
+}
+addEventListener('wheel', (e) => {
+  switch (Math.sign(e.deltaY)) {
+    case -1:
+      if (zoom < 7) {
+        zoom++
+      }
+      break
+    case 1:
+      if (zoom > 1) {
+        zoom--
+      }
+  }
+  zoomer()
+})
+addEventListener('keydown', (e) => {
+  if (e.key === 'w') {
+    wPressed = true
+  }
+  if (e.key === 'a') {
+    aPressed = true
+  }
+  if (e.key === 's') {
+    sPressed = true
+  }
+  if (e.key === 'd') {
+    dPressed = true
+  }
+})
+addEventListener('keyup', (e) => {
+  if (e.key === 'w') {
+    wPressed = false
+    playerPixel[59].style.backgroundColor = '#520'
+    playerPixel[60].style.backgroundColor = '#520'
+    playerPixel[45].style.backgroundColor = '#e96'
+    playerPixel[42].style.backgroundColor = '#e96'
+  }
+  if (e.key === 'a') {
+    aPressed = false
+    playerPixel[26].style.backgroundColor = '#000'
+    playerPixel[29].style.backgroundColor = '#000'
+    playerPixel[34].style.backgroundColor = '#e96'
+    playerPixel[36].style.backgroundColor = '#000'
+    playerPixel[37].style.backgroundColor = '#e96'
+    playerPixel[42].style.backgroundColor = '#e96'
+    playerPixel[44].style.backgroundColor = '#226'
+    playerPixel[45].style.backgroundColor = '#e96'
+  }
+  if (e.key === 's') {
+    sPressed = false
+    playerPixel[59].style.backgroundColor = '#520'
+    playerPixel[60].style.backgroundColor = '#520'
+    playerPixel[45].style.backgroundColor = '#e96'
+    playerPixel[42].style.backgroundColor = '#e96'
+  }
+  if (e.key === 'd') {
+    dPressed = false
+    playerPixel[26].style.backgroundColor = '#000'
+    playerPixel[29].style.backgroundColor = '#000'
+    playerPixel[34].style.backgroundColor = '#e96'
+    playerPixel[35].style.backgroundColor = '#000'
+    playerPixel[37].style.backgroundColor = '#e96'
+    playerPixel[42].style.backgroundColor = '#e96'
+    playerPixel[43].style.backgroundColor = '#226'
+    playerPixel[45].style.backgroundColor = '#e96'
+  }
+})
 
 // functions
 {
