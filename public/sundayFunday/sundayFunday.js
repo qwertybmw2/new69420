@@ -224,8 +224,8 @@ for (var i = 0; i < world.length; i++) {
     currentZoom = parseFloat(document.getElementById('world0').style.width)
     document.getElementById('world0').style.top = 50 * 0.5625 - ((50 * 0.5625 - parseFloat(document.getElementById('world0').style.top)) * currentZoom / lastZoom) + 'vw'
     document.getElementById('world0').style.left = 50 - ((50 - parseFloat(document.getElementById('world0').style.left)) * currentZoom / lastZoom) + 'vw'
-    document.getElementById('world1').style.top = parseFloat(document.getElementById('world0').style.top) - zoom * 25 + 'vw'
-    document.getElementById('world1').style.left = document.getElementById('world0').style.left
+  //  document.getElementById('world1').style.top = parseFloat(document.getElementById('world0').style.top) - zoom * 25 + 'vw'
+  //  document.getElementById('world1').style.left = document.getElementById('world0').style.left
   }
 }
 
