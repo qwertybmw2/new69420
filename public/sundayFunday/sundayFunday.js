@@ -42,7 +42,7 @@ for (var i = 0; i < world.length; i++) {
   fetch('/sundayFunday/coordinates').then((result) => {
     return result.json()
   }).then((json) => {
-    var coordinates = json
+    const coordinates = json
   })
 }
 
