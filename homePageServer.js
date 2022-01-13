@@ -49,7 +49,7 @@ app.use('/sundayFunday', express.static('public/sundayFunday'))
     if (!req.session.user) {
       res.redirect('/sundayFunday/login')
     } else {
-      res.sendFile(__dirname + '/public/sundayFundayFile/sundayFunday.html')
+      res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
     }
   })
   app.get('/sundayFunday/users', (req, res) => {
@@ -58,10 +58,10 @@ app.use('/sundayFunday', express.static('public/sundayFunday'))
     })
   })
   app.get('/sundayFunday/login', (req, res) => {
-    res.sendFile(__dirname + '/public/sundayFundayFile/logIn/solidGameLogIn.html')
+    res.sendFile(__dirname + '/public/sundayFunday/logIn/solidGameLogIn.html')
   })
   app.get('/sundayFunday/signup', (req, res) => {
-    res.sendFile(__dirname + '/public/sundayFundayFile/signUp/solidGameSignUp.html')
+    res.sendFile(__dirname + '/public/sundayFunday/signUp/solidGameSignUp.html')
   })
   app.get('/sundayFunday/coordinates', (req, res) => {
     Users.find().then((result) => {
@@ -130,7 +130,7 @@ app.use('/sundayFunday', express.static('public/sundayFunday'))
 // APP
 {
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/homePageFile/homePage.html')
+  res.sendFile(__dirname + '/public/homePage/homePage.html')
 })
 app.get('/growCastleRipOff', (req, res) => {
   res.sendFile(__dirname + '/public/growCastleRipOff/growCastleRipOff.html')
