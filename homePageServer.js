@@ -13,7 +13,7 @@ app.use(session({
   saveUninitialized: false
 }))
 app.use(express.static('public/homePageFile'))
-app.use(express.static('public/sundayFundayFile'))
+app.use(express.static('public/sundayFundayFile')) 
 }
 
 // When the Mongoose is sus
