@@ -12,6 +12,8 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }))
+app.use(express.static('public/homePageFile'))
+app.use(express.static('public/sundayFundayFile'))
 }
 
 // When the Mongoose is sus
@@ -127,10 +129,6 @@ app.use(session({
 
 // APP
 {
-app.use(express.static('public/homePageFile'))
-app.use(express.static('public/sundayFundayFile'))
-
-
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/homePageFile/homePage.html')
 })
