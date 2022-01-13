@@ -47,7 +47,7 @@ app.use(session({
     if (!req.session.user) {
       res.redirect('/sundayFunday/login')
     } else {
-      res.sendFile(__dirname + '/public/sundayFunday/sundayFunday.html')
+      res.sendFile(__dirname + '/public/sundayFundayFile/sundayFunday.html')
     }
   })
   app.get('/sundayFunday/users', (req, res) => {
@@ -56,13 +56,12 @@ app.use(session({
     })
   })
   app.get('/sundayFunday/login', (req, res) => {
-    res.sendFile(__dirname + '/public/sundayFunday/logIn/solidGameLogIn.html')
+    res.sendFile(__dirname + '/public/sundayFundayFile/logIn/solidGameLogIn.html')
   })
   app.get('/sundayFunday/signup', (req, res) => {
-    res.sendFile(__dirname + '/public/sundayFunday/signUp/solidGameSignUp.html')
+    res.sendFile(__dirname + '/public/sundayFundayFile/signUp/solidGameSignUp.html')
   })
   app.get('/sundayFunday/coordinates', (req, res) => {
-    console.log('getting')
     Users.find().then((result) => {
       for (var i = 0; i < result.length; i++) {
         if (result[i].username === req.session.user) {
@@ -99,7 +98,7 @@ app.use(session({
       }
       if (loggingIn) {
         req.session.user = req.body.username
-        res.redirect('/sundayFunday')//.send(req.session.user)
+        res.redirect('/sundayFunday')
       } else if (wrongUsername) {
         res.status(404).send('invalid username')
       } else if (wrongPassword) {
