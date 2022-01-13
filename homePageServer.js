@@ -131,7 +131,7 @@ app.use(session({
 app.use(express.static('public/homePageFile'))
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/homePage/homePage.html')
+  res.sendFile(__dirname + '/public/homePageFile/homePage.html')
 })
 app.get('/growCastleRipOff', (req, res) => {
   res.sendFile(__dirname + '/public/growCastleRipOff/growCastleRipOff.html')
