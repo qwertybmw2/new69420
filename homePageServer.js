@@ -131,7 +131,6 @@ app.use('/sundayFunday', express.static('public/sundayFunday'))
 {
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/homePage/homePage.html')
-  res.sendFile(__dirname + '/public/homePage/homePage.css')
 })
 app.get('/growCastleRipOff', (req, res) => {
   res.sendFile(__dirname + '/public/growCastleRipOff/growCastleRipOff.html')
