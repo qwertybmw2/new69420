@@ -128,6 +128,8 @@ app.use(session({
 // APP
 {
 app.use(express.static('public/homePageFile'))
+app.use(express.static('public/sundayFundayFile'))
+
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/homePageFile/homePage.html')
