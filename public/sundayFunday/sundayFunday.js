@@ -216,10 +216,7 @@ var timer = 0
     document.getElementById('world0').style.left = 50 - ((50 - parseFloat(document.getElementById('world0').style.left)) * currentZoom / lastZoom) + 'vw'
   }
   function align() {
-    document.getElementById('world1').style.top = parseFloat(document.getElementById('world0').style.top) - zoom * 25 + 'vw'
-    document.getElementById('world1').style.left = document.getElementById('world0').style.left
-
-    requestAnimationFrame(align)
+    
   }
   function newWorld() {
     world.push([])
