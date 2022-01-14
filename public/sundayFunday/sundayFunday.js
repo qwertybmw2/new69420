@@ -8,6 +8,7 @@ var currentZoom = 100
 var zoom = 4
 var timer = 0
 }
+newWorld()
 
 // REQUESTS
 {
@@ -226,5 +227,4 @@ setInterval(movement, 1000 / 60)
 setInterval(movementAnimation, 1000 / 60)
 zoomer()
 align()
-newWorld()
 }
