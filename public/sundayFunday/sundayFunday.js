@@ -8,7 +8,19 @@ var currentZoom = 100
 var zoom = 4
 var timer = 0
 }
-newWorld()
+
+{
+  for (var i = 0; i < world.length; i++) {
+    var worldi = document.createElement('div')
+    worldi.classList = 'world'
+    worldi.id = 'world' + i
+    document.body.prepend(worldi)
+    for (var j = 0; j < 2500; j++) {
+      world[i].push(document.createElement('div'))
+      worldi.appendChild(world[i][j])
+    }
+  }
+}
 
 // REQUESTS
 {
@@ -227,4 +239,5 @@ setInterval(movement, 1000 / 60)
 setInterval(movementAnimation, 1000 / 60)
 zoomer()
 align()
+newWorld()
 }
