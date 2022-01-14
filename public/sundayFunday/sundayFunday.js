@@ -10,6 +10,21 @@ var zoom = 4
 var timer = 0
 }
 
+{
+  world.push([])
+  for (var i = worldRendered; i < world.length; i++) {
+    var worldi = document.createElement('div')
+    worldi.classList = 'world'
+    worldi.id = 'world' + i
+    document.body.prepend(worldi)
+    for (var j = 0; j < 2500; j++) {
+      world[i].push(document.createElement('div'))
+      worldi.appendChild(world[i][j])
+    }
+  }
+  worldRendered++
+}
+
 // REQUESTS
 {
   setInterval(
