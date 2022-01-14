@@ -239,5 +239,5 @@ setInterval(movement, 1000 / 60)
 setInterval(movementAnimation, 1000 / 60)
 zoomer()
 align()
-newWorld()
+//newWorld()
 }
