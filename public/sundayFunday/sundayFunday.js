@@ -3,7 +3,7 @@
 var player = document.getElementsByClassName('player')[0]
 var playerPixel = document.getElementsByClassName('player-pixel')
 var wPressed, aPressed, sPressed, dPressed, lastZoom
-var world = [[], []]
+var world = []
 var worldRendered = 0
 var currentZoom = 100
 var zoom = 4
