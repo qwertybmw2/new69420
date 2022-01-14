@@ -217,7 +217,7 @@ var timer = 0
   }
   function align() {
     for (var i = 0; i < world.length; i++) {
-      document.getElementById('world1').style.top = parseFloat(document.getElementById('world0').style.top) - zoom * .125 + 'vw'
+      document.getElementById('world1').style.top = parseFloat(document.getElementById('world0').style.top) - zoom * 25 + 'vw'
       document.getElementById('world1').style.left = document.getElementById('world0').style.left
     }
 
