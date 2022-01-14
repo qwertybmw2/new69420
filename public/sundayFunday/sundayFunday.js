@@ -22,7 +22,6 @@ var timer = 0
       worldi.appendChild(world[i][j])
     }
   }
-  worldRendered++
 }
 
 // REQUESTS
