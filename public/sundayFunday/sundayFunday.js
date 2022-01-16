@@ -4,6 +4,7 @@ var player = document.getElementsByClassName('player')[0]
 var playerPixel = document.getElementsByClassName('player-pixel')
 var wPressed, aPressed, sPressed, dPressed, lastZoom
 var world = []
+var worldPositions = {}
 var worldRendered = 0
 var currentZoom = 100
 var zoom = 4
@@ -236,6 +237,7 @@ var timer = 0
       }
     }
     worldRendered++
+    worldPositions.eval('world' + worldRendered) = {x: 0, y: 1}
   }
 }
 
