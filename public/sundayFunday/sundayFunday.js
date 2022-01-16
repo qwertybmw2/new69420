@@ -247,7 +247,7 @@ var timer = 0
     for (var x = -1; x < 1; x++) {
       for (var y = -1; y < 1; y++) {
         createWorld = true
-        for (var i = 0; i < world.length; i++) {
+        for (var i = 0; i < worldPositions.length; i++) {
           if (worldPositions[i].x === playerCoordinates + x &&
               worldPositions[i].y === playerCoordinates + y) {
             createWorld = false
