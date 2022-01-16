@@ -241,8 +241,8 @@ var timer = 0
   }
   function newWorldCheck() {
     playerCoordinates = {
-      x: (50 - parseFloat(document.getElementById('world0').style.left)) / zoom,
-      y: (-50 * 0.5625 + parseFloat(document.getElementById('world0').style.top)) / zoom
+      x: (50 - parseFloat(document.getElementById('world0').style.left)) / zoom / 25,
+      y: (-50 * 0.5625 + parseFloat(document.getElementById('world0').style.top)) / zoom / 25
     }
     console.log(playerCoordinates)
   }
