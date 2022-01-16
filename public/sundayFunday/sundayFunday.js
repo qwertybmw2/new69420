@@ -239,13 +239,19 @@ var timer = 0
     worldRendered++
     worldPositions.push({x: x, y: y})
   }
+  function newWorldCheck() {
+    var playerCoordinates = {
+      x: parseFloat(document.getElementById('world0').style.left) / zoom,
+      y: parseFloat(document.getElementById('world0').style.top) / zoom
+    }
+  }
 }
 
 // function calls
 {
 setInterval(movement, 1000 / 60)
 setInterval(movementAnimation, 1000 / 60)
-newWorld(1, 0)
+setInterval(newWorldCheck, 1000 / 60)
 zoomer()
 align()
 }
