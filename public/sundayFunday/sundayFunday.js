@@ -254,7 +254,7 @@ var timer = 0
           }
         }
         if (newWorld) {
-          newWorld(playerCoordinates + x, playerCoordinates + y)
+          newWorld(playerCoordinates.x + x, playerCoordinates.y + y)
         }
       }
     }
