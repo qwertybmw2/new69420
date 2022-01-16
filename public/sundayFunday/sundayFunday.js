@@ -217,9 +217,9 @@ var timer = 0
     document.getElementById('world0').style.left = 50 - ((50 - parseFloat(document.getElementById('world0').style.left)) * currentZoom / lastZoom) + 'vw'
   }
   function align() {
-    for (var i = 0; i < world.length; i++) {
-      document.getElementById('world1').style.top = parseFloat(document.getElementById('world0').style.top) - zoom * 25 + 'vw'
-      document.getElementById('world1').style.left = document.getElementById('world0').style.left
+    for (var i = 1; i < world.length; i++) {
+      document.getElementById('world' + i).style.top = parseFloat(document.getElementById('world0').style.top) - zoom * 25 * worldPositions[i].y + 'vw'
+      document.getElementById('world' + i).style.left = parseFloat(document.getElementById('world0').style.left) - zoom * 25 * worldPositions[i].x + 'vw'
     }
 
     requestAnimationFrame(align)
@@ -237,7 +237,7 @@ var timer = 0
       }
     }
     worldRendered++
-    worldPositions.push({x: 0, y: 1})
+    worldPositions.push({x: 1, y: 0})
   }
 }
 
