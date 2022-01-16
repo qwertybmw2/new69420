@@ -250,7 +250,6 @@ var timer = 0
         for (var i = 0; i < world.length; i++) {
           if (worldPositions[i].x === playerCoordinates + x &&
               worldPositions[i].y === playerCoordinates + y) {
-            console.log('yas')
             createWorld = false
           }
         }
