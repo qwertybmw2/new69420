@@ -224,7 +224,7 @@ var timer = 0
 
     requestAnimationFrame(align)
   }
-  function newWorld() {
+  function newWorld(x, y) {
     world.push([])
     for (var i = worldRendered; i < world.length; i++) {
       var worldi = document.createElement('div')
@@ -237,7 +237,7 @@ var timer = 0
       }
     }
     worldRendered++
-    worldPositions.push({x: 1, y: 0})
+    worldPositions.push({x: x, y: y})
   }
 }
 
@@ -245,7 +245,7 @@ var timer = 0
 {
 setInterval(movement, 1000 / 60)
 setInterval(movementAnimation, 1000 / 60)
-newWorld()
+newWorld(1, 0)
 zoomer()
 align()
 }
