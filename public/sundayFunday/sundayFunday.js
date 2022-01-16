@@ -2,7 +2,7 @@
 {
 var player = document.getElementsByClassName('player')[0]
 var playerPixel = document.getElementsByClassName('player-pixel')
-var wPressed, aPressed, sPressed, dPressed, lastZoom, playerCoordinates
+var wPressed, aPressed, sPressed, dPressed, lastZoom, playerCoordinates, newWorld
 var world = []
 var worldPositions = [{x: 0, y: 0}]
 var worldRendered = 0
@@ -244,10 +244,20 @@ var timer = 0
       x: Math.floor((50 - parseFloat(document.getElementById('world0').style.left)) / zoom / 25),
       y: Math.floor((-50 * 0.5625 + parseFloat(document.getElementById('world0').style.top)) / zoom / 25) + 1
     }
-    for (var i = 0; i < 64; i++) {
-      console.log(i)
+    for (var x = -4; x < 4; x++) {
+      for (var y = -4; y < 4; y++) {
+        newWorld = true
+        for (var i = 0; i < world.length; i++) {
+          if (world[i].x === playerCoordinates + x &&
+              world[i].y === playerCoordinates + y) {
+            newWorld = false
+          }
+        }
+        if (newWorld) {
+          newWorld(playerCoordinates + x, playerCoordinates + y)
+        }
+      }
     }
-    console.log(playerCoordinates)
   }
 }
 
