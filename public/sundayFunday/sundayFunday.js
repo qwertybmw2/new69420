@@ -226,7 +226,7 @@ var timer = 0
   }
   function newWorld(x, y) {
     world.push([])
-    for (var i = worldRendered; i < world.length; i++) {
+    for (var i = worldRendered + 1; i < world.length; i++) {
       var worldi = document.createElement('div')
       worldi.classList = 'world'
       worldi.id = 'world' + i
