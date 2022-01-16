@@ -2,7 +2,7 @@
 {
 var player = document.getElementsByClassName('player')[0]
 var playerPixel = document.getElementsByClassName('player-pixel')
-var wPressed, aPressed, sPressed, dPressed, lastZoom, playerCoordinates, newWorld
+var wPressed, aPressed, sPressed, dPressed, lastZoom, playerCoordinates, createWorld
 var world = []
 var worldPositions = [{x: 0, y: 0}]
 var worldRendered = 0
@@ -246,14 +246,14 @@ var timer = 0
     }
     for (var x = -4; x < 4; x++) {
       for (var y = -4; y < 4; y++) {
-        newWorld = true
+        createWorld = true
         for (var i = 0; i < world.length; i++) {
           if (world[i].x === playerCoordinates + x &&
               world[i].y === playerCoordinates + y) {
             newWorld = false
           }
         }
-        if (newWorld) {
+        if (createWorld) {
           newWorld(playerCoordinates.x + x, playerCoordinates.y + y)
         }
       }
