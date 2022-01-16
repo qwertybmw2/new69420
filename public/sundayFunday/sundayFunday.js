@@ -242,7 +242,7 @@ var timer = 0
   function newWorldCheck() {
     playerCoordinates = {
       x: 50 - parseFloat(document.getElementById('world0').style.left) / zoom,
-      y: 50 * 0.5625 - parseFloat(document.getElementById('world0').style.top) / zoom
+      y: - 50 * 0.5625 + parseFloat(document.getElementById('world0').style.top) / zoom
     }
   }
 }
