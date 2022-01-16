@@ -244,6 +244,7 @@ var timer = 0
       x: 50 - parseFloat(document.getElementById('world0').style.left) / zoom,
       y: -50 * 0.5625 + parseFloat(document.getElementById('world0').style.top) / zoom
     }
+    console.log(playerCoordinates)
   }
 }
 
@@ -251,7 +252,7 @@ var timer = 0
 {
 setInterval(movement, 1000 / 60)
 setInterval(movementAnimation, 1000 / 60)
-setInterval(newWorldCheck, 1000 / 60)
+setInterval(newWorldCheck, 1000)
 zoomer()
 align()
 }
