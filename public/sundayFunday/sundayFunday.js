@@ -244,6 +244,9 @@ var timer = 0
       x: Math.floor((50 - parseFloat(document.getElementById('world0').style.left)) / zoom / 25),
       y: Math.floor((-50 * 0.5625 + parseFloat(document.getElementById('world0').style.top)) / zoom / 25) + 1
     }
+    for (var i = 0; i < 64; i++) {
+      console.log(i)
+    }
     console.log(playerCoordinates)
   }
 }
