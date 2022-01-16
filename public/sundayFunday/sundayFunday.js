@@ -23,6 +23,7 @@ var timer = 0
       worldi.appendChild(world[i][j])
     }
   }
+  worldRendered++
 }
 
 // REQUESTS
@@ -226,7 +227,7 @@ var timer = 0
   }
   function newWorld(x, y) {
     world.push([])
-    for (var i = worldRendered + 1; i < world.length; i++) {
+    for (var i = worldRendered; i < world.length; i++) {
       var worldi = document.createElement('div')
       worldi.classList = 'world'
       worldi.id = 'world' + i
@@ -265,7 +266,7 @@ var timer = 0
 {
 setInterval(movement, 1000 / 60)
 setInterval(movementAnimation, 1000 / 60)
-//setInterval(newWorldCheck, 1000)
+setInterval(newWorldCheck, 1000)
 zoomer()
 align()
 }
