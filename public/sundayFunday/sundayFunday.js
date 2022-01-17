@@ -256,7 +256,7 @@ var timer = 0
           }
         }
         if (createWorld) {
-          newWorld(-(playerCoordinates.x + x), playerCoordinates.y + y)
+          newWorld(playerCoordinates.x - x, playerCoordinates.y + y)
         }
       }
     }
