@@ -239,6 +239,7 @@ var timer = 0
     }
     worldRendered++
     worldPositions.push({x: x, y: y})
+    zoomer()
   }
   function newWorldCheck() {
     playerCoordinates = {
