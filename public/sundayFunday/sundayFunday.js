@@ -245,7 +245,7 @@ var timer = 0
       x: Math.floor((50 - parseFloat(document.getElementById('world0').style.left)) / zoom / 25),
       y: Math.floor((-50 * 0.5625 + parseFloat(document.getElementById('world0').style.top)) / zoom / 25) + 1
     }
-    for (var x = 1; x < -1; x--) {
+    for (var x = -1; x < -1; x++) {
       for (var y = -1; y < 1; y++) {
         createWorld = true
         for (var i = 0; i < worldPositions.length; i++) {
