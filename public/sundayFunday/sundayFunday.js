@@ -256,7 +256,7 @@ var timer = 0
           }
         }
         if (createWorld) {
-          newWorld(playerCoordinates.x + x, playerCoordinates.y + y)
+          newWorld(-(playerCoordinates.x + x), playerCoordinates.y + y)
         }
       }
     }
@@ -267,7 +267,7 @@ var timer = 0
 {
 setInterval(movement, 1000 / 60)
 setInterval(movementAnimation, 1000 / 60)
-setInterval(newWorldCheck, 1000)
+setInterval(newWorldCheck, 5000)
 zoomer()
 align()
 }
