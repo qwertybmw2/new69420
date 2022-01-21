@@ -59,6 +59,9 @@ var timer = 0
           if (zoom > 1) {
             zoom--
           }
+          if (zoom === 1) {
+            zoom = .4
+          }
       }
       zoomer()
     })
@@ -121,16 +124,16 @@ var timer = 0
 {
   function movement() {
     if (wPressed) {
-      document.getElementById('world0').style.top = parseFloat(document.getElementById('world0').style.top) + zoom * .125 + 'vw'
+      document.getElementById('world0').style.top = parseFloat(document.getElementById('world0').style.top) + zoom * .5 + 'vw'
     }
     if (aPressed) {
-      document.getElementById('world0').style.left = parseFloat(document.getElementById('world0').style.left) + zoom * .125 + 'vw'
+      document.getElementById('world0').style.left = parseFloat(document.getElementById('world0').style.left) + zoom * .5 + 'vw'
     }
     if (sPressed) {
-      document.getElementById('world0').style.top = parseFloat(document.getElementById('world0').style.top) - zoom * .125 + 'vw'
+      document.getElementById('world0').style.top = parseFloat(document.getElementById('world0').style.top) - zoom * .5 + 'vw'
     }
     if (dPressed) {
-      document.getElementById('world0').style.left = parseFloat(document.getElementById('world0').style.left) - zoom * .125 + 'vw'
+      document.getElementById('world0').style.left = parseFloat(document.getElementById('world0').style.left) - zoom * .5 + 'vw'
     }
   }
   function movementAnimation() {
@@ -220,10 +223,8 @@ var timer = 0
   function align() {
     for (var i = 1; i < world.length; i++) {
       document.getElementById('world' + i).style.top = parseFloat(document.getElementById('world0').style.top) - zoom * 25 * worldPositions[i].y + 'vw'
-      document.getElementById('world' + i).style.left = parseFloat(document.getElementById('world0').style.left) - zoom * 25 * worldPositions[i].x + 'vw'
+      document.getElementById('world' + i).style.left = parseFloat(document.getElementById('world0').style.left) + zoom * 25 * worldPositions[i].x + 'vw'
     }
-
-    requestAnimationFrame(align)
   }
   function newWorld(x, y) {
     world.push([])
@@ -246,8 +247,8 @@ var timer = 0
       x: Math.floor((50 - parseFloat(document.getElementById('world0').style.left)) / zoom / 25),
       y: Math.floor((-50 * 0.5625 + parseFloat(document.getElementById('world0').style.top)) / zoom / 25) + 1
     }
-    for (var x = -1; x < 1; x++) {
-      for (var y = -1; y < 1; y++) {
+    for (var x = -1; x < 2; x++) {
+      for (var y = -1; y < 2; y++) {
         createWorld = true
         for (var i = 0; i < worldPositions.length; i++) {
           if (worldPositions[i].x === playerCoordinates.x + x &&
@@ -267,8 +268,8 @@ var timer = 0
 {
 setInterval(movement, 1000 / 60)
 setInterval(movementAnimation, 1000 / 60)
-setInterval(newWorldCheck, 5000)
+//setInterval(newWorldCheck, 1000)
+//setInterval(align, 1000 / 60)
 zoomer()
-align()
 }
  

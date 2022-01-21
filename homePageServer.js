@@ -14,6 +14,8 @@ app.use(session({
 }))
 app.use(express.static('public/homePage'))
 app.use('/sundayFunday', express.static('public/sundayFunday'))
+app.use('/sundayFunday/login', express.static('public/sundayFunday'))
+app.use('/sundayFunday/signup', express.static('public/sundayFunday'))
 }
 
 // When the Mongoose is sus
