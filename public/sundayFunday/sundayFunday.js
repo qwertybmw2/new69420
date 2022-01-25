@@ -18,7 +18,7 @@ var timer = 0
     worldi.classList = 'world'
     worldi.id = 'world' + i
     document.body.prepend(worldi)
-    for (var j = 0; j < 25; j++) {
+    for (var j = 0; j < 2500; j++) {
       world[i].push(document.createElement('div'))
       worldi.appendChild(world[i][j])
     }
@@ -232,7 +232,7 @@ var timer = 0
       worldi.classList = 'world'
       worldi.id = 'world' + i
       document.body.prepend(worldi)
-      for (var j = 0; j < 25; j++) {
+      for (var j = 0; j < 2500; j++) {
         world[i].push(document.createElement('div'))
         worldi.appendChild(world[i][j])
       }
