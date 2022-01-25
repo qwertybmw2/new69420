@@ -267,7 +267,7 @@ var timer = 0
 {
 setInterval(movement, 1000 / 60)
 setInterval(movementAnimation, 1000 / 60)
-setInterval(newWorldCheck, 10000)
+setInterval(newWorldCheck, 5000)
 zoomer()
 align()
 }
