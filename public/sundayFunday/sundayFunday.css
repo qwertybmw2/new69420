@@ -17,6 +17,9 @@
   width: 100%;
   height: 100%;
 }
+.world:nth-child(1250) {
+  background-color: #fff;
+}
 .player {
   display: grid;
   grid-template-columns: repeat(8, 1fr);

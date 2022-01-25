@@ -59,9 +59,6 @@ var timer = 0
           if (zoom > 1) {
             zoom--
           }
-          if (zoom === 1) {
-            zoom = .4
-          }
       }
       zoomer()
     })
@@ -225,6 +222,8 @@ var timer = 0
       document.getElementById('world' + i).style.top = parseFloat(document.getElementById('world0').style.top) - zoom * 25 * worldPositions[i].y + 'vw'
       document.getElementById('world' + i).style.left = parseFloat(document.getElementById('world0').style.left) + zoom * 25 * worldPositions[i].x + 'vw'
     }
+
+    requestAnimationFrame(align)
   }
   function newWorld(x, y) {
     world.push([])
@@ -268,8 +267,7 @@ var timer = 0
 {
 setInterval(movement, 1000 / 60)
 setInterval(movementAnimation, 1000 / 60)
-//setInterval(newWorldCheck, 1000)
-//setInterval(align, 1000 / 60)
+setInterval(newWorldCheck, 10000)
 zoomer()
+align()
 }
- 
