@@ -254,12 +254,12 @@ var timer = 0
               worldPositions[i].y === playerCoordinates.y + y) {
             createWorld = false
           }
-          if (worldPositions[i].x < playerCoordinates.x - 4 ||
-              worldPositions[i].x > playerCoordinates.y + 4 ||
-              worldPositions[i].y < playerCoordinates.y - 4 ||
-              worldPositions[i].y > playerCoordinates.y + 4) {
-            document.getElementById('world' + i).remove()
-          }
+          // if (worldPositions[i].x < playerCoordinates.x - 4 ||
+          //     worldPositions[i].x > playerCoordinates.y + 4 ||
+          //     worldPositions[i].y < playerCoordinates.y - 4 ||
+          //     worldPositions[i].y > playerCoordinates.y + 4) {
+          //   document.getElementById('world' + i).remove()
+          // }
         }
         if (createWorld) {
           newWorld(playerCoordinates.x + x, playerCoordinates.y + y)
