@@ -258,7 +258,7 @@ var timer = 0
               worldPositions[i].x > playerCoordinates.y + 2 ||
               worldPositions[i].y < playerCoordinates.y - 1 ||
               worldPositions[i].y > playerCoordinates.y + 1) {
-            document.getElementById('world' + i).remove()
+            
           }
         }
         if (createWorld) {
