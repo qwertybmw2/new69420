@@ -2,7 +2,7 @@
 {
 var player = document.getElementsByClassName('player')[0]
 var playerPixel = document.getElementsByClassName('player-pixel')
-var wPressed, aPressed, sPressed, dPressed, lastZoom, playerCoordinates, createWorld
+var wPressed, aPressed, sPressed, dPressed, lastZoom, previousZoom, playerCoordinates, createWorld
 var world = []
 var worldPositions = [{x: 0, y: 0}]
 var worldRendered = 0
