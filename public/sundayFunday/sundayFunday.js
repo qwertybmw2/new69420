@@ -116,9 +116,11 @@ var timer = 0
     })
     addEventListener('mousedown', (e) => {
       zoom -= .5
+      zoomer()
     })
     addEventListener('mouseup', (e) => {
       zoom += .5
+      zoomer()
     })
   })
 }
