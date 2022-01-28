@@ -115,7 +115,11 @@ var timer = 0
       }
     })
     addEventListener('mousedown', (e) => {
+      previousZoom = zoom
       zoom = .5
+    })
+    addEventListener('mouseup', (e) => {
+      zoom = previousZoom
     })
   })
 }
