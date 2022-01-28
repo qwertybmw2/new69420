@@ -114,6 +114,9 @@ var timer = 0
         playerPixel[45].style.backgroundColor = '#e96'
       }
     })
+    addEventListener('mousedown', (e) => {
+      zoom = .5
+    })
   })
 }
 
