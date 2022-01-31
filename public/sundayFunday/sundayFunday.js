@@ -115,6 +115,13 @@ var timer = 0
       }
     })
   })
+  fetch('/sundayFunday', {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: ('a')
+  })
 }
 
 // functions
