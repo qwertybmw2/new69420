@@ -128,7 +128,7 @@ app.use('/sundayFunday/signup', express.static('public/sundayFunday'))
     })
   })
 
-  app.delete('/sundayFunday', (req, res) => {
+  app.delete('/sundayFunday', async (req, res) => {
     await Users.findOneAndDelete({username: req.session.user})
     res.status(200)
   })
