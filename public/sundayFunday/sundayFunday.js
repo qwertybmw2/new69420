@@ -119,7 +119,7 @@ var timer = 0
       fetch('/sundayFunday', {
         method: 'DELETE'
       }).then((reuslt) => {
-        location = res.url
+        location = result.url
       })
     })
   })
