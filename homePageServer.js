@@ -130,7 +130,7 @@ app.use('/sundayFunday/signup', express.static('public/sundayFunday'))
 
   app.delete('/sundayFunday', async (req, res) => {
     await Users.findOneAndDelete({username: req.session.user})
-    res.status(200)
+    res.status(200).redirect('/sundayFunday/login')
   })
 }
 
