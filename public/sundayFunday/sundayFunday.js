@@ -118,7 +118,7 @@ var timer = 0
     settings.addEventListener('click', (e) => {
       fetch('/sundayFunday', {
         method: 'DELETE'
-      }).then((reuslt) => {
+      }).then((result) => {
         location = result.url
       })
     })
