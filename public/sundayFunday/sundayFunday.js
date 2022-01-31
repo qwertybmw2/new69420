@@ -267,7 +267,7 @@ var timer = 0
               worldPositions[i].y < playerCoordinates.y - 1 ||
               worldPositions[i].y > playerCoordinates.y + 1) {
             for (var j = 0; j < world[i].length; j++) {
-              //world[i][j].remove()
+              world[i][j].remove()
             }
           }
         }
