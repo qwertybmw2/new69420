@@ -120,7 +120,7 @@ var timer = 0
     headers: {
       'Content-Type': 'application/json'
     },
-    body: ('a')
+    body: ({a: 'b'})
   })
 }
 
