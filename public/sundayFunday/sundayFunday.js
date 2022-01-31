@@ -114,13 +114,11 @@ var timer = 0
         playerPixel[45].style.backgroundColor = '#e96'
       }
     })
-  })
-  fetch('/sundayFunday', {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: ({a: 'b'})
+    settings.addEventListener('click', (e) => {
+      fetch('/sundayFunday', {
+        method: 'DELETE'
+      })
+    })
   })
 }
 
