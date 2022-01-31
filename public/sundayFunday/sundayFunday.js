@@ -269,6 +269,7 @@ var timer = 0
             for (var j = 0; j < world[i].length; j++) {
               world[i][j].remove()
             }
+            console.log('b;')
           }
         }
         if (createWorld) {
