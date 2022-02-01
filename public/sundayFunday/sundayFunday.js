@@ -122,6 +122,7 @@ var timer = 0
         location = result.url
       })
     })
+    setInterval(newWorldCheck, 200)
   })
 }
 
@@ -283,7 +284,6 @@ var timer = 0
 {
 setInterval(movement, 1000 / 60)
 setInterval(movementAnimation, 1000 / 60)
-setInterval(newWorldCheck, 200)
 zoomer()
 align()
 }
