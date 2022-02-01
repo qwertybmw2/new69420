@@ -122,7 +122,7 @@ var timer = 0
         location = result.url
       })
     })
-    setInterval(newWorldCheck, 200)
+    setInterval(newWorldCheck, 100)
   })
 }
 
