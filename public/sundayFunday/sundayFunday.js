@@ -269,7 +269,6 @@ var timer = 0
             for (var j = 0; j < world[i].length; j++) {
               world[i][j].remove()
             }
-            console.log(worldPositions[i].x < playerCoordinates.x - 4)
           }
         }
         if (createWorld) {
