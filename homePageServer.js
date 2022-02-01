@@ -119,10 +119,10 @@ app.use('/sundayFunday/signup', express.static('public/sundayFunday'))
         }
       }
       if (!signingUp) {
-        res.redirect('/sundayFunday/users')
+        res.status(403)
       } else {
-        new Users(req.body).save().then((result) => {
-          res.redirect('/sundayFunday/users')
+        new Users(req.body).save().then(() => {
+          res.redirect('/sundayFunday/login')
         })
       }
     })
