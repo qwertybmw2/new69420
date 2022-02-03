@@ -3,10 +3,10 @@
 var player = document.getElementsByClassName('player')[0]
 var playerPixel = document.getElementsByClassName('player-pixel')
 var settings = document.getElementsByClassName('settings-circle')[0]
-var wPressed, aPressed, sPressed, dPressed, lastZoom, playerCoordinates, createWorld
+var wPressed, aPressed, sPressed, dPressed, lastZoom, playerCoordinates, createWorld, generatingWorld
 var world = []
 var worldPositions = [{x: 0, y: 0}]
-var worldRendered = 0
+var worldGenerated = 0
 var currentZoom = 100
 var zoom = 4
 var timer = 0
@@ -14,7 +14,7 @@ var timer = 0
 
 {
   world.push([])
-  for (var i = worldRendered; i < world.length; i++) {
+  for (var i = worldGenerated; i < world.length; i++) {
     var worldi = document.createElement('div')
     worldi.classList = 'world'
     worldi.id = 'world' + i
@@ -24,7 +24,7 @@ var timer = 0
       worldi.appendChild(world[i][j])
     }
   }
-  worldRendered++
+  worldGenerated++
 }
 
 // REQUESTS
@@ -235,19 +235,32 @@ var timer = 0
     requestAnimationFrame(align)
   }
   function newWorld(x, y) {
-    world.push([])
-    for (var i = worldRendered; i < world.length; i++) {
-      var worldi = document.createElement('div')
-      worldi.classList = 'world'
-      worldi.id = 'world' + i
-      document.body.prepend(worldi)
-      for (var j = 0; j < 400; j++) {
-        world[i].push(document.createElement('div'))
-        worldi.appendChild(world[i][j])
+    generatingWorld = true
+    for (var i = 0; i < worldPositions.length; i++) {
+      if (worldPositions[i].x === x &&
+          worldPositions[i].y === y) {
+        for (var j = 0; j < 400; j++) {
+          world[i].push(document.createElement('div'))
+          world[i].appendChild(world[i][j])
+        }
+        generatingWorld = false
       }
     }
-    worldRendered++
-    worldPositions.push({x: x, y: y})
+    if (generatingWorld) {
+      world.push([])
+      for (var i = worldGenerated; i < world.length; i++) {
+        var worldi = document.createElement('div')
+        worldi.classList = 'world'
+        worldi.id = 'world' + i
+        document.body.prepend(worldi)
+        for (var j = 0; j < 400; j++) {
+          world[i].push(document.createElement('div'))
+          worldi.appendChild(world[i][j])
+        }
+      }
+      worldGenerated++
+      worldPositions.push({x: x, y: y})
+    }
     zoomer()
   }
   function newWorldCheck() {
