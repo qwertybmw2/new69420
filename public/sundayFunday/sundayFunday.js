@@ -241,7 +241,7 @@ var timer = 0
           worldPositions[i].y === y) {
         for (var j = 0; j < 400; j++) {
           world[i].push(document.createElement('div'))
-          world[i].appendChild(world[i][j])
+          document.getElementById('world' + i).appendChild(world[i][j])
         }
         generatingWorld = false
       }
