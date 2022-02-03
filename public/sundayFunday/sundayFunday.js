@@ -263,12 +263,12 @@ var timer = 0
               worldPositions[i].y === playerCoordinates.y + y) {
             createWorld = false
           }
-          if (worldPositions[i].x < playerCoordinates.x - 1/* ||
+          if (worldPositions[i].x < playerCoordinates.x - 0/* ||
               worldPositions[i].x > playerCoordinates.y + 4 ||
               worldPositions[i].y < playerCoordinates.y - 3 ||
               worldPositions[i].y > playerCoordinates.y + 3*/) {
             for (var j = 0; j < world[i].length; j++) {
-              world[i][0].remove()
+              world[i][j].remove()
             }
           }
         }
