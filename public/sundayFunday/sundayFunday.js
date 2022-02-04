@@ -237,6 +237,7 @@ var timer = 0
   function newWorld(x, y) {
     generatingWorld = true
     for (var i = 0; i < worldPositions.length; i++) {
+      console.log('for')
       if (worldPositions[i].x === x &&
           worldPositions[i].y === y) {
         for (var j = 0; j < 400; j++) {
@@ -244,6 +245,7 @@ var timer = 0
           document.getElementById('world' + i).appendChild(world[i][j])
         }
         generatingWorld = false
+        console.log('if')
       }
     }
     if (generatingWorld) {
