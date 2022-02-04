@@ -237,7 +237,8 @@ var timer = 0
   function newWorld(x, y) {
     generatingWorld = true
     for (var i = 0; i < worldPositions.length; i++) {
-      console.log('for')
+      console.log(worldPositions[i].x === x &&
+        worldPositions[i].y === y)
       if (worldPositions[i].x === x &&
           worldPositions[i].y === y) {
         for (var j = 0; j < 400; j++) {
