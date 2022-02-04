@@ -272,7 +272,7 @@ settings.addEventListener('click', (e) => {
       y: Math.floor((-50 * 0.5625 + parseFloat(document.getElementById('world0').style.top)) / zoom / 25) + 1
     }
     for (var x = -3; x < 4; x++) {
-      for (var y = -1; y < 2; y++) {
+      for (var y = -2; y < 3; y++) {
         createWorld = true
         for (var i = 0; i < worldPositions.length; i++) {
           if (worldPositions[i].x === playerCoordinates.x + x &&
@@ -280,8 +280,8 @@ settings.addEventListener('click', (e) => {
               document.getElementById('world' + i).children.length === 1) {
             createWorld = false
           }
-          if (worldPositions[i].x < playerCoordinates.x - 3 ||
-              worldPositions[i].x > playerCoordinates.x + 3 ||
+          if (worldPositions[i].x < playerCoordinates.x - 2 ||
+              worldPositions[i].x > playerCoordinates.x + 2 ||
               worldPositions[i].y < playerCoordinates.y - 1 ||
               worldPositions[i].y > playerCoordinates.y + 1) {
             for (var j = 0; j < world[i].length; j++) {
