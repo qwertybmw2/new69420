@@ -119,7 +119,6 @@ var timer = 0
       cursorPosition = {x: e.clientX, y: e.clientY}
     })
     setInterval(newWorldCheck, 100)
-    setInterval(() => {console.log(cursorPosition)}, 100)
   })
 }
 settings.addEventListener('click', (e) => {
