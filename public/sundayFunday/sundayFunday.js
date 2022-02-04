@@ -278,7 +278,7 @@ settings.addEventListener('click', (e) => {
             createWorld = false
           }
           if (worldPositions[i].x < playerCoordinates.x - 0 ||
-              worldPositions[i].x > playerCoordinates.y + 0/* ||
+              worldPositions[i].x > playerCoordinates.y + 1/* ||
               worldPositions[i].y < playerCoordinates.y - 3 ||
               worldPositions[i].y > playerCoordinates.y + 3*/) {
             for (var j = 0; j < world[i].length; j++) {
