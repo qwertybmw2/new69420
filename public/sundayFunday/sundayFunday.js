@@ -236,7 +236,7 @@ settings.addEventListener('click', (e) => {
   }
   function newWorld(x, y) {
     generatingWorld = true
-    for (var i = 0; i < worldPositions.length; i++) {
+    for (var i = 0; i < worldPositions.length; ++i) {
       console.log(worldPositions[i].x === x &&
         worldPositions[i].y === y)
       if (worldPositions[i].x === x &&
