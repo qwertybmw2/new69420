@@ -219,8 +219,10 @@ settings.addEventListener('click', (e) => {
   }
   function zoomer() {
     for (var i = 0; i < world.length; i++) {
-      document.getElementById('world' + i).style.width = zoom * 25 + 'vw'
-      document.getElementById('world' + i).style.height = zoom * 25 + 'vw'
+      if (document.getElementById('world' + i).children.length === 1) {
+        document.getElementById('world' + i).style.width = zoom * 25 + 'vw'
+        document.getElementById('world' + i).style.height = zoom * 25 + 'vw'
+      }
     }
     player.style.width = zoom * 1.25 + 'vw'
     player.style.height = zoom * 1.25 + 'vw'
@@ -231,8 +233,10 @@ settings.addEventListener('click', (e) => {
   }
   function align() {
     for (var i = 1; i < world.length; i++) {
-      document.getElementById('world' + i).style.top = parseFloat(document.getElementById('world0').style.top) - zoom * 25 * worldPositions[i].y + 'vw'
-      document.getElementById('world' + i).style.left = parseFloat(document.getElementById('world0').style.left) + zoom * 25 * worldPositions[i].x + 'vw'
+      if (document.getElementById('world' + i).children.length === 1) {
+        document.getElementById('world' + i).style.top = parseFloat(document.getElementById('world0').style.top) - zoom * 25 * worldPositions[i].y + 'vw'
+        document.getElementById('world' + i).style.left = parseFloat(document.getElementById('world0').style.left) + zoom * 25 * worldPositions[i].x + 'vw'
+      }
     }
 
     requestAnimationFrame(align)
@@ -272,7 +276,7 @@ settings.addEventListener('click', (e) => {
       y: Math.floor((-50 * 0.5625 + parseFloat(document.getElementById('world0').style.top)) / zoom / 25) + 1
     }
     for (var x = -3; x < 4; x++) {
-      for (var y = -2; y < 3; y++) {
+      for (var y = -1; y < 2; y++) {
         createWorld = true
         for (var i = 0; i < worldPositions.length; i++) {
           if (worldPositions[i].x === playerCoordinates.x + x &&
