@@ -3,7 +3,7 @@
 var player = document.getElementsByClassName('player')[0]
 var playerPixel = document.getElementsByClassName('player-pixel')
 var settings = document.getElementsByClassName('settings-circle')[0]
-var wPressed, aPressed, sPressed, dPressed, lastZoom, playerCoordinates, createWorld, generatingWorld
+var wPressed, aPressed, sPressed, dPressed, lastZoom, playerCoordinates, createWorld, generatingWorld, cursorPosition
 var world = []
 var worldPositions = [{x: 0, y: 0}]
 var worldGenerated = 0
@@ -115,7 +115,11 @@ var timer = 0
         playerPixel[45].style.backgroundColor = '#e96'
       }
     })
+    addEventListener('mousemove', (e) => {
+      cursorPosition = {x: e.clientX, y: e.clientY}
+    })
     setInterval(newWorldCheck, 100)
+    setInterval(() => {console.log(cursorPosition)}, 100)
   })
 }
 settings.addEventListener('click', (e) => {
