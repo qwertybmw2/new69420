@@ -8,8 +8,8 @@
 .world {
   display: grid;
   position: absolute;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
 }
 .world > div {
   background-color: #252;
