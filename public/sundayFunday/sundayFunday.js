@@ -277,8 +277,8 @@ settings.addEventListener('click', (e) => {
               document.getElementById('world' + i).children.length === 400) {
             createWorld = false
           }
-          if (worldPositions[i].x < playerCoordinates.x - 0/* ||
-              worldPositions[i].x > playerCoordinates.y + 4 ||
+          if (worldPositions[i].x < playerCoordinates.x - 0 ||
+              worldPositions[i].x > playerCoordinates.y + 0/* ||
               worldPositions[i].y < playerCoordinates.y - 3 ||
               worldPositions[i].y > playerCoordinates.y + 3*/) {
             for (var j = 0; j < world[i].length; j++) {
