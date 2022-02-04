@@ -278,9 +278,9 @@ settings.addEventListener('click', (e) => {
             createWorld = false
           }
           if (worldPositions[i].x < playerCoordinates.x - 0 ||
-              worldPositions[i].x > playerCoordinates.x + 0/* ||
-              worldPositions[i].y < playerCoordinates.y - 3 ||
-              worldPositions[i].y > playerCoordinates.y + 3*/) {
+              worldPositions[i].x > playerCoordinates.x + 0 ||
+              worldPositions[i].y < playerCoordinates.y - 0 ||
+              worldPositions[i].y > playerCoordinates.y + 0) {
             for (var j = 0; j < world[i].length; j++) {
               world[i][j].remove()
             }
