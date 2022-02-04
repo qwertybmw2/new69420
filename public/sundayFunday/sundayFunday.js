@@ -219,10 +219,8 @@ settings.addEventListener('click', (e) => {
   }
   function zoomer() {
     for (var i = 0; i < world.length; i++) {
-      if (document.getElementById('world' + i).children.length === 1) {
-        document.getElementById('world' + i).style.width = zoom * 25 + 'vw'
-        document.getElementById('world' + i).style.height = zoom * 25 + 'vw'
-      }
+      document.getElementById('world' + i).style.width = zoom * 25 + 'vw'
+      document.getElementById('world' + i).style.height = zoom * 25 + 'vw'
     }
     player.style.width = zoom * 1.25 + 'vw'
     player.style.height = zoom * 1.25 + 'vw'
