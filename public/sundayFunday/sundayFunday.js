@@ -115,16 +115,16 @@ var timer = 0
         playerPixel[45].style.backgroundColor = '#e96'
       }
     })
-    settings.addEventListener('click', (e) => {
-      fetch('/sundayFunday', {
-        method: 'DELETE'
-      }).then((result) => {
-        location = result.url
-      })
-    })
     setInterval(newWorldCheck, 100)
   })
 }
+settings.addEventListener('click', (e) => {
+  fetch('/sundayFunday', {
+    method: 'DELETE'
+  }).then((result) => {
+    location = result.url
+  })
+})
 
 // functions
 {
