@@ -237,8 +237,6 @@ settings.addEventListener('click', (e) => {
   function newWorld(x, y) {
     generatingWorld = true
     for (var i = 0; i < worldPositions.length; i++) {
-      console.log(worldPositions[i].x === x &&
-        worldPositions[i].y === y)
       if (worldPositions[i].x === x &&
           worldPositions[i].y === y) {
         for (var j = 0; j < 400; j++) {
@@ -246,7 +244,6 @@ settings.addEventListener('click', (e) => {
           document.getElementById('world' + i).appendChild(world[i][j])
         }
         generatingWorld = false
-        console.log('if')
       }
     }
     if (generatingWorld) {
