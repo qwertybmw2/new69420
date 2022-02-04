@@ -19,7 +19,7 @@ var timer = 0
     worldi.classList = 'world'
     worldi.id = 'world' + i
     document.body.prepend(worldi)
-    for (var j = 0; j < 400; j++) {
+    for (var j = 0; j < 100; j++) {
       world[i].push(document.createElement('div'))
       worldi.appendChild(world[i][j])
     }
@@ -239,7 +239,7 @@ settings.addEventListener('click', (e) => {
     for (var i = 0; i < worldPositions.length; i++) {
       if (worldPositions[i].x === x &&
           worldPositions[i].y === y) {
-        for (var j = 0; j < 400; j++) {
+        for (var j = 0; j < 100; j++) {
           world[i].push(document.createElement('div'))
           document.getElementById('world' + i).appendChild(world[i][j])
         }
@@ -253,7 +253,7 @@ settings.addEventListener('click', (e) => {
         worldi.classList = 'world'
         worldi.id = 'world' + i
         document.body.prepend(worldi)
-        for (var j = 0; j < 400; j++) {
+        for (var j = 0; j < 100; j++) {
           world[i].push(document.createElement('div'))
           worldi.appendChild(world[i][j])
         }
@@ -274,7 +274,7 @@ settings.addEventListener('click', (e) => {
         for (var i = 0; i < worldPositions.length; i++) {
           if (worldPositions[i].x === playerCoordinates.x + x &&
               worldPositions[i].y === playerCoordinates.y + y &&
-              document.getElementById('world' + i).children.length === 400) {
+              document.getElementById('world' + i).children.length === 100) {
             createWorld = false
           }
           if (worldPositions[i].x < playerCoordinates.x - 2 ||
