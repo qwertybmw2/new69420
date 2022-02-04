@@ -269,7 +269,7 @@ settings.addEventListener('click', (e) => {
       y: Math.floor((-50 * 0.5625 + parseFloat(document.getElementById('world0').style.top)) / zoom / 25) + 1
     }
     for (var x = -2; x < 3; x++) {
-      for (var y = -1; y < 2; y++) { 
+      for (var y = -1; y < 2; y++) {
         createWorld = true
         for (var i = 0; i < worldPositions.length; i++) {
           if (worldPositions[i].x === playerCoordinates.x + x &&
