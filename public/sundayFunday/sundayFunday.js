@@ -216,8 +216,10 @@ settings.addEventListener('click', (e) => {
   }
   function zoomer() {
     for (var i = 0; i < worldPositions.length; i++) {
-      document.getElementById('world' + i).style.width = zoom * 25 + 'vw'
-      document.getElementById('world' + i).style.height = zoom * 25 + 'vw'
+      if (document.getElementById('world' + i)) {
+        document.getElementById('world' + i).style.width = zoom * 25 + 'vw'
+        document.getElementById('world' + i).style.height = zoom * 25 + 'vw'
+      }
     }
     player.style.width = zoom * 1.25 + 'vw'
     player.style.height = zoom * 1.25 + 'vw'
@@ -228,7 +230,7 @@ settings.addEventListener('click', (e) => {
   }
   function align() {
     for (var i = 1; i < worldPositions.length; i++) {
-      if (document.getElementById('world' + i).children.length === 1) {
+      if (document.getElementById('world' + i)) {
         document.getElementById('world' + i).style.top = parseFloat(document.getElementById('world0').style.top) - zoom * 25 * worldPositions[i].y + 'vw'
         document.getElementById('world' + i).style.left = parseFloat(document.getElementById('world0').style.left) + zoom * 25 * worldPositions[i].x + 'vw'
       }
