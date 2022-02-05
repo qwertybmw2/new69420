@@ -73,7 +73,7 @@ var timer = 0
       if (e.key === 'd') {
         dPressed = true
       }
-      if (e.key === 'enter') {
+      if (e.key === 'Enter') {
         document.body.requestFullscreen()
         console.log('papa')
       }
