@@ -4,7 +4,6 @@ var player = document.getElementsByClassName('player')[0]
 var playerPixel = document.getElementsByClassName('player-pixel')
 var settings = document.getElementsByClassName('settings-circle')[0]
 var wPressed, aPressed, sPressed, dPressed, lastZoom, playerCoordinates, createWorld, generatingWorld, cursorPosition
-var world = []
 var worldPositions = [{x: 0, y: 0}]
 var worldGenerated = 0
 var currentZoom = 100
@@ -13,15 +12,13 @@ var timer = 0
 }
 
 {
-  world.push([])
   for (var i = worldGenerated; i < world.length; i++) {
     var worldi = document.createElement('div')
     worldi.classList = 'world'
     worldi.id = 'world' + i
     document.body.prepend(worldi)
     for (var j = 0; j < 1; j++) {
-      world[i].push(document.createElement('div'))
-      worldi.appendChild(world[i][j])
+      worldi.appendChild(document.createElement('div'))
     }
   }
   worldGenerated++
@@ -218,7 +215,7 @@ settings.addEventListener('click', (e) => {
   }
   }
   function zoomer() {
-    for (var i = 0; i < world.length; i++) {
+    for (var i = 0; i < worldPositions.length; i++) {
       document.getElementById('world' + i).style.width = zoom * 25 + 'vw'
       document.getElementById('world' + i).style.height = zoom * 25 + 'vw'
     }
@@ -230,7 +227,7 @@ settings.addEventListener('click', (e) => {
     document.getElementById('world0').style.left = 50 - ((50 - parseFloat(document.getElementById('world0').style.left)) * currentZoom / lastZoom) + 'vw'
   }
   function align() {
-    for (var i = 1; i < world.length; i++) {
+    for (var i = 1; i < worldPositions.length; i++) {
       if (document.getElementById('world' + i).children.length === 1) {
         document.getElementById('world' + i).style.top = parseFloat(document.getElementById('world0').style.top) - zoom * 25 * worldPositions[i].y + 'vw'
         document.getElementById('world' + i).style.left = parseFloat(document.getElementById('world0').style.left) + zoom * 25 * worldPositions[i].x + 'vw'
@@ -244,23 +241,24 @@ settings.addEventListener('click', (e) => {
     for (var i = 0; i < worldPositions.length; i++) {
       if (worldPositions[i].x === x &&
           worldPositions[i].y === y) {
-        for (var j = 0; j < 1; j++) {
-          world[i].push(document.createElement('div'))
-          document.getElementById('world' + i).appendChild(world[i][j])
-        }
-        generatingWorld = false
-      }
-    }
-    if (generatingWorld) {
-      world.push([])
-      for (var i = worldGenerated; i < world.length; i++) {
         var worldi = document.createElement('div')
         worldi.classList = 'world'
         worldi.id = 'world' + i
         document.body.prepend(worldi)
         for (var j = 0; j < 1; j++) {
-          world[i].push(document.createElement('div'))
-          worldi.appendChild(world[i][j])
+          document.getElementById('world' + i).appendChild(document.createElement('div'))
+        }
+        generatingWorld = false
+      }
+    }
+    if (generatingWorld) {
+      for (var i = worldGenerated; i < worldPositions.length; i++) {
+        var worldi = document.createElement('div')
+        worldi.classList = 'world'
+        worldi.id = 'world' + i
+        document.body.prepend(worldi)
+        for (var j = 0; j < 1; j++) {
+          worldi.appendChild(document.createElement('div'))
         }
       }
       worldGenerated++
@@ -273,22 +271,20 @@ settings.addEventListener('click', (e) => {
       x: Math.floor((50 - parseFloat(document.getElementById('world0').style.left)) / zoom / 25),
       y: Math.floor((-50 * 0.5625 + parseFloat(document.getElementById('world0').style.top)) / zoom / 25) + 1
     }
-    for (var x = -3; x < 4; x++) {
-      for (var y = -2; y < 3; y++) {
+    for (var x = 0; x < 1; x++) {
+      for (var y = 0; y < 1; y++) {
         createWorld = true
         for (var i = 0; i < worldPositions.length; i++) {
           if (worldPositions[i].x === playerCoordinates.x + x &&
               worldPositions[i].y === playerCoordinates.y + y &&
-              document.getElementById('world' + i).children.length === 1) {
+              document.getElementById('world' + i)) {
             createWorld = false
           }
-          if (worldPositions[i].x < playerCoordinates.x - 3 ||
-              worldPositions[i].x > playerCoordinates.x + 3 ||
-              worldPositions[i].y < playerCoordinates.y - 2 ||
-              worldPositions[i].y > playerCoordinates.y + 2) {
-            for (var j = 0; j < world[i].length; j++) {
-              world[i][j].remove()
-            }
+          if (worldPositions[i].x < playerCoordinates.x - 1 ||
+              worldPositions[i].x > playerCoordinates.x + 1 ||
+              worldPositions[i].y < playerCoordinates.y - 1 ||
+              worldPositions[i].y > playerCoordinates.y + 1) {
+            document.getElementById('world' + i).remove()
           }
         }
         if (createWorld) {
