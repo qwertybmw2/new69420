@@ -12,7 +12,7 @@ var timer = 0
 }
 
 {
-  for (var i = worldGenerated; i < world.length; i++) {
+  for (var i = worldGenerated; i < worldPositions.length; i++) {
     var worldi = document.createElement('div')
     worldi.classList = 'world'
     worldi.id = 'world' + i
