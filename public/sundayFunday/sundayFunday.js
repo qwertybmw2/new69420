@@ -283,7 +283,7 @@ settings.addEventListener('click', (e) => {
             createWorld = false
           }
           if (worldPositions[i].x < playerCoordinates.x - 3 ||
-              worldPositions[i].x > playerCoordinates.x + 2 ||
+              worldPositions[i].x > playerCoordinates.x + 3 ||
               worldPositions[i].y < playerCoordinates.y - 2 ||
               worldPositions[i].y > playerCoordinates.y + 2) {
             if (document.getElementById('world' + i) &&
