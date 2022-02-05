@@ -267,7 +267,8 @@ settings.addEventListener('click', (e) => {
         worldi.id = 'world' + i
         document.body.prepend(worldi)
         for (var j = 0; j < 100; j++) {
-          worldi.appendChild(document.createElement('div'))
+          worldi.prepend(document.createElement('div'))
+
         }
       }
       worldGenerated++
