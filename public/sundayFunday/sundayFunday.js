@@ -284,8 +284,8 @@ settings.addEventListener('click', (e) => {
           }
           if (worldPositions[i].x < playerCoordinates.x - 3 ||
               worldPositions[i].x > playerCoordinates.x + 3 ||
-              worldPositions[i].y < playerCoordinates.y - 2 ||
-              worldPositions[i].y > playerCoordinates.y + 2) {
+              worldPositions[i].y < playerCoordinates.y - 1 ||
+              worldPositions[i].y > playerCoordinates.y + 1) {
             if (document.getElementById('world' + i) &&
                 i !== 0) {
               document.getElementById('world' + i).remove()
