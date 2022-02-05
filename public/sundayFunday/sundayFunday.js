@@ -75,6 +75,7 @@ var timer = 0
       }
       if (e.key === 'enter') {
         document.body.requestFullscreen()
+        console.log('papa')
       }
     })
     addEventListener('keyup', (e) => {
