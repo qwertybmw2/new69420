@@ -17,7 +17,7 @@ var timer = 0
     worldi.classList = 'world'
     worldi.id = 'world' + i
     document.body.prepend(worldi)
-    for (var j = 0; j < 100; j++) {
+    for (var j = 0; j < 400; j++) {
       worldi.appendChild(document.createElement('div'))
     }
   }
@@ -75,7 +75,6 @@ var timer = 0
       }
       if (e.key === 'Enter') {
         document.body.requestFullscreen()
-        console.log('papa')
       }
     })
     addEventListener('keyup', (e) => {
@@ -255,7 +254,7 @@ settings.addEventListener('click', (e) => {
         worldi.classList = 'world'
         worldi.id = 'world' + i
         document.body.prepend(worldi)
-        for (var j = 0; j < 100; j++) {
+        for (var j = 0; j < 400; j++) {
           document.getElementById('world' + i).appendChild(document.createElement('div'))
         }
         generatingWorld = false
@@ -267,7 +266,7 @@ settings.addEventListener('click', (e) => {
         worldi.classList = 'world'
         worldi.id = 'world' + i
         document.body.prepend(worldi)
-        for (var j = 0; j < 100; j++) {
+        for (var j = 0; j < 400; j++) {
           worldi.appendChild(document.createElement('div'))
         }
       }
