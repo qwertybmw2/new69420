@@ -268,8 +268,8 @@ settings.addEventListener('click', (e) => {
         document.body.prepend(worldi)
         for (var j = 0; j < 100; j++) {
           worldi.prepend(document.createElement('div'))
-          document.getElementById('world' + i).children[0].addEventListener('mousedown', (e) => {
-            document.getElementById('world' + i).children[0].style.backgroundColor = '#24252a'
+          document.getElementById('world' + i).children[j].addEventListener('mousedown', (e) => {
+            document.getElementById('world' + i).children[j].style.backgroundColor = '#24252a'
           })
         }
       }
