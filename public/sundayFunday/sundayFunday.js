@@ -286,7 +286,9 @@ settings.addEventListener('click', (e) => {
               worldPositions[i].x > playerCoordinates.x + 1 ||
               worldPositions[i].y < playerCoordinates.y - 1 ||
               worldPositions[i].y > playerCoordinates.y + 1) {
-            document.getElementById('world' + i).remove()
+            if (document.getElementById('world' + i)) {
+              document.getElementById('world' + i).remove()
+            }
           }
         }
         if (createWorld) {
