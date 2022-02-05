@@ -133,7 +133,7 @@ settings.addEventListener('click', (e) => {
   })
 })
 addEventListener('mousedown', (e) => {
-  console.log(e)
+  e.target.style.backgroundColor = 'white'
 })
 
 // functions
