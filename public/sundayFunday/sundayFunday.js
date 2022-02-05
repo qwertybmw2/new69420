@@ -132,6 +132,9 @@ settings.addEventListener('click', (e) => {
     location = result.url
   })
 })
+addEventListener('mousedown', (e) => {
+  console.log(e)
+})
 
 // functions
 {
@@ -256,9 +259,6 @@ settings.addEventListener('click', (e) => {
         document.body.prepend(worldi)
         for (var j = 0; j < 100; j++) {
           document.getElementById('world' + i).appendChild(document.createElement('div'))
-          document.getElementById('world' + i).children[j].addEventListener('mousedown', () => {
-            document.getElementById('world' + i).children[j].style.backgroundColor = '#24252a'
-          })
         }
         generatingWorld = false
       }
@@ -270,10 +270,7 @@ settings.addEventListener('click', (e) => {
         worldi.id = 'world' + i
         document.body.prepend(worldi)
         for (var j = 0; j < 100; j++) {
-          worldi.appendChild(document.createElement('div'))
-          document.getElementById('world' + i).children[j].addEventListener('mousedown', () => {
-            document.getElementById('world' + i).children[j].style.backgroundColor = '#24252a'
-          })
+          document.getElementById('world' + i).appendChild(document.createElement('div'))
         }
       }
       worldGenerated++
