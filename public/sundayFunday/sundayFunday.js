@@ -73,6 +73,9 @@ var timer = 0
       if (e.key === 'd') {
         dPressed = true
       }
+      if (e.key === 'enter') {
+        document.body.requestFullscreen()
+      }
     })
     addEventListener('keyup', (e) => {
       if (e.key === 'w') {
