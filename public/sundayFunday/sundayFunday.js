@@ -81,6 +81,7 @@ var timer = 0
         playerPixel[60].style.backgroundColor = '#520'
         playerPixel[45].style.backgroundColor = '#e96'
         playerPixel[42].style.backgroundColor = '#e96'
+        timer = 0
       }
       if (e.key === 'a') {
         aPressed = false
@@ -92,6 +93,7 @@ var timer = 0
         playerPixel[42].style.backgroundColor = '#e96'
         playerPixel[44].style.backgroundColor = '#226'
         playerPixel[45].style.backgroundColor = '#e96'
+        timer = 0
       }
       if (e.key === 's') {
         sPressed = false
@@ -99,6 +101,7 @@ var timer = 0
         playerPixel[60].style.backgroundColor = '#520'
         playerPixel[45].style.backgroundColor = '#e96'
         playerPixel[42].style.backgroundColor = '#e96'
+        timer = 0
       }
       if (e.key === 'd') {
         dPressed = false
@@ -110,6 +113,7 @@ var timer = 0
         playerPixel[42].style.backgroundColor = '#e96'
         playerPixel[43].style.backgroundColor = '#226'
         playerPixel[45].style.backgroundColor = '#e96'
+        timer = 0
       }
     })
     addEventListener('mousemove', (e) => {
