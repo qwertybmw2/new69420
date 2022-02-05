@@ -256,8 +256,8 @@ settings.addEventListener('click', (e) => {
         document.body.prepend(worldi)
         for (var j = 0; j < 100; j++) {
           document.getElementById('world' + i).appendChild(document.createElement('div'))
-          worldi.children[0].addEventListener('mousedown', (e) => {
-            worldi.children[0].style.backgroundColor = '#24252a'
+          worldi.children[j].addEventListener('mousedown', () => {
+            worldi.children[j].style.backgroundColor = '#24252a'
           })
         }
         generatingWorld = false
@@ -271,8 +271,8 @@ settings.addEventListener('click', (e) => {
         document.body.prepend(worldi)
         for (var j = 0; j < 100; j++) {
           worldi.prepend(document.createElement('div'))
-          worldi.children[0].addEventListener('mousedown', (e) => {
-            worldi.children[0].style.backgroundColor = '#24252a'
+          worldi.children[j].addEventListener('mousedown', () => {
+            worldi.children[j].style.backgroundColor = '#24252a'
           })
         }
       }
