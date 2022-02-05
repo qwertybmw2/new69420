@@ -282,13 +282,13 @@ settings.addEventListener('click', (e) => {
               document.getElementById('world' + i)) {
             createWorld = false
           }
-          if (worldPositions[i].x < playerCoordinates.x - 1 ||
-              worldPositions[i].x > playerCoordinates.x + 1 ||
-              worldPositions[i].y < playerCoordinates.y - 1 ||
-              worldPositions[i].y > playerCoordinates.y + 1) {
-            // if (document.getElementById('world' + i)) {
-            //   document.getElementById('world' + i).remove()
-            // }
+          if (worldPositions[i].x < playerCoordinates.x - 2 ||
+              worldPositions[i].x > playerCoordinates.x + 2 ||
+              worldPositions[i].y < playerCoordinates.y - 2 ||
+              worldPositions[i].y > playerCoordinates.y + 2) {
+            if (document.getElementById('world' + i)) {
+              document.getElementById('world' + i).remove()
+            }
           }
         }
         if (createWorld) {
