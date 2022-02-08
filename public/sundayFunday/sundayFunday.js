@@ -5,23 +5,10 @@ var playerPixel = document.getElementsByClassName('player-pixel')
 var settings = document.getElementsByClassName('settings-circle')[0]
 var wPressed, aPressed, sPressed, dPressed, lastZoom, playerCoordinates, createWorld, generatingWorld, cursorPosition
 var worldPositions = [{x: 0, y: 0}]
-var worldGenerated = 0
+var worldGenerated = 1
 var currentZoom = 100
 var zoom = 4
 var timer = 0
-}
-
-{
-  for (var i = worldGenerated; i < worldPositions.length; i++) {
-    var worldi = document.createElement('div')
-    worldi.classList = 'world'
-    worldi.id = 'world' + i
-    document.body.prepend(worldi)
-    for (var j = 0; j < 100; j++) {
-      worldi.appendChild(document.createElement('div'))
-    }
-  }
-  worldGenerated++
 }
 
 // REQUESTS
@@ -314,6 +301,7 @@ addEventListener('mousedown', (e) => {
 {
 setInterval(movement, 1000 / 60)
 setInterval(movementAnimation, 1000 / 60)
+newWorld(0, 0)
 zoomer()
 align()
 }
