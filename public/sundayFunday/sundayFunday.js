@@ -244,7 +244,7 @@ addEventListener('mousedown', (e) => {
         worldi.classList = 'world'
         worldi.id = 'world' + i
         document.body.prepend(worldi)
-        for (var j = 0; j < 100; j++) {
+        for (var j = 0; j < 400; j++) {
           document.getElementById('world' + i).appendChild(document.createElement('div'))
         }
         generatingWorld = false
@@ -256,7 +256,7 @@ addEventListener('mousedown', (e) => {
         worldi.classList = 'world'
         worldi.id = 'world' + i
         document.body.prepend(worldi)
-        for (var j = 0; j < 100; j++) {
+        for (var j = 0; j < 400; j++) {
           document.getElementById('world' + i).appendChild(document.createElement('div'))
         }
       }
