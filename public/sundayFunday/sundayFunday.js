@@ -259,9 +259,6 @@ addEventListener('mousedown', (e) => {
         document.body.prepend(worldi)
         for (var j = 0; j < 100; j++) {
           document.getElementById('world' + i).appendChild(document.createElement('div'))
-          for (var k = 0; k < 4; k++) {
-            document.getElementById('world' + i).children[j].appendChild(document.createElement('div'))
-          }
         }
         generatingWorld = false
       }
@@ -274,9 +271,6 @@ addEventListener('mousedown', (e) => {
         document.body.prepend(worldi)
         for (var j = 0; j < 100; j++) {
           document.getElementById('world' + i).appendChild(document.createElement('div'))
-          for (var k = 0; k < 4; k++) {
-            document.getElementById('world' + i).children[j].appendChild(document.createElement('div'))
-          }
         }
       }
       worldGenerated++
