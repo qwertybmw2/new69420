@@ -27,11 +27,13 @@ var timer = 0
       })
     }, 1000
   )
-  fetch('/sundayFunday/coordinates').then((result) => {
+  fetch('/sundayFunday/json').then((result) => {
     return result.json()
   }).then((json) => {
     document.getElementById('world0').style.top = json.y + 'vw' 
     document.getElementById('world0').style.left = json.x + 'vw'
+    zoom = json.zoom
+    currentZoom = zoom * 25
     
     addEventListener('wheel', (e) => {
       switch (Math.sign(e.deltaY)) {
