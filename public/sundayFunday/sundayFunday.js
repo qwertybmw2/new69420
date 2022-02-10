@@ -3,11 +3,9 @@
 var player = document.getElementsByClassName('player')[0]
 var playerPixel = document.getElementsByClassName('player-pixel')
 var settings = document.getElementsByClassName('settings-circle')[0]
-var wPressed, aPressed, sPressed, dPressed, lastZoom, playerCoordinates, createWorld, generatingWorld, cursorPosition
+var wPressed, aPressed, sPressed, dPressed, lastZoom, playerCoordinates, createWorld, generatingWorld, cursorPosition, zoom, currentZoom
 var worldPositions = [{x: 0, y: 0}]
 var worldGenerated = 1
-var currentZoom = 100
-var zoom = 4
 var timer = 0
 }
 
@@ -22,7 +20,8 @@ var timer = 0
         },
         body: JSON.stringify({
           x: 50 - ((50 - parseFloat(document.getElementById('world0').style.left)) * (4 / zoom)),
-          y: 50 * 0.5625 - ((50 * 0.5625 - parseFloat(document.getElementById('world0').style.top)) * (4 / zoom))
+          y: 50 * 0.5625 - ((50 * 0.5625 - parseFloat(document.getElementById('world0').style.top)) * (4 / zoom)),
+          zoom: zoom
         })
       })
     }, 1000

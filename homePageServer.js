@@ -85,8 +85,15 @@ app.use('/sundayFunday/signup', express.static('public/sundayFunday'))
   })
 
   app.post('/sundayFunday', async (req, res) => {
-    await Users.findOneAndUpdate({ username: req.session.user}, {x: req.body.x, y: req.body.y})
-    res.status(200).send({x: req.body.x, y: req.body.y})
+    await Users.findOneAndUpdate({
+      username: req.session.user
+    },
+    {
+      x: req.body.x,
+      y: req.body.y,
+      zoom: req.body.zoom
+    })
+    res.status(200)
   })
   app.post('/sundayFunday/login', (req, res) => {
     Users.find().then((result) => {
