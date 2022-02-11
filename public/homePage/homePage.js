@@ -96,7 +96,7 @@ addEventListener('click', (e) => {
       location = '/sundayFunday'
       break
     case 'newest-project':
-      location = '/'
+      location = 'http://localhost:2137'
   }
 })
 addEventListener('mouseover', (e) => {

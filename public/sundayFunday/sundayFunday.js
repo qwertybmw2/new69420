@@ -63,6 +63,7 @@ var timer = 0
       }
       if (e.key === 'Enter') {
         document.body.requestFullscreen()
+        document.getElementsByClassName('loading-screen')[0].remove()
       }
     })
     addEventListener('keyup', (e) => {
@@ -109,6 +110,13 @@ var timer = 0
     })
     addEventListener('mousemove', (e) => {
       cursorPosition = {x: e.clientX, y: e.clientY}
+    })
+    addEventListener('fullscreenchange', () => {
+      if (!document.fullscreenElement) {
+        var div = document.createElement('div')
+        div.classList = 'loading-screen'
+        document.body.prepend(div)
+      }
     })
     setInterval(newWorldCheck, 100)
   })
