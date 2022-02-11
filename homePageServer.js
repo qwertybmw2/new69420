@@ -5,7 +5,7 @@ var session = require('express-session')
 var mongoose = require('mongoose')
 
 var app = express()
-app.use(express.json({limit: '1mb'}))
+app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(session({
   secret: '8/21',
