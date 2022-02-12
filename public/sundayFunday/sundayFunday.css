@@ -5,6 +5,10 @@
   user-select: none;
   overflow: hidden;
 }
+@keyframes loading-screen-after {
+  0% {opacity: .8}
+  100% {opacity: 0}
+}
 .loading-screen {
   background-color: #012501;
   width: 100vw;
@@ -13,6 +17,17 @@
   top: 0;
   left: 0;
   z-index: 999;
+}
+.loading-screen::after {
+  content: 'press enter to start...';
+  font-family: sans-serif;
+  font-size: 6em;
+  color: #edf0f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: loading-screen-after 2s ease-in-out 0s infinite alternate
 }
 .world {
   display: grid;
