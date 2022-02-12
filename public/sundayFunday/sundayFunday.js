@@ -299,7 +299,7 @@ function newWorldCheck() {
     }
   }
 }
-function selector() {
+function selector() { // TODO: this should calculate which tile the cursor is curently on
   number = parseFloat(document.getElementById('world0').style.left) + zoom * 25 * worldPositions[i].x + 'vw'
   tileHighlighted = document.getElementById('world' + 1);
 
