@@ -60,7 +60,7 @@ fetch('/sundayFunday/json').then((result) => {
     if (e.key === 'd') {
       dPressed = true
     }
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && document.fullscreenElement != document.body) {
       document.body.requestFullscreen()
       document.getElementsByClassName('loading-screen')[0].remove()
     }
