@@ -3,7 +3,7 @@ const playerPixel = document.getElementsByClassName('player-pixel')
 const settings = document.getElementsByClassName('settings-circle')[0]
 const worldPositions = [{x: 0, y: 0}]
 const worldsShown = [0]
-let wPressed, aPressed, sPressed, dPressed, lastZoom, playerCoordinates, createWorld, generatingWorld, cursorPosition, zoom, currentZoom, tileHighlighted
+let wPressed, aPressed, sPressed, dPressed, lastZoom, playerCoordinates, createWorld, cursorPosition, zoom, currentZoom
 let timer = 0
 let tileWidth = 4
 
@@ -98,7 +98,9 @@ fetch('/sundayFunday/json').then((result) => {
       document.body.prepend(div)
     }
   })
-  setInterval(newWorldCheck, 1000); newWorldCheck()
+  setInterval(newWorldCheck, 200)
+  setInterval(movement, 10)
+  setInterval(movementAnimation, 1000 / 60)
   setInterval(
     () => {
       fetch('/sundayFunday', {
@@ -123,30 +125,22 @@ settings.addEventListener('click', () => {
     location = result.url
   })
 })
-addEventListener('click', (e) => {
+addEventListener('mousedown', (e) => {
   e.target.style.backgroundColor = 'edf0f1'
 })
 
 function movement() {
   if (wPressed) {
-    for (let i = 0; i < worldsShown.length; i++) {
-      document.getElementById('world' + worldsShown[i]).style.top = parseFloat(document.getElementById('world' + worldsShown[i]).style.top) + zoom * .2 + 'vw'
-    }
+    document.getElementById('world0').style.top = parseFloat(document.getElementById('world0').style.top) + zoom * .3 + 'vw'
   }
   if (aPressed) {
-    for (let i = 0; i < worldsShown.length; i++) {
-      document.getElementById('world' + worldsShown[i]).style.left = parseFloat(document.getElementById('world' + worldsShown[i]).style.left) + zoom * .2 + 'vw'
-    }
+    document.getElementById('world0').style.left = parseFloat(document.getElementById('world0').style.left) + zoom * .3 + 'vw'
   }
   if (sPressed) {
-    for (let i = 0; i < worldsShown.length; i++) {
-      document.getElementById('world' + worldsShown[i]).style.top = parseFloat(document.getElementById('world' + worldsShown[i]).style.top) - zoom * .2 + 'vw'
-    }
+    document.getElementById('world0').style.top = parseFloat(document.getElementById('world0').style.top) - zoom * .3 + 'vw'
   }
   if (dPressed) {
-    for (let i = 0; i < worldsShown.length; i++) {
-      document.getElementById('world' + worldsShown[i]).style.left = parseFloat(document.getElementById('world' + worldsShown[i]).style.left) - zoom * .2 + 'vw'
-    }
+    document.getElementById('world0').style.left = parseFloat(document.getElementById('world0').style.left) - zoom * .3 + 'vw'
   }
 }
 function movementAnimation() {
@@ -221,6 +215,14 @@ function movementAnimation() {
     timer++
   }
 }
+(function align() {
+  for (let i = 1; i < worldsShown.length; i++) {
+    document.getElementById('world' + worldsShown[i]).style.top = parseFloat(document.getElementById('world0').style.top) - zoom * tileWidth * worldPositions[worldsShown[i]].y + 'vw'
+    document.getElementById('world' + worldsShown[i]).style.left = parseFloat(document.getElementById('world0').style.left) + zoom * tileWidth * worldPositions[worldsShown[i]].x + 'vw'
+  }
+
+  requestAnimationFrame(align)
+}) ()
 function zoomer() {
   for (let i = 0; i < worldsShown.length; i++) {
     document.getElementById('world' + worldsShown[i]).style.width = zoom * tileWidth + 'vw'
@@ -234,30 +236,20 @@ function zoomer() {
   document.getElementById('world0').style.left = 50 - ((50 - parseFloat(document.getElementById('world0').style.left)) * currentZoom / lastZoom) + 'vw'
 }
 function newWorld(x, y) {
-  generatingWorld = true
-  for (let i = 0; i < worldPositions.length; i++) {
-    if (worldPositions[i].x == x &&
-        worldPositions[i].y == y) {
-      let worldi = document.createElement('div')
-      worldi.classList = 'world'
-      worldi.id = 'world' + i
-      document.body.prepend(worldi)
-      generatingWorld = false
-      if (!worldsShown.includes(i)) {
-        worldsShown.push(i)
-      }
-      worldi.style.top = parseFloat(document.getElementById('world0').style.top) - zoom * tileWidth * y + 'vw'
-      worldi.style.left = parseFloat(document.getElementById('world0').style.left) + zoom * tileWidth * x + 'vw'
-    }
-  }
-  if (generatingWorld) {
+  let i = worldPositions.findIndex(item => item.x == x && item.y == y)
+
+  if (i != -1) {
+    let worldi = document.createElement('div')
+    worldi.classList = 'world'
+    worldi.id = 'world' + i
+    document.body.prepend(worldi)
+    worldsShown.push(i)
+  } else {
     let worldi = document.createElement('div')
     worldi.classList = 'world'
     worldi.id = 'world' + worldPositions.length
     document.body.prepend(worldi)
     worldsShown.push(worldPositions.length)
-    worldi.style.top = parseFloat(document.getElementById('world0').style.top) - zoom * tileWidth * y + 'vw'
-    worldi.style.left = parseFloat(document.getElementById('world0').style.left) + zoom * tileWidth * x + 'vw'
     worldPositions.push({x: x, y: y})
   }
   zoomer()
@@ -273,7 +265,7 @@ function newWorldCheck() {
       for (let i = 0; i < worldsShown.length; i++) {
         if (worldPositions[worldsShown[i]].x == x + playerCoordinates.x &&
         worldPositions[worldsShown[i]].y == y + playerCoordinates.y) {
-            createWorld = false
+          createWorld = false
         }
       }
       for (let i = 1; i < worldsShown.length; i++) {
@@ -292,13 +284,3 @@ function newWorldCheck() {
     }
   }
 }
-function selector() { // TODO: this should calculate which tile the cursor is curently on
-  number = parseFloat(document.getElementById('world0').style.left) + zoom * 25 * worldPositions[i].x + 'vw'
-  tileHighlighted = document.getElementById('world' + 1);
-
-  requestAnimationFrame(selector)
-} // this function isn't called because it doesn't work yet
-
-setInterval(movement, 1000 / 60)
-setInterval(movementAnimation, 1000 / 60)
-newWorld(0, 0)
