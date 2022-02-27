@@ -30,14 +30,8 @@
   animation: loading-screen-after 2s ease-in-out 0s infinite alternate
 }
 .world {
-  display: grid;
-  position: absolute;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(10, 1fr);
-}
-.world > div {
   background-color: #252;
-  position: relative;
+  position: absolute;
 }
 .player {
   display: grid;

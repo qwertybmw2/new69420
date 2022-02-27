@@ -1,37 +1,18 @@
-// VARIABLES
+const player = document.getElementsByClassName('player')[0]
+const playerPixel = document.getElementsByClassName('player-pixel')
+const settings = document.getElementsByClassName('settings-circle')[0]
+const worldPositions = [{x: 0, y: 0}]
+const worldsShown = [0]
+let wPressed, aPressed, sPressed, dPressed, lastZoom, playerCoordinates, createWorld, generatingWorld, cursorPosition, zoom, currentZoom, tileHighlighted
+let timer = 0
+let tileWidth = 4
 
-var player = document.getElementsByClassName('player')[0]
-var playerPixel = document.getElementsByClassName('player-pixel')
-var settings = document.getElementsByClassName('settings-circle')[0]
-var wPressed, aPressed, sPressed, dPressed, lastZoom, playerCoordinates, createWorld, generatingWorld, cursorPosition, zoom, currentZoom, tileHighlighted
-var worldPositions = [{x: 0, y: 0}]
-var worldGenerated = 1
-var timer = 0
-
-// REQUESTS
-
-setInterval(
-  function () {
-    fetch('/sundayFunday', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        x: 50 - ((50 - parseFloat(document.getElementById('world0').style.left)) * (4 / zoom)),
-        y: 50 * 0.5625 - ((50 * 0.5625 - parseFloat(document.getElementById('world0').style.top)) * (4 / zoom)),
-        zoom: zoom
-      })
-    })
-  }, 1000
-)
 fetch('/sundayFunday/json').then((result) => {
   return result.json()
 }).then((json) => {
   document.getElementById('world0').style.top = json.y + 'vw' 
   document.getElementById('world0').style.left = json.x + 'vw'
   zoom = json.zoom
-  currentZoom = zoom * 25
   
   addEventListener('wheel', (e) => {
     switch (Math.sign(e.deltaY)) {
@@ -112,12 +93,28 @@ fetch('/sundayFunday/json').then((result) => {
   })
   addEventListener('fullscreenchange', () => {
     if (!document.fullscreenElement) {
-      var div = document.createElement('div')
+      let div = document.createElement('div')
       div.classList = 'loading-screen'
       document.body.prepend(div)
     }
   })
-  setInterval(newWorldCheck, 100)
+  setInterval(newWorldCheck, 1000); newWorldCheck()
+  setInterval(
+    () => {
+      fetch('/sundayFunday', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          x: 50 - ((50 - parseFloat(document.getElementById('world0').style.left)) * (4 / zoom)),
+          y: 50 * 0.5625 - ((50 * 0.5625 - parseFloat(document.getElementById('world0').style.top)) * (4 / zoom)),
+          zoom: zoom
+        })
+      })
+    }, 500
+  )
+  zoomer()
 })
 settings.addEventListener('click', () => {
   fetch('/sundayFunday', {
@@ -126,21 +123,30 @@ settings.addEventListener('click', () => {
     location = result.url
   })
 })
-
-// FUNCTIONS
+addEventListener('click', (e) => {
+  e.target.style.backgroundColor = 'edf0f1'
+})
 
 function movement() {
   if (wPressed) {
-    document.getElementById('world0').style.top = parseFloat(document.getElementById('world0').style.top) + zoom * .5 + 'vw'
+    for (let i = 0; i < worldsShown.length; i++) {
+      document.getElementById('world' + worldsShown[i]).style.top = parseFloat(document.getElementById('world' + worldsShown[i]).style.top) + zoom * .2 + 'vw'
+    }
   }
   if (aPressed) {
-    document.getElementById('world0').style.left = parseFloat(document.getElementById('world0').style.left) + zoom * .5 + 'vw'
+    for (let i = 0; i < worldsShown.length; i++) {
+      document.getElementById('world' + worldsShown[i]).style.left = parseFloat(document.getElementById('world' + worldsShown[i]).style.left) + zoom * .2 + 'vw'
+    }
   }
   if (sPressed) {
-    document.getElementById('world0').style.top = parseFloat(document.getElementById('world0').style.top) - zoom * .5 + 'vw'
+    for (let i = 0; i < worldsShown.length; i++) {
+      document.getElementById('world' + worldsShown[i]).style.top = parseFloat(document.getElementById('world' + worldsShown[i]).style.top) - zoom * .2 + 'vw'
+    }
   }
   if (dPressed) {
-    document.getElementById('world0').style.left = parseFloat(document.getElementById('world0').style.left) - zoom * .5 + 'vw'
+    for (let i = 0; i < worldsShown.length; i++) {
+      document.getElementById('world' + worldsShown[i]).style.left = parseFloat(document.getElementById('world' + worldsShown[i]).style.left) - zoom * .2 + 'vw'
+    }
   }
 }
 function movementAnimation() {
@@ -214,13 +220,11 @@ function movementAnimation() {
     }
     timer++
   }
-  }
+}
 function zoomer() {
-  for (var i = 0; i < worldPositions.length; i++) {
-    if (document.getElementById('world' + i)) {
-      document.getElementById('world' + i).style.width = zoom * 25 + 'vw'
-      document.getElementById('world' + i).style.height = zoom * 25 + 'vw'
-    }
+  for (let i = 0; i < worldsShown.length; i++) {
+    document.getElementById('world' + worldsShown[i]).style.width = zoom * tileWidth + 'vw'
+    document.getElementById('world' + worldsShown[i]).style.height = zoom * tileWidth + 'vw'
   }
   player.style.width = zoom * 1.25 + 'vw'
   player.style.height = zoom * 1.25 + 'vw'
@@ -229,68 +233,57 @@ function zoomer() {
   document.getElementById('world0').style.top = 50 * 0.5625 - ((50 * 0.5625 - parseFloat(document.getElementById('world0').style.top)) * currentZoom / lastZoom) + 'vw'
   document.getElementById('world0').style.left = 50 - ((50 - parseFloat(document.getElementById('world0').style.left)) * currentZoom / lastZoom) + 'vw'
 }
-function align() {
-  for (var i = 1; i < worldPositions.length; i++) {
-    if (document.getElementById('world' + i)) {
-      document.getElementById('world' + i).style.top = parseFloat(document.getElementById('world0').style.top) - zoom * 25 * worldPositions[i].y + 'vw'
-      document.getElementById('world' + i).style.left = parseFloat(document.getElementById('world0').style.left) + zoom * 25 * worldPositions[i].x + 'vw'
-    }
-  }
-
-  requestAnimationFrame(align)
-}
 function newWorld(x, y) {
   generatingWorld = true
-  for (var i = 0; i < worldPositions.length; i++) {
-    if (worldPositions[i].x === x &&
-        worldPositions[i].y === y) {
-      var worldi = document.createElement('div')
+  for (let i = 0; i < worldPositions.length; i++) {
+    if (worldPositions[i].x == x &&
+        worldPositions[i].y == y) {
+      let worldi = document.createElement('div')
       worldi.classList = 'world'
       worldi.id = 'world' + i
       document.body.prepend(worldi)
-      for (var j = 0; j < 100; j++) {
-        document.getElementById('world' + i).appendChild(document.createElement('div'))
-      }
       generatingWorld = false
+      if (!worldsShown.includes(i)) {
+        worldsShown.push(i)
+      }
+      worldi.style.top = parseFloat(document.getElementById('world0').style.top) - zoom * tileWidth * y + 'vw'
+      worldi.style.left = parseFloat(document.getElementById('world0').style.left) + zoom * tileWidth * x + 'vw'
     }
   }
   if (generatingWorld) {
-    for (var i = worldGenerated; i < worldPositions.length; i++) {
-      var worldi = document.createElement('div')
-      worldi.classList = 'world'
-      worldi.id = 'world' + i
-      document.body.prepend(worldi)
-      for (var j = 0; j < 100; j++) {
-        document.getElementById('world' + i).appendChild(document.createElement('div'))
-      }
-    }
-    worldGenerated++
+    let worldi = document.createElement('div')
+    worldi.classList = 'world'
+    worldi.id = 'world' + worldPositions.length
+    document.body.prepend(worldi)
+    worldsShown.push(worldPositions.length)
+    worldi.style.top = parseFloat(document.getElementById('world0').style.top) - zoom * tileWidth * y + 'vw'
+    worldi.style.left = parseFloat(document.getElementById('world0').style.left) + zoom * tileWidth * x + 'vw'
     worldPositions.push({x: x, y: y})
   }
   zoomer()
 }
 function newWorldCheck() {
   playerCoordinates = {
-    x: Math.floor((50 - parseFloat(document.getElementById('world0').style.left)) / zoom / 25),
-    y: Math.floor((-50 * 0.5625 + parseFloat(document.getElementById('world0').style.top)) / zoom / 25) + 1
+    x: Math.floor((50 - parseFloat(document.getElementById('world0').style.left)) / zoom / tileWidth),
+    y: Math.floor((-50 * 0.5625 + parseFloat(document.getElementById('world0').style.top)) / zoom / tileWidth) + 1
   }
-  for (var x = -3; x < 4; x++) {
-    for (var y = -2; y < 3; y++) {
+  for (let x = -15; x <= 15; x++) {
+    for (let y = -9; y <= 9; y++) {
       createWorld = true
-      for (var i = 0; i < worldPositions.length; i++) {
-        if (worldPositions[i].x === playerCoordinates.x + x &&
-            worldPositions[i].y === playerCoordinates.y + y &&
-            document.getElementById('world' + i)) {
-          createWorld = false
+      for (let i = 0; i < worldsShown.length; i++) {
+        if (worldPositions[worldsShown[i]].x == x + playerCoordinates.x &&
+        worldPositions[worldsShown[i]].y == y + playerCoordinates.y) {
+            createWorld = false
         }
-        if (worldPositions[i].x < playerCoordinates.x - 3 ||
-            worldPositions[i].x > playerCoordinates.x + 3 ||
-            worldPositions[i].y < playerCoordinates.y - 2 ||
-            worldPositions[i].y > playerCoordinates.y + 2) {
-          if (document.getElementById('world' + i) &&
-              i !== 0) {
-            document.getElementById('world' + i).remove()
-          }
+      }
+      for (let i = 1; i < worldsShown.length; i++) {
+        if (worldPositions[worldsShown[i]].x < playerCoordinates.x - 15 ||
+        worldPositions[worldsShown[i]].x > playerCoordinates.x + 15 ||
+        worldPositions[worldsShown[i]].y < playerCoordinates.y - 9 ||
+        worldPositions[worldsShown[i]].y > playerCoordinates.y + 9 &&
+        document.getElementById('world' + worldsShown[i])) {
+          document.getElementById('world' + worldsShown[i]).remove()
+          worldsShown.splice(i, 1)
         }
       }
       if (createWorld) {
@@ -304,12 +297,8 @@ function selector() { // TODO: this should calculate which tile the cursor is cu
   tileHighlighted = document.getElementById('world' + 1);
 
   requestAnimationFrame(selector)
-}
-
-// FUNCTION CALLS
+} // this function isn't called because it doesn't work yet
 
 setInterval(movement, 1000 / 60)
 setInterval(movementAnimation, 1000 / 60)
 newWorld(0, 0)
-zoomer()
-align()
