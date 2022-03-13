@@ -70,7 +70,7 @@ app.use('/sundayFunday/signup', express.static('public/sundayFunday'))
   app.get('/sundayFunday/signup', (req, res) => {
     res.sendFile(__dirname + '/public/sundayFunday/signUp/solidGameSignUp.html')
   })
-  app.get('/sundayFunday/json', (req, res) => {
+  app.get('/sundayFunday/api', (req, res) => {
     Users.find().then((result) => {
       for (var i = 0; i < result.length; i++) {
         if (result[i].username === req.session.user) {

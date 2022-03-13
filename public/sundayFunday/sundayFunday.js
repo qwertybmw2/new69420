@@ -1,13 +1,15 @@
 const player = document.getElementsByClassName('player')[0]
 const playerPixel = document.getElementsByClassName('player-pixel')
-const settings = document.getElementsByClassName('settings-circle')[0]
+const settings = document.getElementsByClassName('settings-borgir')[0]
 const worldPositions = [{x: 0, y: 0}]
+const worldIndexes = {"x0y0": 0}
 const worldsShown = [0]
-let wPressed, aPressed, sPressed, dPressed, lastZoom, playerCoordinates, createWorld, cursorPosition, zoom, currentZoom
+const cursorPosition = {x: 50, y: 50}
+let wPressed, aPressed, sPressed, dPressed, playerCoordinates, createWorld, zoom, currentZoom, lastZoom, currentCursorPosition, lastCursorPosition, highlightedTile
 let timer = 0
 let tileWidth = 4
 
-fetch('/sundayFunday/json').then((result) => {
+fetch('/sundayFunday/api').then((result) => {
   return result.json()
 }).then((json) => {
   document.getElementById('world0').style.top = json.y + 'vw' 
@@ -89,7 +91,8 @@ fetch('/sundayFunday/json').then((result) => {
     }
   })
   addEventListener('mousemove', (e) => {
-    cursorPosition = {x: (e.clientX + 1) / 19.2, y: (e.clientY + 1) / 19.2}
+    cursorPosition.x = playerCoordinates.x + Math.floor(((e.clientX + 1) / 19.2) / (zoom * tileWidth)) - 12
+    cursorPosition.y = playerCoordinates.y - Math.floor(((e.clientY + 1) / 19.2) / (zoom * tileWidth)) + 7
   })
   addEventListener('fullscreenchange', () => {
     if (!document.fullscreenElement) {
@@ -98,8 +101,8 @@ fetch('/sundayFunday/json').then((result) => {
       document.body.prepend(div)
     }
   })
-  setInterval(newWorldCheck, 200)
-  setInterval(movement, 10)
+  setInterval(newWorldCheck, 200); newWorldCheck()
+  setInterval(movement, 5)
   setInterval(movementAnimation, 1000 / 60)
   setInterval(
     () => {
@@ -125,22 +128,19 @@ settings.addEventListener('click', () => {
     location = result.url
   })
 })
-addEventListener('mousedown', (e) => {
-  e.target.style.backgroundColor = 'edf0f1'
-})
 
 function movement() {
   if (wPressed) {
-    document.getElementById('world0').style.top = parseFloat(document.getElementById('world0').style.top) + zoom * .3 + 'vw'
+    document.getElementById('world0').style.top = parseFloat(document.getElementById('world0').style.top) + zoom * .2 + 'vw'
   }
   if (aPressed) {
-    document.getElementById('world0').style.left = parseFloat(document.getElementById('world0').style.left) + zoom * .3 + 'vw'
+    document.getElementById('world0').style.left = parseFloat(document.getElementById('world0').style.left) + zoom * .2 + 'vw'
   }
   if (sPressed) {
-    document.getElementById('world0').style.top = parseFloat(document.getElementById('world0').style.top) - zoom * .3 + 'vw'
+    document.getElementById('world0').style.top = parseFloat(document.getElementById('world0').style.top) - zoom * .2 + 'vw'
   }
   if (dPressed) {
-    document.getElementById('world0').style.left = parseFloat(document.getElementById('world0').style.left) - zoom * .3 + 'vw'
+    document.getElementById('world0').style.left = parseFloat(document.getElementById('world0').style.left) - zoom * .2 + 'vw'
   }
 }
 function movementAnimation() {
@@ -236,31 +236,33 @@ function zoomer() {
   document.getElementById('world0').style.left = 50 - ((50 - parseFloat(document.getElementById('world0').style.left)) * currentZoom / lastZoom) + 'vw'
 }
 function newWorld(x, y) {
-  let i = worldPositions.findIndex(item => item.x == x && item.y == y)
-
-  if (i != -1) {
-    let worldi = document.createElement('div')
-    worldi.classList = 'world'
-    worldi.id = 'world' + i
-    document.body.prepend(worldi)
-    worldsShown.push(i)
+  if (worldIndexes['x' + x + 'y' + y] != undefined) {
+    let world = document.createElement('div')
+    world.classList = 'world'
+    world.id = 'world' + worldIndexes['x' + x + 'y' + y]
+    world.style.width = zoom * tileWidth + 'vw'
+    world.style.height = zoom * tileWidth + 'vw'
+    document.body.prepend(world)
+    worldsShown.push(worldIndexes['x' + x + 'y' + y])
   } else {
-    let worldi = document.createElement('div')
-    worldi.classList = 'world'
-    worldi.id = 'world' + worldPositions.length
-    document.body.prepend(worldi)
+    let world = document.createElement('div')
+    world.classList = 'world'
+    world.id = 'world' + worldPositions.length
+    world.style.width = zoom * tileWidth + 'vw'
+    world.style.height = zoom * tileWidth + 'vw'
+    document.body.prepend(world)
     worldsShown.push(worldPositions.length)
+    worldIndexes['x' + x + 'y' + y] = worldPositions.length
     worldPositions.push({x: x, y: y})
   }
-  zoomer()
 }
 function newWorldCheck() {
   playerCoordinates = {
     x: Math.floor((50 - parseFloat(document.getElementById('world0').style.left)) / zoom / tileWidth),
     y: Math.floor((-50 * 0.5625 + parseFloat(document.getElementById('world0').style.top)) / zoom / tileWidth) + 1
   }
-  for (let x = -15; x <= 15; x++) {
-    for (let y = -9; y <= 9; y++) {
+  for (let x = -13; x <= 13; x++) {
+    for (let y = -8; y <= 8; y++) {
       createWorld = true
       for (let i = 0; i < worldsShown.length; i++) {
         if (worldPositions[worldsShown[i]].x == x + playerCoordinates.x &&
@@ -269,10 +271,10 @@ function newWorldCheck() {
         }
       }
       for (let i = 1; i < worldsShown.length; i++) {
-        if (worldPositions[worldsShown[i]].x < playerCoordinates.x - 15 ||
-        worldPositions[worldsShown[i]].x > playerCoordinates.x + 15 ||
-        worldPositions[worldsShown[i]].y < playerCoordinates.y - 9 ||
-        worldPositions[worldsShown[i]].y > playerCoordinates.y + 9 &&
+        if (worldPositions[worldsShown[i]].x < playerCoordinates.x - 13 ||
+        worldPositions[worldsShown[i]].x > playerCoordinates.x + 13 ||
+        worldPositions[worldsShown[i]].y < playerCoordinates.y - 8 ||
+        worldPositions[worldsShown[i]].y > playerCoordinates.y + 8 &&
         document.getElementById('world' + worldsShown[i])) {
           document.getElementById('world' + worldsShown[i]).remove()
           worldsShown.splice(i, 1)
@@ -284,3 +286,8 @@ function newWorldCheck() {
     }
   }
 }
+function selector() {
+  document.getElementById('world' + worldIndexes['x' + cursorPosition.x + 'y' + cursorPosition.y]).style.backgroundColor = '#20212a'
+
+  requestAnimationFrame(selector)
+} // this function is not called anywhere fyi
