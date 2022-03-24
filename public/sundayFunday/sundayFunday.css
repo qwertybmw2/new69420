@@ -5,50 +5,57 @@
   user-select: none;
   overflow: hidden;
 }
-@keyframes loading-screen-after {
-  0% {opacity: .8}
-  100% {opacity: 0}
-}
-.loading-screen {
-  background-color: #012501;
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 999;
-}
-.loading-screen::after {
-  content: 'press enter to start...';
-  font-family: sans-serif;
-  font-size: 6em;
-  color: #edf0f1;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: loading-screen-after 2s ease-in-out 0s infinite alternate
-}
 .world {
   background-color: #252;
+  display: grid;
+  grid-template-columns: repeat(50, 1fr);
+  grid-template-rows: repeat(50, 1fr);
+  width: 2000px;
+  height: 2000px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.world > div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.highlight.active {
+  background-color: #edf0f1;
+  border-radius: 2px;
+  width: 20px;
+  height: 20px;
   position: absolute;
 }
-.player {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(8, 1fr);
-  width: 5vw;
-  height: 5vw;
+/*#one {
+  background-color: #252;
+  width: 1vw;
+  height: .25vw;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%)
 }
-.player-pixel {
-  position: relative;
-  width: 100%;
-  height: 100%;
+#two {
+  background-color: #252;
+  width: .25vw;
+  height: 1vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
 }
+#three {
+  background-color: #252;
+  width: .7vw;
+  height: .7vw;
+  border-radius: .15vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+} */
 .settings-borgir {
   background-color: transparent;
   border-radius: 50%;

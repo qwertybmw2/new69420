@@ -17,7 +17,7 @@ body {
   display: flex;
   justify-content: center;
 }
-.login-input {
+.log-in-input {
   background-color: #1a1b24;
   color: #c0c1c0;
   box-shadow: .2vw .2vw 1.1vw .0001vw #040404;
@@ -32,7 +32,7 @@ body {
   position: absolute;
   top: 36%;
 }
-.login-input:focus {
+.log-in-input:focus {
   box-shadow: .3vw .3vw 1vw .1vw #000;
 }
 .password-input {
@@ -53,7 +53,7 @@ body {
 .password-input:focus {
   box-shadow: .3vw .3vw 1vw .1vw #000;
 }
-.login-button {
+.log-in-button {
   background-color: #029502;
   box-shadow: .3vw .3vw 1vw .2vw #040404;
   border-radius: 1vw;
