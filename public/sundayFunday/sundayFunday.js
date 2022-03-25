@@ -6,7 +6,7 @@ const two = document.getElementById('two')
 const three = document.getElementById('three')
 const cursorPosition = {x: 1, y: 1}
 const keysPressed = {}
-let tileHighlighted = 0, scrollSpeed = 1, yOffset = 0, xOffset = 0
+let scrollSpeed = 1, yOffset = 0, xOffset = 0
 
 fetch('/sundayFunday/api').then((result) => {
   return result.json()
@@ -18,8 +18,14 @@ fetch('/sundayFunday/api').then((result) => {
     delete keysPressed[e.key]
   })
   addEventListener('mousemove', (e) => {
-    cursorPosition.x = (e.clientX) / 19.2
-    cursorPosition.y = (e.clientY) / 19.2
+    cursorPosition.x = e.clientX
+    cursorPosition.y = e.clientY
+  })
+  addEventListener('mousedown', () => {
+    mousedown = true
+  })
+  addEventListener('mouseup', () => {
+    mousedown = false
   })
 
   setInterval(movement, 5)
@@ -51,6 +57,22 @@ for (let i = 0; i < 2500; i++) {
   world.prepend(div)
 }
 
+(function resizeControl() {
+  if (parseInt(world.style.top) < -(2000 - window.innerHeight)) {
+    world.style.top = -(2000 - window.innerHeight) + 'px'
+  }
+  if (parseInt(world.style.left) < -(2000 - window.innerWidth)) {
+    world.style.left = -(2000 - window.innerWidth) + 'px'
+  }
+  if (parseInt(world.style.left) / 5 != parseInt(parseInt(world.style.left) / 5)) {
+    xOffset = parseInt((parseInt(world.style.left) / 5).toString().slice(-1)) / 2
+  }
+  if (parseInt(world.style.top) / 5 != parseInt(parseInt(world.style.top) / 5)) {
+    yOffset = parseInt((parseInt(world.style.top) / 5).toString().slice(-1)) / 2
+  }
+
+  requestAnimationFrame(resizeControl)
+}) ()
 function movement() {
   if (parseInt(world.style.top) > -(1996 - window.innerHeight) && keysPressed['s']){
     world.style.top = parseInt(world.style.top) - 5 * scrollSpeed + 'px'
@@ -115,28 +137,17 @@ function movement() {
     xOffset = 0
   }
 }
-(function resizeControl() {
-  if (parseInt(world.style.top) < -(2000 - window.innerHeight)) {
-    world.style.top = -(2000 - window.innerHeight) + 'px'
-  }
-  if (parseInt(world.style.left) < -(2000 - window.innerWidth)) {
-    world.style.left = -(2000 - window.innerWidth) + 'px'
-  }
-  if (parseInt(world.style.left) / 5 != parseInt(parseInt(world.style.left) / 5)) {
-    xOffset = parseInt((parseInt(world.style.left) / 5).toString().slice(-1)) / 2
-  }
-  if (parseInt(world.style.top) / 5 != parseInt(parseInt(world.style.top) / 5)) {
-    yOffset = parseInt((parseInt(world.style.top) / 5).toString().slice(-1)) / 2
-  }
+(function selector() {
+  highlight.style.top = (40 * (Math.floor((cursorPosition.y - (parseInt(world.style.top) / 40 - Math.floor(parseInt(world.style.top) / 40)) * 40) / 40))) + (parseInt(world.style.top) / 40 - Math.floor(parseInt(world.style.top) / 40)) * 40 + 'px'
+  highlight.style.left = (40 * (Math.floor((cursorPosition.x - (parseInt(world.style.left) / 40 - Math.floor(parseInt(world.style.left) / 40)) * 40) / 40))) + (parseInt(world.style.left) / 40 - Math.floor(parseInt(world.style.left) / 40)) * 40 + 'px'
 
-  requestAnimationFrame(resizeControl)
-}) ()
-function selector() {
-  highlight.style.top = world.style.top
-  highlight.style.left = world.style.left
+  tileHighlighted = {
+    x: Math.floor((cursorPosition.x - parseInt(world.style.left)) / 40),
+    y: Math.floor((cursorPosition.y - parseInt(world.style.top)) / 40)
+  }
 
   requestAnimationFrame(selector)
-} selector()
+}) ()
 
 world.children[49].style.backgroundColor = '#202126'
 world.children[2450].style.backgroundColor = '#202126'
