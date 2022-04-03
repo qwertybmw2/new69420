@@ -1,12 +1,11 @@
 const settings = document.getElementsByClassName('settings-borgir')[0]
+const uiOne = document.getElementsByClassName('ui-one')[0]
 const world = document.getElementsByClassName('world')[0]
+const highlightGrid = document.getElementsByClassName('highlight-grid')[0]
 const highlight = document.getElementsByClassName('highlight')[0]
-const one = document.getElementById('one')
-const two = document.getElementById('two')
-const three = document.getElementById('three')
-const cursorPosition = {x: 1, y: 1}
+const tileHighlighted = {}
 const keysPressed = {}
-let scrollSpeed = 1, yOffset = 0, xOffset = 0
+let scrollSpeed = 1, yOffset = 0, xOffset = 0, highlighting = false
 
 fetch('/sundayFunday/api').then((result) => {
   return result.json()
@@ -17,15 +16,40 @@ fetch('/sundayFunday/api').then((result) => {
   addEventListener('keyup', (e) => {
     delete keysPressed[e.key]
   })
-  addEventListener('mousemove', (e) => {
-    cursorPosition.x = e.clientX
-    cursorPosition.y = e.clientY
+  addEventListener('mouseover', (e) => {
+    tileHighlighted.x = Math.round((parseInt(e.target.id) / 50 - Math.floor(parseInt(e.target.id) / 50)) * 50 + 1)
+    tileHighlighted.y = Math.floor(parseInt(e.target.id) / 50) + 1
   })
-  addEventListener('mousedown', () => {
+  addEventListener('click', () => {
     mousedown = true
+
   })
   addEventListener('mouseup', () => {
     mousedown = false
+  })
+  uiOne.children[0].addEventListener('mousedown', () => {
+    if (highlighting) {
+      highlighting = 'almost not'
+    }
+    if (!highlighting) {
+      highlighting = 'almost'
+    }
+  })
+  uiOne.children[0].addEventListener('mouseup', () => {
+    if (highlighting == 'almost') {
+      highlighting = true
+    }
+    if (highlighting == 'almost not') {
+      highlighting = false
+    }
+  })
+  uiOne.children[0].addEventListener('mouseleave', () => {
+    if (highlighting == 'almost') {
+      highlighting = false
+    }
+    if (highlighting == 'almost not') {
+      highlighting = true
+    }
   })
 
   setInterval(movement, 5)
@@ -54,15 +78,18 @@ settings.addEventListener('click', () => {
 })
 for (let i = 0; i < 2500; i++) {
   let div = document.createElement('div')
-  world.prepend(div)
+  div.id = i
+  world.appendChild(div)
 }
 
 (function resizeControl() {
-  if (parseInt(world.style.top) < -(2000 - window.innerHeight)) {
-    world.style.top = -(2000 - window.innerHeight) + 'px'
+  if (parseInt(world.style.top) < -(3000 - window.innerHeight)) {
+    world.style.top = -(3000 - window.innerHeight) + 'px'
+    highlightGrid.style.top = -(3000 - window.innerHeight) + 'px'
   }
-  if (parseInt(world.style.left) < -(2000 - window.innerWidth)) {
-    world.style.left = -(2000 - window.innerWidth) + 'px'
+  if (parseInt(world.style.left) < -(3000 - window.innerWidth)) {
+    world.style.left = -(3000 - window.innerWidth) + 'px'
+    highlightGrid.style.left = -(3000 - window.innerWidth) + 'px'
   }
   if (parseInt(world.style.left) / 5 != parseInt(parseInt(world.style.left) / 5)) {
     xOffset = parseInt((parseInt(world.style.left) / 5).toString().slice(-1)) / 2
@@ -74,81 +101,92 @@ for (let i = 0; i < 2500; i++) {
   requestAnimationFrame(resizeControl)
 }) ()
 function movement() {
-  if (parseInt(world.style.top) > -(1996 - window.innerHeight) && keysPressed['s']){
+  if (parseInt(world.style.top) > -(2996 - window.innerHeight) && keysPressed['s']){
     world.style.top = parseInt(world.style.top) - 5 * scrollSpeed + 'px'
+    highlightGrid.style.top = parseInt(highlightGrid.style.top) - 5 * scrollSpeed + 'px'
   } else if (keysPressed['s']) {
-    if (parseInt(world.style.top) > -(1997 - window.innerHeight)) {
+    if (parseInt(world.style.top) > -(2997 - window.innerHeight)) {
       world.style.top = parseInt(world.style.top) - 4 * scrollSpeed + 'px'
-      yOffset = 4
-    } else if (parseInt(world.style.top) > -(1998 - window.innerHeight)) {
+      highlightGrid.style.top = parseInt(highlightGrid.style.top) - 4 * scrollSpeed + 'px'
+    } else if (parseInt(world.style.top) > -(2998 - window.innerHeight)) {
       world.style.top = parseInt(world.style.top) - 3 * scrollSpeed + 'px'
-      yOffset = 3
-    } else if (parseInt(world.style.top) > -(1999 - window.innerHeight)) {
+      highlightGrid.style.top = parseInt(highlightGrid.style.top) - 3 * scrollSpeed + 'px'
+    } else if (parseInt(world.style.top) > -(2999 - window.innerHeight)) {
       world.style.top = parseInt(world.style.top) - 2 * scrollSpeed + 'px'
-      yOffset = 2
-    } else if (parseInt(world.style.top) > -(2000 - window.innerHeight)) {
+      highlightGrid.style.top = parseInt(highlightGrid.style.top) - 2 * scrollSpeed + 'px'
+    } else if (parseInt(world.style.top) > -(3000 - window.innerHeight)) {
       world.style.top = parseInt(world.style.top) - 1 * scrollSpeed + 'px'
-      yOffset = 1
+      highlightGrid.style.top = parseInt(highlightGrid.style.top) - 1 * scrollSpeed + 'px'
     }
   }
-  if (parseInt(world.style.top) < 0 && keysPressed['w']){
+  if (parseInt(world.style.top) < 1000 && keysPressed['w']){
     if (yOffset === 0) {
       world.style.top = parseInt(world.style.top) + 5 * scrollSpeed + 'px'
+      highlightGrid.style.top = parseInt(highlightGrid.style.top) + 5 * scrollSpeed + 'px'
     } else if (yOffset === 1) {
       world.style.top = parseInt(world.style.top) + 1 * scrollSpeed + 'px'
+      highlightGrid.style.top = parseInt(highlightGrid.style.top) + 1 * scrollSpeed + 'px'
     } else if (yOffset === 2) {
       world.style.top = parseInt(world.style.top) + 2 * scrollSpeed + 'px'
+      highlightGrid.style.top = parseInt(highlightGrid.style.top) + 2 * scrollSpeed + 'px'
     } else if (yOffset === 3) {
       world.style.top = parseInt(world.style.top) + 3 * scrollSpeed + 'px'
+      highlightGrid.style.top = parseInt(highlightGrid.style.top) + 3 * scrollSpeed + 'px'
     } else if (yOffset === 4) {
       world.style.top = parseInt(world.style.top) + 4 * scrollSpeed + 'px'
+      highlightGrid.style.top = parseInt(highlightGrid.style.top) + 4 * scrollSpeed + 'px'
     }
     yOffset = 0
   }
-  if (parseInt(world.style.left) > -(1996 - window.innerWidth) && keysPressed['d']){
+  if (parseInt(world.style.left) > -(2996 - window.innerWidth) && keysPressed['d']){
     world.style.left = parseInt(world.style.left) - 5 * scrollSpeed + 'px'
+    highlightGrid.style.left = parseInt(highlightGrid.style.left) - 5 * scrollSpeed + 'px'
   } else if (keysPressed['d']) {
-    if (parseInt(world.style.left) > -(1997 - window.innerWidth)) {
+    if (parseInt(world.style.left) > -(2997 - window.innerWidth)) {
       world.style.left = parseInt(world.style.left) - 4 * scrollSpeed + 'px'
-      xOffset = 4
-    } else if (parseInt(world.style.left) > -(1998 - window.innerWidth)) {
+      highlightGrid.style.left = parseInt(highlightGrid.style.left) - 4 * scrollSpeed + 'px'
+    } else if (parseInt(world.style.left) > -(2998 - window.innerWidth)) {
       world.style.left = parseInt(world.style.left) - 3 * scrollSpeed + 'px'
-      xOffset = 3
-    } else if (parseInt(world.style.left) > -(1999 - window.innerWidth)) {
+      highlightGrid.style.left = parseInt(highlightGrid.style.left) - 3 * scrollSpeed + 'px'
+    } else if (parseInt(world.style.left) > -(2999 - window.innerWidth)) {
       world.style.left = parseInt(world.style.left) - 2 * scrollSpeed + 'px'
-      xOffset = 2
-    } else if (parseInt(world.style.left) > -(2000 - window.innerWidth)) {
+      highlightGrid.style.left = parseInt(highlightGrid.style.left) - 2 * scrollSpeed + 'px'
+    } else if (parseInt(world.style.left) > -(3000 - window.innerWidth)) {
       world.style.left = parseInt(world.style.left) - 1 * scrollSpeed + 'px'
-      xOffset = 1
+      highlightGrid.style.left = parseInt(highlightGrid.style.left) - 1 * scrollSpeed + 'px'
     }
   }
-  if (parseInt(world.style.left) < 0 && keysPressed['a']){
+  if (parseInt(world.style.left) < 1000 && keysPressed['a']){
     if (xOffset === 0) {
       world.style.left = parseInt(world.style.left) + 5 * scrollSpeed + 'px'
+      highlightGrid.style.left = parseInt(highlightGrid.style.left) + 5 * scrollSpeed + 'px'
     } else if (xOffset === 1) {
       world.style.left = parseInt(world.style.left) + 1 * scrollSpeed + 'px'
+      highlightGrid.style.left = parseInt(highlightGrid.style.left) + 1 * scrollSpeed + 'px'
     } else if (xOffset === 2) {
       world.style.left = parseInt(world.style.left) + 2 * scrollSpeed + 'px'
+      highlightGrid.style.left = parseInt(highlightGrid.style.left) + 2 * scrollSpeed + 'px'
     } else if (xOffset === 3) {
       world.style.left = parseInt(world.style.left) + 3 * scrollSpeed + 'px'
+      highlightGrid.style.left = parseInt(highlightGrid.style.left) + 3 * scrollSpeed + 'px'
     } else if (xOffset === 4) {
       world.style.left = parseInt(world.style.left) + 4 * scrollSpeed + 'px'
+      highlightGrid.style.left = parseInt(highlightGrid.style.left) + 4 * scrollSpeed + 'px'
     }
     xOffset = 0
   }
 }
 (function selector() {
-  highlight.style.top = (40 * (Math.floor((cursorPosition.y - (parseInt(world.style.top) / 40 - Math.floor(parseInt(world.style.top) / 40)) * 40) / 40))) + (parseInt(world.style.top) / 40 - Math.floor(parseInt(world.style.top) / 40)) * 40 + 'px'
-  highlight.style.left = (40 * (Math.floor((cursorPosition.x - (parseInt(world.style.left) / 40 - Math.floor(parseInt(world.style.left) / 40)) * 40) / 40))) + (parseInt(world.style.left) / 40 - Math.floor(parseInt(world.style.left) / 40)) * 40 + 'px'
+  highlight.style.gridRowStart = tileHighlighted.y
+  highlight.style.gridColumnStart = tileHighlighted.x
 
-  tileHighlighted = {
-    x: Math.floor((cursorPosition.x - parseInt(world.style.left)) / 40),
-    y: Math.floor((cursorPosition.y - parseInt(world.style.top)) / 40)
+  if (highlighting && tileHighlighted.x == parseInt(tileHighlighted.x)) {
+    highlight.style.display = 'block'
+    document.body.style.cursor = 'none'
+  } else {
+    highlight.style.display = 'none'
+    document.body.style.cursor = 'default'
   }
 
   requestAnimationFrame(selector)
 }) ()
-
-world.children[49].style.backgroundColor = '#202126'
-world.children[2450].style.backgroundColor = '#202126'
-world.children[2499].style.backgroundColor = '#202126'

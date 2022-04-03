@@ -1,4 +1,6 @@
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -15,93 +17,26 @@
   position: absolute;
   top: 0px;
   left: 0px;
+  transform: rotate(45deg);
 }
 .world > div {
   width: 40px;
   height: 40px;
   position: relative;
 }
-.highlight {
+.highlight-grid {
   background-color: transparent;
-  width: 40px;
-  height: 40px;
-  position: absolute;
-}
-.highlight > .one {
-  background-color: transparent;
-  border-top-left-radius: 4px;
-  border-top: 5px solid #edf0f1;
-  border-left: 5px solid #edf0f1;
-  width: 13px;
-  height: 13px;
+  display: grid;
+  grid-template-columns: repeat(50, 1fr);
+  grid-template-rows: repeat(50, 1fr);
+  width: 2000px;
+  height: 2000px;
   position: absolute;
   top: 0px;
   left: 0px;
-}
-.highlight > .two {
-  background-color: transparent;
-  border-top-right-radius: 4px;
-  border-top: 5px solid #edf0f1;
-  border-right: 5px solid #edf0f1;
-  width: 13px;
-  height: 13px;
-  position: absolute;
-  top: 0px;
-  left: 27px;
-}
-.highlight > .three {
-  background-color: transparent;
-  border-bottom-left-radius: 4px;
-  border-bottom: 5px solid #edf0f1;
-  border-left: 5px solid #edf0f1;
-  width: 13px;
-  height: 13px;
-  position: absolute;
-  top: 27px;
-  left: 0px;
-}
-.highlight > .four {
-  background-color: transparent;
-  border-bottom-right-radius: 4px;
-  border-bottom: 5px solid #edf0f1;
-  border-right: 5px solid #edf0f1;
-  width: 13px;
-  height: 13px;
-  position: absolute;
-  top: 27px;
-  left: 27px;
-}
-.highlight > .five {
-  background-color: #edf0f1;
-  width: 1px;
-  height: 1px;
-  position: absolute;
-  top: 5px;
-  left: 5px;
-}
-.highlight > .six {
-  background-color: #edf0f1;
-  width: 1px;
-  height: 1px;
-  position: absolute;
-  top: 5px;
-  left: 34px;
-}
-.highlight > .seven {
-  background-color: #edf0f1;
-  width: 1px;
-  height: 1px;
-  position: absolute;
-  top: 34px;
-  left: 5px;
-}
-.highlight > .eight {
-  background-color: #edf0f1;
-  width: 1px;
-  height: 1px;
-  position: absolute;
-  top: 34px;
-  left: 34px;
+  transform: rotate(45deg);
+  z-index: 1;
+  pointer-events: none;
 }
 .settings-borgir {
   background-color: transparent;
