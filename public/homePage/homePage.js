@@ -39,6 +39,9 @@ addEventListener('keydown', (e) => {
         break
       case 'p':
         location = 'http://localhost:2137/sundayFunday'
+        break
+      case 'm':
+        location = 'https://www.musescore.com'
     }
   } else if (e.key === 'Enter') {
     button.click()
