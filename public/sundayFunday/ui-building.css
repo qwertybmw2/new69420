@@ -3,9 +3,9 @@
   width: 310px;
   height: 350px;
   position: fixed;
-  bottom: 175px;
+  bottom: -500px;
   left: 0px;
-  z-index: 2;
+  z-index: 0; 
 }
 .building-menu > * {
   background-color: #303136;

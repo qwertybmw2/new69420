@@ -1,5 +1,6 @@
 const settings = document.getElementsByClassName('settings-borgir')[0]
 const uiOne = document.getElementsByClassName('ui-one')[0]
+const buildingMenu = document.getElementsByClassName('building-menu')[0]
 const world = document.getElementsByClassName('world')[0]
 const highlightGrid = document.getElementsByClassName('highlight-grid')[0]
 const highlight = document.getElementsByClassName('highlight')[0]
@@ -22,7 +23,6 @@ fetch('/sundayFunday/api').then((result) => {
   })
   addEventListener('click', () => {
     mousedown = true
-
   })
   addEventListener('mouseup', () => {
     mousedown = false
@@ -38,9 +38,17 @@ fetch('/sundayFunday/api').then((result) => {
   uiOne.children[0].addEventListener('mouseup', () => {
     if (highlighting == 'almost') {
       highlighting = true
+      buildingMenu.style.transition = 'bottom .8s'
+      buildingMenu.style.bottom = '175px'
+      setTimeout(() => {buildingMenu.style.zIndex = '2'}, 800)
+      setTimeout(() => {buildingMenu.style.transition = 'bottom 0s'}, 800)
     }
     if (highlighting == 'almost not') {
       highlighting = false
+      buildingMenu.style.transition = 'bottom .8s'
+      buildingMenu.style.bottom = '-500px'
+      buildingMenu.style.zIndex = '0'
+      setTimeout(() => {buildingMenu.style.transition = 'bottom 0s'}, 800)
     }
   })
   uiOne.children[0].addEventListener('mouseleave', () => {
