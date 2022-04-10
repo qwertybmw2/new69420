@@ -40,15 +40,43 @@ fetch('/sundayFunday/api').then((result) => {
       highlighting = true
       buildingMenu.style.transition = 'bottom .8s'
       buildingMenu.style.bottom = '175px'
-      setTimeout(() => {buildingMenu.style.zIndex = '2'}, 800)
-      setTimeout(() => {buildingMenu.style.transition = 'bottom 0s'}, 800)
+      buildingMenu.children[0].style.transition = 'bottom .8s'
+      buildingMenu.children[0].style.bottom = '485px'
+      buildingMenu.children[1].style.transition = 'bottom .8s'
+      buildingMenu.children[1].style.bottom = '445px'
+      buildingMenu.children[2].style.transition = 'bottom .8s'
+      buildingMenu.children[2].style.bottom = '405px'
+      buildingMenu.children[3].style.transition = 'bottom .8s'
+      buildingMenu.children[3].style.bottom = '365px'
+      buildingMenu.children[4].style.transition = 'bottom .8s'
+      buildingMenu.children[4].style.bottom = '325px'
+      buildingMenu.children[5].style.transition = 'bottom .8s'
+      buildingMenu.children[5].style.bottom = '285px'
+      buildingMenu.children[6].style.transition = 'bottom .8s'
+      buildingMenu.children[6].style.bottom = '245px'
+      buildingMenu.children[7].style.transition = 'bottom .8s'
+      buildingMenu.children[7].style.bottom = '205px'
     }
     if (highlighting == 'almost not') {
       highlighting = false
       buildingMenu.style.transition = 'bottom .8s'
-      buildingMenu.style.bottom = '-500px'
-      buildingMenu.style.zIndex = '0'
-      setTimeout(() => {buildingMenu.style.transition = 'bottom 0s'}, 800)
+      buildingMenu.style.bottom = '-175px'
+      buildingMenu.children[0].style.transition = 'bottom .8s'
+      buildingMenu.children[0].style.bottom = '135px'
+      buildingMenu.children[1].style.transition = 'bottom .8s'
+      buildingMenu.children[1].style.bottom = '95px'
+      buildingMenu.children[2].style.transition = 'bottom .8s'
+      buildingMenu.children[2].style.bottom = '55px'
+      buildingMenu.children[3].style.transition = 'bottom .8s'
+      buildingMenu.children[3].style.bottom = '15px'
+      buildingMenu.children[4].style.transition = 'bottom .8s'
+      buildingMenu.children[4].style.bottom = '-25px'
+      buildingMenu.children[5].style.transition = 'bottom .8s'
+      buildingMenu.children[5].style.bottom = '-65px'
+      buildingMenu.children[6].style.transition = 'bottom .8s'
+      buildingMenu.children[6].style.bottom = '-105px'
+      buildingMenu.children[7].style.transition = 'bottom .8s'
+      buildingMenu.children[7].style.bottom = '-145px'
     }
   })
   uiOne.children[0].addEventListener('mouseleave', () => {
