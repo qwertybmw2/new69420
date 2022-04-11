@@ -41,7 +41,7 @@ addEventListener('keydown', (e) => {
         location = 'http://localhost:2137/sundayFunday'
         break
       case 'm':
-        location = 'https://www.musescore.com'
+        location = 'https://www.musescore.com/classicman/fur-elise'
     }
   } else if (e.key === 'Enter') {
     button.click()
