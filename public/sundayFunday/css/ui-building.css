@@ -1,0 +1,64 @@
+.building-menu {
+  background-color: #1a1b20;
+  width: 310px;
+  height: 350px;
+  position: fixed;
+  bottom: -175px;
+  left: 0px;
+  z-index: 2; 
+}
+.building-menu > * {
+  background-color: #303136;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  position: fixed;
+  cursor: pointer;
+}
+.building-menu > .one {
+  width: 35px;
+  height: 35px;
+  bottom: 135px;
+  left: 310px;
+}
+.building-menu > .two {
+  width: 35px;
+  height: 35px;
+  bottom: 95px;
+  left: 310px;
+}
+.building-menu > .three {
+  width: 35px;
+  height: 35px;
+  bottom: 55px;
+  left: 310px;
+}
+.building-menu > .four {
+  width: 35px;
+  height: 35px;
+  bottom: 15px;
+  left: 310px;
+}
+.building-menu > .five {
+  width: 35px;
+  height: 35px;
+  bottom: -25px;
+  left: 310px;
+}
+.building-menu > .six {
+  width: 35px;
+  height: 35px;
+  bottom: -65px;
+  left: 310px;
+}
+.building-menu > .seven {
+  width: 35px;
+  height: 35px;
+  bottom: -105px;
+  left: 310px;
+}
+.building-menu > .eight {
+  width: 35px;
+  height: 35px;
+  bottom: -145px;
+  left: 310px;
+}
