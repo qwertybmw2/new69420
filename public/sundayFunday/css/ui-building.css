@@ -20,11 +20,17 @@
   bottom: 135px;
   left: 310px;
 }
+.building-menu > .one:hover {
+  background-color: #404146;
+}
 .building-menu > .two {
   width: 35px;
   height: 35px;
   bottom: 95px;
   left: 310px;
+}
+.building-menu > .two:hover {
+  background-color: #404146;
 }
 .building-menu > .three {
   width: 35px;
@@ -32,11 +38,17 @@
   bottom: 55px;
   left: 310px;
 }
+.building-menu > .three:hover {
+  background-color: #404146;
+}
 .building-menu > .four {
   width: 35px;
   height: 35px;
   bottom: 15px;
   left: 310px;
+}
+.building-menu > .four:hover {
+  background-color: #404146;
 }
 .building-menu > .five {
   width: 35px;
@@ -44,11 +56,17 @@
   bottom: -25px;
   left: 310px;
 }
+.building-menu > .five:hover {
+  background-color: #404146;
+}
 .building-menu > .six {
   width: 35px;
   height: 35px;
   bottom: -65px;
   left: 310px;
+}
+.building-menu > .six:hover {
+  background-color: #404146;
 }
 .building-menu > .seven {
   width: 35px;
@@ -56,9 +74,15 @@
   bottom: -105px;
   left: 310px;
 }
+.building-menu > .seven:hover {
+  background-color: #404146;
+}
 .building-menu > .eight {
   width: 35px;
   height: 35px;
   bottom: -145px;
   left: 310px;
+}
+.building-menu > .eight:hover {
+  background-color: #404146;
 }

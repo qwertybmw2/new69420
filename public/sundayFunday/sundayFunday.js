@@ -87,6 +87,9 @@ fetch('/sundayFunday/api').then((result) => {
       highlighting = true
     }
   })
+  addEventListener('keydown', (e) => {
+    console.log(e.target);
+  })
 
   setInterval(movement, 5)
   setInterval(
