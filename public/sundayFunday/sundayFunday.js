@@ -13,6 +13,13 @@ fetch('/sundayFunday/api').then((result) => {
 }).then((json) => {
   addEventListener('keydown', (e) => {
     keysPressed[e.key] = true
+    if (e.key === 'b') {
+      if (highlighting || highlighting === 'almost not') {
+        hideBuildingMenu()
+      } else if (!highlighting || highlighting === 'almost') {
+        showBuildingMenu()
+      }
+    }
   })
   addEventListener('keyup', (e) => {
     delete keysPressed[e.key]
@@ -37,46 +44,10 @@ fetch('/sundayFunday/api').then((result) => {
   })
   uiOne.children[0].addEventListener('mouseup', () => {
     if (highlighting == 'almost') {
-      highlighting = true
-      buildingMenu.style.transition = 'bottom .8s'
-      buildingMenu.style.bottom = '175px'
-      buildingMenu.children[0].style.transition = 'bottom .8s'
-      buildingMenu.children[0].style.bottom = '485px'
-      buildingMenu.children[1].style.transition = 'bottom .8s'
-      buildingMenu.children[1].style.bottom = '445px'
-      buildingMenu.children[2].style.transition = 'bottom .8s'
-      buildingMenu.children[2].style.bottom = '405px'
-      buildingMenu.children[3].style.transition = 'bottom .8s'
-      buildingMenu.children[3].style.bottom = '365px'
-      buildingMenu.children[4].style.transition = 'bottom .8s'
-      buildingMenu.children[4].style.bottom = '325px'
-      buildingMenu.children[5].style.transition = 'bottom .8s'
-      buildingMenu.children[5].style.bottom = '285px'
-      buildingMenu.children[6].style.transition = 'bottom .8s'
-      buildingMenu.children[6].style.bottom = '245px'
-      buildingMenu.children[7].style.transition = 'bottom .8s'
-      buildingMenu.children[7].style.bottom = '205px'
+      showBuildingMenu()
     }
     if (highlighting == 'almost not') {
-      highlighting = false
-      buildingMenu.style.transition = 'bottom .8s'
-      buildingMenu.style.bottom = '-175px'
-      buildingMenu.children[0].style.transition = 'bottom .8s'
-      buildingMenu.children[0].style.bottom = '135px'
-      buildingMenu.children[1].style.transition = 'bottom .8s'
-      buildingMenu.children[1].style.bottom = '95px'
-      buildingMenu.children[2].style.transition = 'bottom .8s'
-      buildingMenu.children[2].style.bottom = '55px'
-      buildingMenu.children[3].style.transition = 'bottom .8s'
-      buildingMenu.children[3].style.bottom = '15px'
-      buildingMenu.children[4].style.transition = 'bottom .8s'
-      buildingMenu.children[4].style.bottom = '-25px'
-      buildingMenu.children[5].style.transition = 'bottom .8s'
-      buildingMenu.children[5].style.bottom = '-65px'
-      buildingMenu.children[6].style.transition = 'bottom .8s'
-      buildingMenu.children[6].style.bottom = '-105px'
-      buildingMenu.children[7].style.transition = 'bottom .8s'
-      buildingMenu.children[7].style.bottom = '-145px'
+      hideBuildingMenu()
     }
   })
   uiOne.children[0].addEventListener('mouseleave', () => {
@@ -86,9 +57,6 @@ fetch('/sundayFunday/api').then((result) => {
     if (highlighting == 'almost not') {
       highlighting = true
     }
-  })
-  addEventListener('keydown', (e) => {
-    console.log(e.target);
   })
 
   setInterval(movement, 5)
@@ -229,3 +197,45 @@ function movement() {
 
   requestAnimationFrame(selector)
 }) ()
+function hideBuildingMenu() {
+  highlighting = false
+  buildingMenu.style.transition = 'bottom .8s'
+  buildingMenu.style.bottom = '-400px'
+  buildingMenu.children[0].style.transition = 'bottom .8s'
+  buildingMenu.children[0].style.bottom = '-45px'
+  buildingMenu.children[1].style.transition = 'bottom .8s'
+  buildingMenu.children[1].style.bottom = '-85px'
+  buildingMenu.children[2].style.transition = 'bottom .8s'
+  buildingMenu.children[2].style.bottom = '-125px'
+  buildingMenu.children[3].style.transition = 'bottom .8s'
+  buildingMenu.children[3].style.bottom = '-165px'
+  buildingMenu.children[4].style.transition = 'bottom .8s'
+  buildingMenu.children[4].style.bottom = '-205px'
+  buildingMenu.children[5].style.transition = 'bottom .8s'
+  buildingMenu.children[5].style.bottom = '-245px'
+  buildingMenu.children[6].style.transition = 'bottom .8s'
+  buildingMenu.children[6].style.bottom = '-285px'
+  buildingMenu.children[7].style.transition = 'bottom .8s'
+  buildingMenu.children[7].style.bottom = '-325px'
+}
+function showBuildingMenu() {
+  highlighting = true
+  buildingMenu.style.transition = 'bottom .8s'
+  buildingMenu.style.bottom = '175px'
+  buildingMenu.children[0].style.transition = 'bottom .8s'
+  buildingMenu.children[0].style.bottom = '535px'
+  buildingMenu.children[1].style.transition = 'bottom .8s'
+  buildingMenu.children[1].style.bottom = '495px'
+  buildingMenu.children[2].style.transition = 'bottom .8s'
+  buildingMenu.children[2].style.bottom = '455px'
+  buildingMenu.children[3].style.transition = 'bottom .8s'
+  buildingMenu.children[3].style.bottom = '415px'
+  buildingMenu.children[4].style.transition = 'bottom .8s'
+  buildingMenu.children[4].style.bottom = '375px'
+  buildingMenu.children[5].style.transition = 'bottom .8s'
+  buildingMenu.children[5].style.bottom = '335px'
+  buildingMenu.children[6].style.transition = 'bottom .8s'
+  buildingMenu.children[6].style.bottom = '295px'
+  buildingMenu.children[7].style.transition = 'bottom .8s'
+  buildingMenu.children[7].style.bottom = '255px'
+}

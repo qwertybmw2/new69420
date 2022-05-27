@@ -4,7 +4,6 @@
   "description": "node server",
   "main": "homePageServer.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon homePageServer.js"
   },
   "author": "",

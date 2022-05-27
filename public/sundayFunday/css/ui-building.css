@@ -1,9 +1,9 @@
 .building-menu {
   background-color: #1a1b20;
-  width: 310px;
-  height: 350px;
+  width: 345px;
+  height: 400px;
   position: fixed;
-  bottom: -175px;
+  bottom: -400px;
   left: 0px;
   z-index: 2; 
 }
@@ -13,76 +13,94 @@
   border-bottom-right-radius: 3px;
   position: fixed;
   cursor: pointer;
+  left: 345px;
 }
-.building-menu > .one {
+.building-menu > .tab-one {
   width: 35px;
   height: 35px;
-  bottom: 135px;
-  left: 310px;
+  bottom: 185px;
 }
-.building-menu > .one:hover {
+.building-menu > .tab-one:hover {
   background-color: #404146;
 }
-.building-menu > .two {
+.building-menu > .tab-two {
   width: 35px;
   height: 35px;
-  bottom: 95px;
-  left: 310px;
+  bottom: 145px;
 }
-.building-menu > .two:hover {
+.building-menu > .tab-two:hover {
   background-color: #404146;
 }
-.building-menu > .three {
+.building-menu > .tab-three {
   width: 35px;
   height: 35px;
-  bottom: 55px;
-  left: 310px;
+  bottom: 105px;
 }
-.building-menu > .three:hover {
+.building-menu > .tab-three:hover {
   background-color: #404146;
 }
-.building-menu > .four {
+.building-menu > .tab-four {
   width: 35px;
   height: 35px;
   bottom: 15px;
-  left: 310px;
 }
-.building-menu > .four:hover {
+.building-menu > .tab-four:hover {
   background-color: #404146;
 }
-.building-menu > .five {
+.building-menu > .tab-five {
   width: 35px;
   height: 35px;
   bottom: -25px;
-  left: 310px;
 }
-.building-menu > .five:hover {
+.building-menu > .tab-five:hover {
   background-color: #404146;
 }
-.building-menu > .six {
+.building-menu > .tab-six {
   width: 35px;
   height: 35px;
   bottom: -65px;
-  left: 310px;
 }
-.building-menu > .six:hover {
+.building-menu > .tab-six:hover {
   background-color: #404146;
 }
-.building-menu > .seven {
+.building-menu > .tab-seven {
   width: 35px;
   height: 35px;
   bottom: -105px;
-  left: 310px;
 }
-.building-menu > .seven:hover {
+.building-menu > .tab-seven:hover {
   background-color: #404146;
 }
-.building-menu > .eight {
+.building-menu > .tab-eight {
   width: 35px;
   height: 35px;
   bottom: -145px;
-  left: 310px;
 }
-.building-menu > .eight:hover {
+.building-menu > .tab-eight:hover {
   background-color: #404146;
+}
+.building-menu > .image-one,
+.building-menu > .image-two,
+.building-menu > .image-three,
+.building-menu > .image-four {
+  position: absolute;
+  width: 140px;
+  height: 150px;
+  border-radius: 0px;
+}
+.building-menu > .image-one {
+  top: 10px;
+  left: 10px;
+}
+.building-menu > .image-two {
+  top: 10px;
+  left: 160px;
+}
+.building-menu > .image-three {
+  top: 170px;
+  left: 10px;
+}
+.building-menu > .image-four {
+  top: 170px;
+  left: 160px;
 }
