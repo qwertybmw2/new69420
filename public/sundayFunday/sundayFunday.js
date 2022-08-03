@@ -1,6 +1,7 @@
 const settings = document.getElementsByClassName('settings-borgir')[0]
 const uiOne = document.getElementsByClassName('ui-one')[0]
 const buildingMenu = document.getElementsByClassName('building-menu')[0]
+const selector = document.getElementsByClassName('selector')[0]
 const world = document.getElementsByClassName('world')[0]
 const highlightGrid = document.getElementsByClassName('highlight-grid')[0]
 const highlight = document.getElementsByClassName('highlight')[0]
@@ -88,6 +89,7 @@ for (let i = 0; i < 2500; i++) {
   div.id = i
   world.appendChild(div)
 }
+selector.children[0].value = '1/1';
 
 (function resizeControl() {
   if (parseInt(world.style.top) < -(3000 - window.innerHeight)) {

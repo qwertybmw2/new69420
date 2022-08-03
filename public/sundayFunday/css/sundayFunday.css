@@ -40,13 +40,34 @@
 }
 .settings-borgir {
   background-color: transparent;
-  border-radius: 50%;
-  border: .3vw solid #777;
-  width: 1vw;
-  height: 1vw;
-  position: absolute;
-  top: 1.5vw;
-  left: 97vw;
+  width: 25px;
+  height: 19px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+.settings-borgir > .one {
+  background-color: #777;
+  border-radius: 9999px;
+  width: 25px;
+  height: 3px;
+  position: relative;
+}
+.settings-borgir > .two {
+  background-color: #777;
+  border-radius: 9999px;
+  width: 25px;
+  height: 3px;
+  position: relative;
+  margin-top: 4px;
+}
+.settings-borgir > .three {
+  background-color: #777;
+  border-radius: 9999px;
+  width: 25px;
+  height: 3px;
+  position: relative;
+  margin-top: 4px;
 }
 .settings-borgir:hover {
   cursor: pointer;
