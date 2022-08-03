@@ -13,10 +13,9 @@ app.use(session({
   saveUninitialized: false
 }))
 app.use(express.static('public/homePage'))
-// app.use('/sundayFunday', express.static('public/sundayFunday'))
-// app.use('/sundayFunday/login', express.static('public/sundayFunday'))
-// app.use('/sundayFunday/signup', express.static('public/sundayFunday'))
-app.use('/growCastleRipOff', express.static('public/growCastleRipOff'))
+app.use('/sundayFunday', express.static('public/sundayFunday'))
+app.use('/sundayFunday/login', express.static('public/sundayFunday'))
+app.use('/sundayFunday/signup', express.static('public/sundayFunday'))
 }
 
 // When the Mongoose is sus
