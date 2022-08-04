@@ -1,0 +1,182 @@
+.building-menu > .selector {
+  background-color: #2a2b2f;
+  border-radius: 0px;
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  cursor: default;
+}
+.building-menu > .selector > .input {
+  background-color: #1a1b1f;
+  user-select: text;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: 700;
+  width: 100px;
+  height: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.building-menu > .selector > .input:focus {
+  box-shadow: 1.5px 1px 3.5px -1px #000;
+}
+
+.building-menu > .selector > .arrow-full-left {
+  background-color: var(--arrow-full-leftBackgroundColor);
+  border-radius: 3px;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 50%;
+  left: 63px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.building-menu > .selector > .arrow-full-left:not(:hover) {
+  --arrow-full-leftBackgroundColor: #1a1b1f;
+  --arrow-full-leftBorderColor: #44454a;
+}
+.building-menu > .selector > .arrow-full-left:hover {
+  --arrow-full-leftBackgroundColor: #202126;
+  --arrow-full-leftBorderColor: #606166;
+}
+.building-menu > .selector > .arrow-full-left > .one{
+  background-color: transparent;
+  border-top: solid 9px transparent;
+  border-left: solid 10px transparent;
+  border-right: solid 10px var(--arrow-full-leftBorderColor);
+  border-bottom: solid 9px transparent;
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: 3px;
+  left: -7px;
+}
+.building-menu > .selector > .arrow-full-left > .two{
+  background-color: transparent;
+  border-top: solid 9px transparent;
+  border-left: solid 10px transparent;
+  border-right: solid 10px var(--arrow-full-leftBorderColor);
+  border-bottom: solid 9px transparent;
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: 3px;
+  left: 1px;
+}
+.building-menu > .selector > .arrow-left {
+  background-color: var(--arrow-leftBackgroundColor);
+  border-radius: 3px;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 50%;
+  left: 93px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.building-menu > .selector > .arrow-left:not(:hover) {
+  --arrow-leftBackgroundColor: #1a1b1f;
+  --arrow-leftBorderColor: #44454a;
+}
+.building-menu > .selector > .arrow-left:hover {
+  --arrow-leftBackgroundColor: #202126;
+  --arrow-leftBorderColor: #606166;
+}
+.building-menu > .selector > .arrow-left > .one{
+  background-color: transparent;
+  border-top: solid 9px transparent;
+  border-left: solid 10px transparent;
+  border-right: solid 10px var(--arrow-leftBorderColor);
+  border-bottom: solid 9px transparent;
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: 3px;
+  left: -3px;
+}
+.building-menu > .selector > .arrow-right {
+  background-color: var(--arrow-rightBackgroundColor);
+  border-radius: 3px;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 50%;
+  left: 228px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.building-menu > .selector > .arrow-right:not(:hover) {
+  --arrow-rightBackgroundColor: #1a1b1f;
+  --arrow-rightBorderColor: #44454a;
+}
+.building-menu > .selector > .arrow-right:hover {
+  --arrow-rightBackgroundColor: #202126;
+  --arrow-rightBorderColor: #606166;
+}
+.building-menu > .selector > .arrow-right > .one{
+  background-color: transparent;
+  border-top: solid 9px transparent;
+  border-left: solid 10px transparent;
+  border-right: solid 10px var(--arrow-rightBorderColor);
+  border-bottom: solid 9px transparent;
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: 3px;
+  left: 8px;
+  transform: rotate(180deg);
+}
+.building-menu > .selector > .arrow-full-right {
+  background-color: var(--arrow-full-rightBackgroundColor);
+  border-radius: 3px;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 50%;
+  left: 258px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.building-menu > .selector > .arrow-full-right:not(:hover) {
+  --arrow-full-rightBackgroundColor: #1a1b1f;
+  --arrow-full-rightBorderColor: #44454a;
+}
+.building-menu > .selector > .arrow-full-right:hover {
+  --arrow-full-rightBackgroundColor: #202126;
+  --arrow-full-rightBorderColor: #606166;
+}
+.building-menu > .selector > .arrow-full-right > .one{
+  background-color: transparent;
+  border-top: solid 9px transparent;
+  border-left: solid 10px transparent;
+  border-right: solid 10px var(--arrow-full-rightBorderColor);
+  border-bottom: solid 9px transparent;
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: 3px;
+  left: 12px;
+  transform: rotate(180deg);
+}
+.building-menu > .selector > .arrow-full-right > .two{
+  background-color: transparent;
+  border-top: solid 9px transparent;
+  border-left: solid 10px transparent;
+  border-right: solid 10px var(--arrow-full-rightBorderColor);
+  border-bottom: solid 9px transparent;
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  transform: rotate(180deg);
+}
