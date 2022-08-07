@@ -19,13 +19,42 @@
   top: 5px;
   left: 5px;
 }
+.ui-one > .one:not(:hover) {
+  --ui-one_oneBackgroundColor: #2a2b30;
+  --ui-one_oneBackgroundColor2: #44454a
+}
 .ui-one > .one:hover {
   --ui-one_oneBackgroundColor: #3a3b40;
   --ui-one_oneBackgroundColor2: #64656a
 }
-.ui-one > .one:not(:hover) {
-  --ui-one_oneBackgroundColor: #2a2b30;
-  --ui-one_oneBackgroundColor2: #44454a
+.ui-one > .one:focus {
+  --ui-one_oneBackgroundColor: #202126;
+  --ui-one_oneBackgroundColor2: #303136;
+}
+.ui-one > .one > * {
+  background-color: var(--ui-one_oneBackgroundColor2);
+  position: absolute;
+}
+.ui-one > .one > .one {
+  width: 13px;
+  height: 40px;
+  top: 55%;
+  left: 55%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.ui-one > .one > .two {
+  width: 13px;
+  height: 40px;
+  top: 6px;
+  left: 22px;
+  transform: rotate(45deg)
+}
+.ui-one > .one > .three {
+  background-color: var(--ui-one_oneBackgroundColor);
+  width: 30px;
+  height: 15px;
+  top: 2px;
+  left: 25px;
 }
 .ui-one > .two {
   background-color: var(--ui-one_twoBackgroundColor);
@@ -117,29 +146,4 @@
 .ui-one > .eight:not(:hover) {
   --ui-one_eightBackgroundColor: #2a2b30;
   --ui-one_eightBackgroundColor2: #44454a
-}
-.ui-one > .one > * {
-  background-color: var(--ui-one_oneBackgroundColor2);
-  position: absolute;
-}
-.ui-one > .one > .one {
-  width: 13px;
-  height: 40px;
-  top: 55%;
-  left: 55%;
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
-.ui-one > .one > .two {
-  width: 13px;
-  height: 40px;
-  top: 6px;
-  left: 22px;
-  transform: rotate(45deg)
-}
-.ui-one > .one > .three {
-  background-color: var(--ui-one_oneBackgroundColor);
-  width: 30px;
-  height: 15px;
-  top: 2px;
-  left: 25px;
 }

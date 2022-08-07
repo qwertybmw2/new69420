@@ -28,7 +28,9 @@
 .building-menu > .selector > .input:focus {
   box-shadow: 1.5px 1px 3.5px -1px #000;
 }
-
+button {
+  border: none;
+}
 .building-menu > .selector > .arrow-full-left {
   background-color: var(--arrow-full-leftBackgroundColor);
   border-radius: 3px;
@@ -47,6 +49,10 @@
 .building-menu > .selector > .arrow-full-left:hover {
   --arrow-full-leftBackgroundColor: #202126;
   --arrow-full-leftBorderColor: #606166;
+}
+.building-menu > .selector > .arrow-full-left:focus {
+  --arrow-full-leftBackgroundColor: #101116;
+  --arrow-full-leftBorderColor: #34353a;
 }
 .building-menu > .selector > .arrow-full-left > .one{
   background-color: transparent;
@@ -91,6 +97,10 @@
   --arrow-leftBackgroundColor: #202126;
   --arrow-leftBorderColor: #606166;
 }
+.building-menu > .selector > .arrow-left:focus {
+  --arrow-leftBackgroundColor: #101116;
+  --arrow-leftBorderColor: #34353a;
+}
 .building-menu > .selector > .arrow-left > .one{
   background-color: transparent;
   border-top: solid 9px transparent;
@@ -121,6 +131,10 @@
 .building-menu > .selector > .arrow-right:hover {
   --arrow-rightBackgroundColor: #202126;
   --arrow-rightBorderColor: #606166;
+}
+.building-menu > .selector > .arrow-right:focus {
+  --arrow-rightBackgroundColor: #101116;
+  --arrow-rightBorderColor: #34353a;
 }
 .building-menu > .selector > .arrow-right > .one{
   background-color: transparent;
@@ -153,6 +167,10 @@
 .building-menu > .selector > .arrow-full-right:hover {
   --arrow-full-rightBackgroundColor: #202126;
   --arrow-full-rightBorderColor: #606166;
+}
+.building-menu > .selector > .arrow-full-right:focus {
+  --arrow-full-rightBackgroundColor: #101116;
+  --arrow-full-rightBorderColor: #34353a;
 }
 .building-menu > .selector > .arrow-full-right > .one{
   background-color: transparent;

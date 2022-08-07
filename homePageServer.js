@@ -32,20 +32,19 @@ app.use('/sundayFunday/signup', express.static('public/sundayFunday'))
       type: String,
       required: true
     },
-    x: {
-      type: Number,
+    buildingsUnlocked: {
+      type: Schema.Types.Mixed,
       required: true,
-      default: 0
-    },
-    y: {
-      type: Number,
-      required: true,
-      default: 0
-    },
-    zoom: {
-      type: Number,
-      required: true,
-      default: 4
+      default: {
+        first: 1,
+        second: 2,
+        third: 3,
+        fourth: 4,
+        fifth: 5,
+        sixth: 6,
+        seventh: 7,
+        eighth: 8
+      }
     }
   })
 
@@ -75,9 +74,7 @@ app.use('/sundayFunday/signup', express.static('public/sundayFunday'))
       for (var i = 0; i < result.length; i++) {
         if (result[i].username === req.session.user) {
           res.json({
-            x: result[i].x,
-            y: result[i].y,
-            zoom: result[i].zoom
+            buildingsUnlocked: result[i].buildingsUnlocked
           })
         }
       }

@@ -5,9 +5,14 @@ const selector = document.getElementsByClassName('selector')[0]
 const world = document.getElementsByClassName('world')[0]
 const highlightGrid = document.getElementsByClassName('highlight-grid')[0]
 const highlight = document.getElementsByClassName('highlight')[0]
+const arrowFullLeft = document.getElementsByClassName('arrow-full-left')[0]
+const arrowLeft = document.getElementsByClassName('arrow-left')[0]
+const arrowRight = document.getElementsByClassName('arrow-right')[0]
+const arrowFullRight = document.getElementsByClassName('arrow-full-right')[0]
+const selectorInput = document.getElementById('selector-input')
 const tileHighlighted = {}
 const keysPressed = {}
-let scrollSpeed = 1, yOffset = 0, xOffset = 0, highlighting = false
+let scrollSpeed = 1, yOffset = 0, xOffset = 0, highlighting = false, buildingsUnlocked = {}, buildingMenuPage = 1, buildingMenuTab = 'first'
 
 fetch('/sundayFunday/api').then((result) => {
   return result.json()
@@ -21,6 +26,15 @@ fetch('/sundayFunday/api').then((result) => {
         showBuildingMenu()
       }
     }
+    if (e.key === 'Enter' && document.activeElement === selectorInput) {
+      if (selectorInput.value > 0 && selectorInput.value <= buildingsUnlocked[buildingMenuTab]) {
+        buildingMenuPage = selectorInput.value
+        selectorInput.value = buildingMenuPage + '/' + buildingsUnlocked[buildingMenuTab]
+        selectorInput.blur()
+      } else {
+        selectorInput.blur()
+      }
+    }
   })
   addEventListener('keyup', (e) => {
     delete keysPressed[e.key]
@@ -29,11 +43,67 @@ fetch('/sundayFunday/api').then((result) => {
     tileHighlighted.x = Math.round((parseInt(e.target.id) / 50 - Math.floor(parseInt(e.target.id) / 50)) * 50 + 1)
     tileHighlighted.y = Math.floor(parseInt(e.target.id) / 50) + 1
   })
-  addEventListener('click', () => {
+  addEventListener('click', (e) => {
     mousedown = true
+    switch (e.target.className) {
+      case 'tab-one':
+        buildingMenuTab = 'first'
+        buildingMenuPage = 1
+        selectorInput.value = buildingMenuPage + '/' + buildingsUnlocked[buildingMenuTab]
+        break
+      case 'tab-two':
+        buildingMenuTab = 'second'
+        buildingMenuPage = 1
+        selectorInput.value = buildingMenuPage + '/' + buildingsUnlocked[buildingMenuTab]
+        break
+      case 'tab-three':
+        buildingMenuTab = 'third'
+        buildingMenuPage = 1
+        selectorInput.value = buildingMenuPage + '/' + buildingsUnlocked[buildingMenuTab]
+        break
+      case 'tab-four':
+        buildingMenuTab = 'fourth'
+        buildingMenuPage = 1
+        selectorInput.value = buildingMenuPage + '/' + buildingsUnlocked[buildingMenuTab]
+        break
+      case 'tab-five':
+        buildingMenuTab = 'fifth'
+        buildingMenuPage = 1
+        selectorInput.value = buildingMenuPage + '/' + buildingsUnlocked[buildingMenuTab]
+        break
+      case 'tab-six':
+        buildingMenuTab = 'sixth'
+        buildingMenuPage = 1
+        selectorInput.value = buildingMenuPage + '/' + buildingsUnlocked[buildingMenuTab]
+        break
+      case 'tab-seven':
+        buildingMenuTab = 'seventh'
+        buildingMenuPage = 1
+        selectorInput.value = buildingMenuPage + '/' + buildingsUnlocked[buildingMenuTab]
+        break
+      case 'tab-eight':
+        buildingMenuTab = 'eighth'
+        buildingMenuPage = 1
+        selectorInput.value = buildingMenuPage + '/' + buildingsUnlocked[buildingMenuTab]
+        break
+    }
   })
   addEventListener('mouseup', () => {
     mousedown = false
+    switch (document.activeElement) {
+      case arrowFullLeft:
+        arrowFullLeft.blur()
+        break;
+      case arrowLeft:
+        arrowLeft.blur()
+        break;
+      case arrowRight:
+        arrowRight.blur()
+        break;
+      case arrowFullRight:
+        arrowFullRight.blur()
+        break;
+    }
   })
   uiOne.children[0].addEventListener('mousedown', () => {
     if (highlighting) {
@@ -50,6 +120,7 @@ fetch('/sundayFunday/api').then((result) => {
     if (highlighting == 'almost not') {
       hideBuildingMenu()
     }
+    uiOne.children[0].blur()
   })
   uiOne.children[0].addEventListener('mouseleave', () => {
     if (highlighting == 'almost') {
@@ -58,6 +129,45 @@ fetch('/sundayFunday/api').then((result) => {
     if (highlighting == 'almost not') {
       highlighting = true
     }
+    uiOne.children[0].blur()
+  })
+  selectorInput.addEventListener('focus', () => {
+    selectorInput.value = ''
+  })
+  selectorInput.addEventListener('focusout', () => {
+    selectorInput.value = buildingMenuPage + '/' + buildingsUnlocked[buildingMenuTab]
+  })
+  arrowFullLeft.addEventListener('mouseleave', () => {
+    arrowFullLeft.blur()
+  })
+  arrowLeft.addEventListener('mouseleave', () => {
+    arrowLeft.blur()
+  })
+  arrowRight.addEventListener('mouseleave', () => {
+    arrowRight.blur()
+  })
+  arrowFullRight.addEventListener('mouseleave', () => {
+    arrowFullRight.blur()
+  })
+  arrowFullLeft.addEventListener('click', () => {
+    buildingMenuPage = 1
+    selectorInput.value = buildingMenuPage + '/' + buildingsUnlocked[buildingMenuTab]
+  })
+  arrowLeft.addEventListener('click', () => {
+    if (buildingMenuPage > 1) {
+      buildingMenuPage--
+    }
+    selectorInput.value = buildingMenuPage + '/' + buildingsUnlocked[buildingMenuTab]
+  })
+  arrowRight.addEventListener('click', () => {
+    if (buildingMenuPage < buildingsUnlocked[buildingMenuTab]) {
+      buildingMenuPage++
+    }
+    selectorInput.value = buildingMenuPage + '/' + buildingsUnlocked[buildingMenuTab]
+  })
+  arrowFullRight.addEventListener('click', () => {
+    buildingMenuPage = buildingsUnlocked[buildingMenuTab]
+    selectorInput.value = buildingMenuPage + '/' + buildingsUnlocked[buildingMenuTab]
   })
 
   setInterval(movement, 5)
@@ -76,6 +186,8 @@ fetch('/sundayFunday/api').then((result) => {
       })
     }, 500
   )
+  buildingsUnlocked = json.buildingsUnlocked
+  selectorInput.value = buildingMenuPage + '/' + buildingsUnlocked[buildingMenuTab]
 })
 settings.addEventListener('click', () => {
   fetch('/sundayFunday', {
@@ -89,7 +201,6 @@ for (let i = 0; i < 2500; i++) {
   div.id = i
   world.appendChild(div)
 }
-selector.children[0].value = '1/1';
 
 (function resizeControl() {
   if (parseInt(world.style.top) < -(3000 - window.innerHeight)) {

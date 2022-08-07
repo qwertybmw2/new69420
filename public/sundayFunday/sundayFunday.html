@@ -1,11 +1,11 @@
 <head>
   <meta charset="utf-8">
   <link rel="shortcut icon" href="PepeLa.png">
-  <link rel="stylesheet" href="css/ui-building-selector.css">
   <link rel="stylesheet" href="css/sundayFunday.css">
   <link rel="stylesheet" href="css/highlight.css">
   <link rel="stylesheet" href="css/ui-board.css">
   <link rel="stylesheet" href="css/ui-building.css">
+  <link rel="stylesheet" href="css/ui-building-selector.css">
   <script src="sundayFunday.js" defer></script>
   <title>sundayFunday</title>
 </head>
@@ -23,21 +23,29 @@
     </div>
   </div>
   <div class="world" style="top: 0; left: 0"></div>
-  <div class="ui-one">
-    <div class="one">
+  <button class="ui-one">
+    <button class="one">
       <div class="one"></div>
       <div class="two"></div>
       <div class="three"></div>
       <div class="four"></div>
+    </button>
+    <div class="two">
+      <div class="one"></div>
+      <div class="two"></div>
+      <div class="three"></div>
+      <div class="four"></div>
+      <div class="five"></div>
+      <div class="six"></div>
+      <div class="seven"></div>
     </div>
-    <div class="two"></div>
     <div class="three"></div>
     <div class="four"></div>
     <div class="five"></div>
     <div class="six"></div>
     <div class="seven"></div>
     <div class="eight"></div>
-  </div>
+  </button>
   <div class="building-menu">
     <div class="tab-one"></div>
     <div class="tab-two"></div>
@@ -52,21 +60,21 @@
     <div class="image-three"></div>
     <div class="image-four"></div>
     <div class="selector">
-      <div class="arrow-full-left">
+      <button class="arrow-full-left">
         <div class="one"></div>
         <div class="two"></div>
-      </div>
-      <div class="arrow-left">
+      </button>
+      <button class="arrow-left">
         <div class="one"></div>
-      </div>
-      <input class="input" type="text"></input>
-      <div class="arrow-right">
+      </button>
+      <input class="input" id="selector-input" type="text"></input>
+      <button class="arrow-right">
         <div class="one"></div>
-      </div>
-      <div class="arrow-full-right">
+      </button>
+      <button class="arrow-full-right">
         <div class="one"></div>
         <div class="two"></div>
-      </div>
+      </button>
     </div>
     <div class="fourteen"></div>
     <div class="fifteen"></div>
